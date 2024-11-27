@@ -399,7 +399,7 @@
     "appTheme": {
         "accentColor": "#5C005C",
         "logoUrl": "https://microbit.org/",
-        "logo": "./static/logo-dogocode.svg",
+        "logo": "./static/dogocodes-logo.svg",
         "docsLogo": "./static/logo.square.white.svg",
         "portraitLogo": "./static/logo-dogomaker.png",
         "footerLogo": "./static/logo-dogomaker.png",
