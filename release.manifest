@@ -1,0 +1,88 @@
+CACHE MANIFEST
+
+CACHE:
+/pxt-microbit-dogo/semantic.js
+/pxt-microbit-dogo/main.js
+/pxt-microbit-dogo/pxtapp.js
+/pxt-microbit-dogo/typescript.js
+/pxt-microbit-dogo/marked/marked.min.js
+/pxt-microbit-dogo/highlight.js/highlight.pack.js
+/pxt-microbit-dogo/jquery.js
+/pxt-microbit-dogo/pxtlib.js
+/pxt-microbit-dogo/pxtcompiler.js
+/pxt-microbit-dogo/pxtpy.js
+/pxt-microbit-dogo/pxteditor.js
+/pxt-microbit-dogo/pxtsim.js
+/pxt-microbit-dogo/pxtembed.js
+/pxt-microbit-dogo/pxtworker.js
+/pxt-microbit-dogo/pxtweb.js
+/pxt-microbit-dogo/blockly.css
+/pxt-microbit-dogo/semantic.css
+/pxt-microbit-dogo/rtlsemantic.css
+
+
+/pxt-microbit-dogo/editor.js
+/pxt-microbit-dogo/fieldeditors.js
+
+# blockly
+/pxt-microbit-dogo/blockly/media/sprites.png
+/pxt-microbit-dogo/blockly/media/click.mp3
+/pxt-microbit-dogo/blockly/media/disconnect.wav
+/pxt-microbit-dogo/blockly/media/delete.mp3
+
+# monaco; keep in sync with webapp/public/index.html
+/pxt-microbit-dogo/vs/loader.js
+/pxt-microbit-dogo/vs/base/worker/workerMain.js
+/pxt-microbit-dogo/vs/basic-languages/bat/bat.js
+/pxt-microbit-dogo/vs/basic-languages/cpp/cpp.js
+/pxt-microbit-dogo/vs/basic-languages/python/python.js
+/pxt-microbit-dogo/vs/basic-languages/typescript/typescript.js
+/pxt-microbit-dogo/vs/basic-languages/markdown/markdown.js
+/pxt-microbit-dogo/vs/editor/editor.main.css
+/pxt-microbit-dogo/vs/editor/editor.main.js
+/pxt-microbit-dogo/vs/editor/editor.main.nls.js
+/pxt-microbit-dogo/vs/language/json/jsonMode.js
+/pxt-microbit-dogo/vs/language/json/jsonWorker.js
+/pxt-microbit-dogo/vs/language/typescript/tsMode.js
+/pxt-microbit-dogo/vs/language/typescript/tsWorker.js
+
+# charts
+/pxt-microbit-dogo/smoothie/smoothie_compressed.js
+/pxt-microbit-dogo/images/Bars_black.gif
+
+# gifjs
+/pxt-microbit-dogo/gifjs/gif.js
+
+# ai
+/pxt-microbit-dogo/ai.0.js
+
+/pxt-microbit-dogo/worker.js
+/pxt-microbit-dogo/monacoworker.js
+
+# ver Fri Nov 29 2024 16:29:46 GMT-0300 (Brasilia Standard Time)
+
+# target
+/pxt-microbit-dogo/docs/static/providers/github-mark.png
+/pxt-microbit-dogo/docs/static/providers/microsoft-logo.svg
+/pxt-microbit-dogo/docs/static/providers/google-logo.svg
+/pxt-microbit-dogo/docs/static/providers/clever-logo.png
+/pxt-microbit-dogo/docs/static/LOGO_DOGOCODE.png
+/pxt-microbit-dogo/docs/static/logo.square.white.svg
+/pxt-microbit-dogo/docs/static/logo-dogomaker.png
+/pxt-microbit-dogo/docs/static/icons/apple-touch-icon.png
+/pxt-microbit-dogo/docs/static/bg-dogocode.jpg
+/pxt-microbit-dogo/docs/static/download/transfer.png
+/pxt-microbit-dogo/docs/static/download/connect-microbit.gif
+/pxt-microbit-dogo/docs/static/download/full-reset.gif
+/pxt-microbit-dogo/docs/static/download/selecting-microbit.gif
+/pxt-microbit-dogo/docs/static/download/successfully-paired.png
+/pxt-microbit-dogo/docs/static/download/incompatible.png
+/pxt-microbit-dogo/docs/static/download/device-forgotten.gif
+/pxt-microbit-dogo/docs/static/download/browser-unpair-image.gif
+/pxt-microbit-dogo/docs/static/winapp.PNG
+/pxt-microbit-dogo/docs/static/profile/microbit-cloud.png
+
+/pxt-microbit-dogo/target.js
+
+NETWORK:
+*
