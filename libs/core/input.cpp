@@ -161,24 +161,24 @@ enum class MesDpadButtonInfo {
 //% color=#D400D4 weight=111 icon="\uf192"
 namespace input {
     /**
-     * Do something when a button (A, B or both A+B) is pushed down and released again.
-     * @param button the button that needs to be pressed
-     * @param body code to run when event is raised
+     * Fazer algo quando um botão (A, B ou A + B) for pressionado e liberado novamente.
+     * @param button o botão que precisa ser pressionado
+     * @param body código a ser executado quando o evento for criado
      */
     //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="on button|%NAME|pressed"
+    //% blockId=device_button_event block="quando o botão|%NAME|for pressionado"
     //% parts="buttonpair"
     void onButtonPressed(Button button, Action body) {
         registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
-     * Do something when when a gesture is done (like shaking the micro:bit).
-     * @param gesture the type of gesture to track, eg: Gesture.Shake
-     * @param body code to run when gesture is raised
+     * Fazer algo quando um gesto for concluído (com agitar o micro:bit)
+     * @param gesture o tipo de gesto a monitorar, por exemplo: Gesture.Shake
+     * @param body código a ser executado quando o gesto for criado
      */
     //% help=input/on-gesture weight=84 blockGap=16
-    //% blockId=device_gesture_event block="on |%NAME"
+    //% blockId=device_gesture_event block="quando |%NAME"
     //% parts="accelerometer"
     //% NAME.fieldEditor="gestures" NAME.fieldOptions.columns=4
     void onGesture(Gesture gesture, Action body) {
@@ -191,11 +191,11 @@ namespace input {
     }
 
     /**
-    * Tests if a gesture is currently detected.
+    * Testa se um gesto foi detectado no momento.
      * @param gesture the type of gesture to detect, eg: Gesture.Shake
     */
     //% help=input/is-gesture weight=10 blockGap=8
-    //% blockId=deviceisgesture block="is %gesture gesture"
+    //% blockId=deviceisgesture block="o gesto é %gesture"
     //% parts="accelerometer"
     //% gesture.fieldEditor="gestures" gesture.fieldOptions.columns=4
     bool isGesture(Gesture gesture) {
@@ -206,12 +206,12 @@ namespace input {
     }
 
      /**
-     * Do something when a pin is touched and released again (while also touching the GND pin).
-     * @param name the pin that needs to be pressed, eg: TouchPin.P0
-     * @param body the code to run when the pin is pressed
+     * Fazer algo quando um pin for tocado e liberado novamente (enquanto também toca no pin GND).
+     * @param name o pino que precisa ser pressionado. por exemplo: TouchPin.P0
+     * @param body o código a ser executado quando o pino é pressionado
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_event block="on pin %name|pressed"
+    //% blockId=device_pin_event block="quando o pino %name|é ativado"
     void onPinPressed(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -222,12 +222,12 @@ namespace input {
     }
 
     /**
-     * Do something when a pin is released.
-     * @param name the pin that needs to be released, eg: TouchPin.P0
-     * @param body the code to run when the pin is released
+     * Fazer algo quando o pino for liberado.
+     * @param name o pino que precisa ser desativado, por exemplo: TouchPin.P0
+     * @param body o código a ser executado quando o pino é desativado
      */
     //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="on pin %NAME|released"
+    //% blockId=device_pin_released block="no pino %NAME|desativado"
     //% advanced=true
     void onPinReleased(TouchPin name, Action body) {
         auto pin = getPin((int)name);
@@ -239,11 +239,11 @@ namespace input {
     }
 
     /**
-     * Get the button state (pressed or not) for ``A`` and ``B``.
-     * @param button the button to query the request, eg: Button.A
+     * Obter o estado do botão (pressionado ou não) para ``A`` e ``B``.
+     * @param button o botão para consultar a solicitação, por exemplo: Botão.A
      */
     //% help=input/button-is-pressed weight=60
-    //% block="button|%NAME|is pressed"
+    //% block="botão|%NAME|pressionado"
     //% blockId=device_get_button2
     //% icon="\uf192" blockGap=8
     //% parts="buttonpair"
@@ -258,11 +258,11 @@ namespace input {
     }
 
     /**
-     * Get the pin state (pressed or not). Requires to hold the ground to close the circuit.
-     * @param name pin used to detect the touch, eg: TouchPin.P0
+     * Obter o estado do pino (ativado ou não). Requer manter o chão para fechar o circuito.
+     * @param name pino utilizado para detectar o toque, por exemplo: TouchPin.P0
      */
     //% help=input/pin-is-pressed weight=58
-    //% blockId="device_pin_is_pressed" block="pin %NAME|is pressed"
+    //% blockId="device_pin_is_pressed" block="pino %NAME|é ativado"
     //% blockGap=8
     bool pinIsPressed(TouchPin name) {
         auto pin = getPin((int)name);
@@ -277,11 +277,11 @@ namespace input {
     }
 
     /**
-     * Get the acceleration value in milli-gravitys (when the board is laying flat with the screen up, x=0, y=0 and z=-1024)
+     * Obter o valor de aceleração em mili-gravidade (quando a placa está na posição horizontal com a tela para cima, x=0, y=0 e z=1024)
      * @param dimension x, y, or z dimension, eg: Dimension.X
      */
     //% help=input/acceleration weight=58
-    //% blockId=device_acceleration block="acceleration (mg)|%NAME" blockGap=8
+    //% blockId=device_acceleration block="força de aceleração (ma)|%NAME" blockGap=8
     //% parts="accelerometer"
     int acceleration(Dimension dimension) {
       switch (dimension) {
@@ -294,21 +294,21 @@ namespace input {
     }
 
     /**
-     * Reads the light level applied to the LED screen in a range from ``0`` (dark) to ``255`` bright.
+     * Lê o nível de luz aplicado à tela de LED em um alcance de ``0`` (escuro) a ``255`` (claro).
      */
     //% help=input/light-level weight=57
-    //% blockId=device_get_light_level block="light level" blockGap=8
+    //% blockId=device_get_light_level block="nível de luz" blockGap=8
     //% parts="ledmatrix"
     int lightLevel() {
         return uBit.display.readLightLevel();
     }
 
     /**
-     * Get the current compass heading in degrees.
+     * Obter a orientação atual em graus.
      */
     //% help=input/compass-heading
     //% weight=56
-    //% blockId=device_heading block="compass heading (°)" blockGap=8
+    //% blockId=device_heading block="direção da bússola (°)" blockGap=8
     //% parts="compass"
     int compassHeading() {
         return uBit.compass.heading();
@@ -316,22 +316,22 @@ namespace input {
 
 
     /**
-     * Gets the temperature in Celsius degrees (°C).
+     * Obtém a temperatura em graus Celsius (°C).
      */
     //% weight=55
     //% help=input/temperature
-    //% blockId=device_temperature block="temperature (°C)" blockGap=8
+    //% blockId=device_temperature block="temperatura (°C)" blockGap=8
     //% parts="thermometer"
     int temperature() {
         return uBit.thermometer.getTemperature();
     }
 
     /**
-     * The pitch or roll of the device, rotation along the ``x-axis`` or ``y-axis``, in degrees.
+     * O ajuste ou rotação do dispositivo, girando ao longo do ``eixo-x`` ou ``eixo-y``, em graus.
      * @param kind pitch or roll
      */
     //% help=input/rotation weight=52
-    //% blockId=device_get_rotation block="rotation (°)|%NAME" blockGap=8
+    //% blockId=device_get_rotation block="rotação (°)|%NAME" blockGap=8
     //% parts="accelerometer" advanced=true
     int rotation(Rotation kind) {
       switch (kind) {
@@ -342,11 +342,11 @@ namespace input {
     }
 
     /**
-     * Get the magnetic force value in ``micro-Teslas`` (``µT``). This function is not supported in the simulator.
+     * Obter o valor da força magnética em ``micro-Teslas`` (``µT``). Esta função não é suportada no simulador.
      * @param dimension the x, y, or z dimension, eg: Dimension.X
      */
     //% help=input/magnetic-force weight=54
-    //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
+    //% blockId=device_get_magnetic_force block="força magnética (µT)|%NAME" blockGap=8
     //% parts="compass"
     //% advanced=true
     TNumber magneticForce(Dimension dimension) {
@@ -365,21 +365,21 @@ namespace input {
     }
 
     /**
-     * Obsolete, compass calibration is automatic.
+     * Obsoleto, a calibração da bússola é automática.
      */
     //% help=input/calibrate-compass advanced=true
-    //% blockId="input_compass_calibrate" block="calibrate compass"
+    //% blockId="input_compass_calibrate" block="calibrar bússola"
     //% weight=55
     void calibrateCompass() {
         uBit.compass.calibrate();
     }
 
     /**
-     * Sets the accelerometer sample range in gravities.
-     * @param range a value describe the maximum strengh of acceleration measured
+     * Define o intervalo da amostra do acelerómetro em gravidades.
+     * @param range um valor descreve a força máxima da aceleração medida
      */
     //% help=input/set-accelerometer-range
-    //% blockId=device_set_accelerometer_range block="set accelerometer|range %range"
+    //% blockId=device_set_accelerometer_range block="definir o acelerômetro|alcance %range"
     //% weight=5
     //% parts="accelerometer"
     //% advanced=true

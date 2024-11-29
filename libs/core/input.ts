@@ -1,10 +1,10 @@
 /**
  * Events and data from sensors
  */
-//% color=#D400D4 weight=111 icon="\uf192"
+//% color=#D400D4 weight=111 icon="\uf192" block="ENTRADA"
 namespace input {
     /**
-     * Attaches code to run when the screen is facing up.
+     * Anexa o código a ser executado quando a tela estiver virada para cima.
      * @param body TODO
      */
     //% help=input/on-screen-up
@@ -13,7 +13,7 @@ namespace input {
     }
 
     /**
-     * Attaches code to run when the screen is facing down.
+     * Anexa o código a ser executado quando a tela estiver virada para baixo.
      * @param body TODO
      */
     //% help=input/on-screen-down
@@ -22,7 +22,7 @@ namespace input {
     }
 
     /**
-     * Attaches code to run when the device is shaken.
+     * Anexa o código a ser executado quando o dispositivo é agitado.
      * @param body TODO
      */
     //% deprecated=true
@@ -32,7 +32,7 @@ namespace input {
     }
 
     /**
-     * Attaches code to run when the logo is oriented upwards and the board is vertical.
+     * Anexa o código a ser executado quando o logo estiver orientado para cima e a placa estiver na vertical.
      * @param body TODO
      */
     //% help=input/on-logo-up
@@ -41,7 +41,7 @@ namespace input {
     }
 
     /**
-     * Attaches code to run when the logo is oriented downwards and the board is vertical.
+     * Anexa o código a ser executado quando o logo estiver orientado para baixo e a placa estiver na vertical.
      * @param body TODO
      */
     //% help=input/on-logo-down
@@ -59,20 +59,20 @@ namespace input {
 
 
     /**
-     * Gets the number of milliseconds elapsed since power on.
+     * Obtém o número de milissegundos decorridos desde a inicialização.
      */
     //% help=input/running-time weight=50 blockGap=8
-    //% blockId=device_get_running_time block="running time (ms)"
+    //% blockId=device_get_running_time block="tempo de execução (ms)"
     //% advanced=true
     export function runningTime() {
         return control.millis();
     }
 
     /**
-     * Gets the number of microseconds elapsed since power on.
+     * Obtém o número de microssegundos decorridos desde a inicialização.
      */
     //% help=input/running-time-micros weight=49
-    //% blockId=device_get_running_time_micros block="running time (micros)"
+    //% blockId=device_get_running_time_micros block="tempo de execução (micros)"
     //% advanced=true
     export function runningTimeMicros() {
         return control.micros();

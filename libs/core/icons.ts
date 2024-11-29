@@ -26,161 +26,161 @@ THE SOFTWARE.
 // Images from file microbitconstimage.cpp https://github.com/bbcmicrobit/micropython
 
 enum IconNames {
-    //% block="heart"
+    //% block="coração"
     //% jres=icons.heart
     Heart = 0,
-    //% block="small heart"
+    //% block="coração pequeno"
     //% jres=icons.smallheart
     SmallHeart,
-    //% block="yes"
+    //% block="errado"
     //% jres=icons.yes
     Yes,
-    //% block="no"
+    //% block="incorreto"
     //% jres=icons.no
     No,
-    //% block="happy"
+    //% block="feliz"
     //% jres=icons.happy
     Happy,
-    //% block="sad"
+    //% block="triste"
     //% jres=icons.sad
     Sad,
-    //% block="confused"
+    //% block="confuso"
     //% jres=icons.confused
     Confused,
-    //% block="angry"
+    //% block="bravo"
     //% jres=icons.angry
     Angry,
-    //% block="asleep"
+    //% block="dormindo"
     //% jres=icons.asleep
     Asleep,
-    //% block="surprised"
+    //% block="surpreso"
     //% jres=icons.surprised
     Surprised,
-    //% block="silly"
+    //% block="bobo"
     //% jres=icons.silly
     Silly,
-    //% block="fabulous"
+    //% block="fabuloso"
     //% jres=icons.fabulous
     Fabulous,
-    //% block="meh"
+    //% block="nojo"
     //% jres=icons.meh
     Meh,
-    //% block="t-shirt"
+    //% block="camiseta"
     //% jres=icons.tshirt
     TShirt,
-    //% block="roller skate"
+    //% block="patins"
     //% jres=icons.rollerskate
     Rollerskate,
-    //% block="duck"
+    //% block="pato"
     //% jres=icons.duck
     Duck,
-    //% block="house"
+    //% block="casa"
     //% jres=icons.house
     House,
-    //% block="tortoise"
+    //% block="tartaruga"
     //% jres=icons.tortoise
     Tortoise,
-    //% block="butterfly"
+    //% block="borboleta"
     //% jres=icons.butterfly
     Butterfly,
-    //% block="stick figure"
+    //% block="boneco"
     //% jres=icons.stickfigure
     StickFigure,
-    //% block="ghost"
+    //% block="fantasma"
     //% jres=icons.ghost
     Ghost,
-    //% block="sword"
+    //% block="espada"
     //% jres=icons.sword
     Sword,
-    //% block="giraffe"
+    //% block="girafa"
     //% jres=icons.giraffe
     Giraffe,
-    //% block="skull"
+    //% block="caveira"
     //% jres=icons.skull
     Skull,
-    //% block="umbrella"
+    //% block="guarda-chuva"
     //% jres=icons.umbrella
     Umbrella,
-    //% block="snake"
+    //% block="cobra"
     //% jres=icons.snake
     Snake,
-    //% block="rabbit"
+    //% block="coelho"
     //% jres=icons.rabbit
     Rabbit,
-    //% block="cow"
+    //% block="vaca"
     //% jres=icons.cow
     Cow,
-    //% block="quarter note"
+    //% block="quarta nota"
     //% jres=icons.quarternote
     QuarterNote,
-    //% block="eigth note"
+    //% block="oitava nota"
     //% jres=icons.eighthnote
     //% deprecated=true blockHidden=true
     EigthNote,
-    //% block="eighth note"
+    //% block="nona nota"
     //% jres=icons.eighthnote
     EighthNote,
-    //% block="pitchfork"
+    //% block="garfo"
     //% jres=icons.pitchfork
     Pitchfork,
-    //% block="target"
+    //% block="alvo"
     //% jres=icons.target
     Target,
-    //% block="triangle"
+    //% block="triângulo"
     //% jres=icons.triangle
     Triangle,
-    //% block="left triangle"
+    //% block="triângulo à esquerda"
     //% jres=icons.lefttriangle
     LeftTriangle,
-    //% block="chess board"
+    //% block="tabuleiro de xadrez"
     //% jres=icons.chessboard
     Chessboard,
-    //% block="diamond"
+    //% block="diamante"
     //% jres=icons.diamond
     Diamond,
-    //% block="small diamond"
+    //% block="diamante pequeno"
     //% jres=icons.smalldiamond
     SmallDiamond,
-    //% block="square"
+    //% block="quadrado"
     //% jres=icons.square
     Square,
-    //% block="small square"
+    //% block="quadrado pequeno"
     //% jres=icons.smallsquare
     SmallSquare,
-    //% block="scissors"
+    //% block="tesoura"
     //% jres=icons.scissors
     Scissors
 }
 
 enum ArrowNames {
-    //% blockIdentity=images.arrowNumber block="North"
+    //% blockIdentity=images.arrowNumber block="Norte"
     North = 0,
-    //% blockIdentity=images.arrowNumber block="North East"
+    //% blockIdentity=images.arrowNumber block="Nordeste"
     NorthEast,
-    //% blockIdentity=images.arrowNumber block="East"
+    //% blockIdentity=images.arrowNumber block="Leste"
     East,
-    //% blockIdentity=images.arrowNumber block="South East"
+    //% blockIdentity=images.arrowNumber block="Sudeste"
     SouthEast,
-    //% blockIdentity=images.arrowNumber block="South"
+    //% blockIdentity=images.arrowNumber block="Sul"
     South,
-    //% blockIdentity=images.arrowNumber block="South West"
+    //% blockIdentity=images.arrowNumber block="Sudoeste"
     SouthWest,
-    //% blockIdentity=images.arrowNumber block="West"
+    //% blockIdentity=images.arrowNumber block="Oeste"
     West,
-    //% blockIdentity=images.arrowNumber block="North West"
+    //% blockIdentity=images.arrowNumber block="Noroeste"
     NorthWest,
 }
 
 namespace basic {
 
     /**
-     * Draws the selected icon on the LED screen
+     * Desenha o ícone selecionado na tela de LED
      * @param icon the predefined icon id
-     * @param interval the amount of time (milliseconds) to show the icon. Default is 600.
+     * @param interval o tempo (em milissegundos) que o ícone será exibido. O padrão é 600.
      */
     //% weight=90 blockGap=8
     //% blockId=basic_show_icon
-    //% block="show icon %i" icon="\uf00a"
+    //% block="mostrar ícone %i" icon="\uf00a"
     //% parts="ledmatrix"
     //% help=basic/show-icon
     //% icon.fieldEditor="imagedropdown"
@@ -195,11 +195,11 @@ namespace basic {
     /**
      * Draws an arrow on the LED screen
      * @param direction the direction of the arrow
-     * @param interval the amount of time (milliseconds) to show the icon. Default is 600.
+     * @param interval o tempo (em milissegundos) que o ícone será exibido. O padrão é 600.
      */
     //% weight=50 blockGap=8
     //% blockId=basic_show_arrow
-    //% block="show arrow %i=device_arrow"
+    //% block="mostrar a seta %i=device_arrow"
     //% parts="ledmatrix"
     //% help=basic/show-arrow
     export function showArrow(direction: number, interval = 600) {

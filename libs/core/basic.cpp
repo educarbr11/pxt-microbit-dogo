@@ -90,7 +90,7 @@ namespace basic {
     }
 
     /**
-     * Pausa por um períodow especificado em milissegundos
+     * Pausa por um período especificado em milissegundos
      * @param ms a duração da pausa, por exemplo: 100, 200, 500, 1000, 2000
      */
     //% help=basic/pause weight=54

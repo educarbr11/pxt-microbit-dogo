@@ -6,7 +6,7 @@
   "input.onSound|block": "on %sound sound",
   "input.setSoundThreshold|block": "set %sound sound threshold to %value",
   "input.soundLevel|block": "sound level",
-  "input|block": "input",
+  "input|block": "ENTRADA",
   "{id:category}Input": "Input",
   "{id:group}micro:bit (V2)": "micro:bit (V2)"
 }
