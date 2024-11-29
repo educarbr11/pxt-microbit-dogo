@@ -1,12 +1,12 @@
+//% block="BÁSICO"
 namespace basic {
-
     /**
-     * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
+     * Mover um número na tela. Se o número se ajustar na tela (ou seja, é um único dígito), não mover.
      * @param interval speed of scroll; eg: 150, 100, 200, -100
      */
     //% help=basic/show-number
     //% weight=96
-    //% blockId=device_show_number block="show|number %number" blockGap=8
+    //% blockId=device_show_number block="mostrar|número %number" blockGap=8
     //% async
     //% parts="ledmatrix" interval.defl=150
     export function showNumber(value: number, interval?: number) {
@@ -18,8 +18,8 @@ namespace basic {
 }
 
 /**
- * Pause for the specified time in milliseconds
- * @param ms how long to pause for, eg: 100, 200, 500, 1000, 2000
+ * Pausa por um período especificado em milissegundos
+ * @param ms a duração da pausa, por exemplo: 100, 200, 500, 1000, 2000
  */
 function pause(ms: number): void {
     if (isNaN(ms)) ms = 20

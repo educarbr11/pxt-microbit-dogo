@@ -127,13 +127,13 @@ declare interface Image {
 
 
     /**
-     * Provides access to basic micro:bit functionality.
+     * Dá acesso às funções básicas do micro:bit.
      */
     //% color=#1E90FF weight=116 icon="\uf00a"
 declare namespace basic {
 
     /**
-     * Draws an image on the LED screen.
+     * Desenha uma imagem na tela de LED.
      * @param leds the pattern of LED to turn on/off.
      * @param interval time in milliseconds to pause after drawing.
      */
@@ -141,18 +141,18 @@ declare namespace basic {
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="show leds" icon="\uf00a"
+    //% block="mostrar leds" icon="\uf00a"
     //% parts="ledmatrix" interval.defl=400 shim=basic::showLeds
     function showLeds(leds: string, interval?: int32): void;
 
     /**
-     * Display text on the display, one character at a time. If the string fits on the screen (i.e. is one letter), does not scroll.
-     * @param text the text to scroll on the screen, eg: "Hello!"
+     * Mostrar texto na tela, um caracteres por vez. Se a cadeia de caracteres se ajustar na tela (ou seja, é uma letra), não mover.
+     * @param text the text to scroll on the screen, eg: "Olá, Mundo!"
      * @param interval how fast to shift characters; eg: 150, 100, 200, -100
      */
     //% help=basic/show-string
     //% weight=87 blockGap=16
-    //% block="show|string %text"
+    //% block="mostrar|texto %text"
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix"
@@ -160,44 +160,44 @@ declare namespace basic {
     function showString(text: string, interval?: int32): void;
 
     /**
-     * Turn off all LEDs
+     * Desligar todos os LEDs
      */
     //% help=basic/clear-screen weight=79
-    //% blockId=device_clear_display block="clear screen"
+    //% blockId=device_clear_display block="limpar tela"
     //% parts="ledmatrix" shim=basic::clearScreen
     function clearScreen(): void;
 
     /**
-     * Shows a sequence of LED screens as an animation.
-     * @param leds pattern of LEDs to turn on/off
-     * @param interval time in milliseconds between each redraw.
+     * Exibe uma sequência de telas de LED como uma animação.
+     * @param leds padrão de LEDs para ligar/desligar
+     * @param interval tempo em milissegundos entre cada redesenho
      */
     //% help=basic/show-animation imageLiteral=1 async
     //% parts="ledmatrix" interval.defl=400 shim=basic::showAnimation
     function showAnimation(leds: string, interval?: int32): void;
 
     /**
-     * Draws an image on the LED screen.
-     * @param leds pattern of LEDs to turn on/off
+     * Desenha uma imagem na tela de LED.
+     * @param leds padrão de LEDs para ligar/desligar
      */
     //% help=basic/plot-leds weight=80
     //% parts="ledmatrix" imageLiteral=1 shim=basic::plotLeds
     function plotLeds(leds: string): void;
 
     /**
-     * Repeats the code forever in the background. On each iteration, allows other codes to run.
-     * @param body code to execute
+     * Repete o código em segundo plano sem parar. A cada repetição, permite que outros códigos sejam executados.
+     * @param body código para executar
      */
     //% help=basic/forever weight=55 blockGap=16 blockAllowMultiple=1 afterOnStart=true
-    //% blockId=device_forever block="forever" icon="\uf01e" shim=basic::forever
+    //% blockId=device_forever block="fazer sempre" icon="\uf01e" shim=basic::forever
     function forever(a: () => void): void;
 
     /**
-     * Pause for the specified time in milliseconds
-     * @param ms how long to pause for, eg: 100, 200, 500, 1000, 2000
+     * Pausa por um períodow especificado em milissegundos
+     * @param ms a duração da pausa, por exemplo: 100, 200, 500, 1000, 2000
      */
     //% help=basic/pause weight=54
-    //% async block="pause (ms) %pause" blockGap=16
+    //% async block="esperar (ms) %pause" blockGap=16
     //% blockId=device_pause icon="\uf110"
     //% pause.shadow=timePicker shim=basic::pause
     function pause(ms: int32): void;
