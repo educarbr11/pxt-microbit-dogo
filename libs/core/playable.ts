@@ -85,7 +85,7 @@ namespace music {
     //% blockId="music_playable_play"
     //% block="play $toPlay $playbackMode"
     //% toPlay.shadow=music_string_playable
-    //% group="Melody"
+    //% group="Melodia"
     //% help="music/play"
     //% blockHidden
     export function play(toPlay: Playable, playbackMode: PlaybackMode) {
@@ -96,7 +96,7 @@ namespace music {
     //% block="play $toPlay $playbackMode"
     //% toPlay.shadow=music_string_playable
     //% playbackMode.defl=music.PlaybackMode.InBackground
-    //% group="Melody"
+    //% group="Melodia"
     //% help="music/play"
     //% blockHidden
     export function _playDefaultBackground(toPlay: Playable, playbackMode: PlaybackMode) {
@@ -112,7 +112,7 @@ namespace music {
     //% block="melody $melody at tempo $bpm|(bpm)"
     //% weight=85 blockGap=8
     //% help=music/string-playable
-    //% group="Melody"
+    //% group="Melodia"
     //% toolboxParent=music_playable_play
     //% toolboxParentArgument=toPlay
     //% duplicateShadowOnDrag
@@ -132,7 +132,7 @@ namespace music {
     //% block="tone $note for $duration"
     //% toolboxParent=music_playable_play
     //% toolboxParentArgument=toPlay
-    //% group="Tone"
+    //% group="Nota Musical"
     //% weight=85
     //% duplicateShadowOnDrag
     //% note.shadow=device_note

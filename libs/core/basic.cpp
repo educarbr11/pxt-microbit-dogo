@@ -15,7 +15,7 @@ namespace basic {
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="mostrar leds" icon="\uf00a"
+    //% block="matriz de led" icon="\uf00a"
     //% parts="ledmatrix"
     void showLeds(ImageLiteral_ leds, int interval = 400) {
       uBit.display.print(MicroBitImage(imageBytes(leds)), 0, 0, 0, interval);

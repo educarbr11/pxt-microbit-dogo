@@ -63,7 +63,6 @@ namespace input {
      */
     //% help=input/running-time weight=50 blockGap=8
     //% blockId=device_get_running_time block="tempo de execução (ms)"
-    //% advanced=true
     export function runningTime() {
         return control.millis();
     }
@@ -73,7 +72,6 @@ namespace input {
      */
     //% help=input/running-time-micros weight=49
     //% blockId=device_get_running_time_micros block="tempo de execução (micros)"
-    //% advanced=true
     export function runningTimeMicros() {
         return control.micros();
     }

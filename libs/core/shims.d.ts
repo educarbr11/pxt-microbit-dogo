@@ -141,7 +141,7 @@ declare namespace basic {
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="mostrar leds" icon="\uf00a"
+    //% block="matriz de led" icon="\uf00a"
     //% parts="ledmatrix" interval.defl=400 shim=basic::showLeds
     function showLeds(leds: string, interval?: int32): void;
 
@@ -254,8 +254,7 @@ declare namespace input {
      * @param body o código a ser executado quando o pino é desativado
      */
     //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="no pino %NAME|desativado"
-    //% advanced=true shim=input::onPinReleased
+    //% blockId=device_pin_released block="no pino %NAME|desativado" shim=input::onPinReleased
     function onPinReleased(name: TouchPin, body: () => void): void;
 
     /**
@@ -319,7 +318,7 @@ declare namespace input {
      */
     //% help=input/rotation weight=52
     //% blockId=device_get_rotation block="rotação (°)|%NAME" blockGap=8
-    //% parts="accelerometer" advanced=true shim=input::rotation
+    //% parts="accelerometer" shim=input::rotation
     function rotation(kind: Rotation): int32;
 
     /**
@@ -328,14 +327,13 @@ declare namespace input {
      */
     //% help=input/magnetic-force weight=54
     //% blockId=device_get_magnetic_force block="força magnética (µT)|%NAME" blockGap=8
-    //% parts="compass"
-    //% advanced=true shim=input::magneticForce
+    //% parts="compass" shim=input::magneticForce
     function magneticForce(dimension: Dimension): number;
 
     /**
      * Obsoleto, a calibração da bússola é automática.
      */
-    //% help=input/calibrate-compass advanced=true
+    //% help=input/calibrate-compass
     //% blockId="input_compass_calibrate" block="calibrar bússola"
     //% weight=55 shim=input::calibrateCompass
     function calibrateCompass(): void;
@@ -347,8 +345,7 @@ declare namespace input {
     //% help=input/set-accelerometer-range
     //% blockId=device_set_accelerometer_range block="definir o acelerômetro|alcance %range"
     //% weight=5
-    //% parts="accelerometer"
-    //% advanced=true shim=input::setAccelerometerRange
+    //% parts="accelerometer" shim=input::setAccelerometerRange
     function setAccelerometerRange(range: AcceleratorRange): void;
 }
 
@@ -1252,21 +1249,21 @@ declare namespace light {
 declare namespace input {
 
     /**
-     * Do something when the logo is touched and released again.
-     * @param body the code to run when the logo is pressed
+     * Faça algo quando o logotipo for tocado e liberado novamente.
+     * @param body o código a ser executado quando o logotipo é pressionado
      */
     //% weight=83 blockGap=32
-    //% blockId=input_logo_event block="on logo $action"
+    //% blockId=input_logo_event block="quando o logo ser $action"
     //% group="micro:bit (V2)"
     //% parts="logotouch"
     //% help="input/on-logo-event" shim=input::onLogoEvent
     function onLogoEvent(action: TouchButtonEvent, body: () => void): void;
 
     /**
-     * Get the logo state (pressed or not).
+     * Obtenha o estado do logotipo (pressionado ou não).
      */
     //% weight=58
-    //% blockId="input_logo_is_pressed" block="logo is pressed"
+    //% blockId="input_logo_is_pressed" block="logo foi pressionado"
     //% blockGap=8
     //% group="micro:bit (V2)"
     //% parts="logotouch"

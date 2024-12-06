@@ -1,26 +1,26 @@
 #include "pxt.h"
 
 /**
- * An action on a touch button
+ * Uma ação para o toque do botão
  */
 enum TouchButtonEvent {
-    //% block=pressed
+    //% block=pressionado
     Pressed = MICROBIT_BUTTON_EVT_CLICK,
-    //% block=touched
+    //% block=clicado
     Touched = MICROBIT_BUTTON_EVT_DOWN,
-    //% block=released
+    //% block=soltado
     Released = MICROBIT_BUTTON_EVT_UP,
-    //% block="long pressed"
+    //% block="pressionado por longo tempo"
     LongPressed = MICROBIT_BUTTON_EVT_LONG_CLICK
 };
 
 namespace input {
     /**
-     * Do something when the logo is touched and released again.
-     * @param body the code to run when the logo is pressed
+     * Faça algo quando o logotipo for tocado e liberado novamente.
+     * @param body o código a ser executado quando o logotipo é pressionado
      */
     //% weight=83 blockGap=32
-    //% blockId=input_logo_event block="on logo $action"
+    //% blockId=input_logo_event block="quando o logo ser $action"
     //% group="micro:bit (V2)"
     //% parts="logotouch"
     //% help="input/on-logo-event"
@@ -33,10 +33,10 @@ namespace input {
     }
 
     /**
-     * Get the logo state (pressed or not).
+     * Obtenha o estado do logotipo (pressionado ou não).
      */
     //% weight=58
-    //% blockId="input_logo_is_pressed" block="logo is pressed"
+    //% blockId="input_logo_is_pressed" block="logo foi pressionado"
     //% blockGap=8
     //% group="micro:bit (V2)"
     //% parts="logotouch"

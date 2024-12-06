@@ -14,14 +14,14 @@ enum class Dimension {
     Y = 1,
     //% block=z
     Z = 2,
-    //% block=strength
+    //% block=força
     Strength = 3,
 };
 
 enum class Rotation {
-    //% block=pitch
+    //% block=ajuste
     Pitch = 0,
-    //% block=roll
+    //% block=rotação
     Roll = 1,
 };
 
@@ -58,49 +58,49 @@ enum class Gesture {
     /**
      * Raised when shaken
      */
-    //% block=shake
+    //% block=agitar
     //% jres=gestures.shake
     Shake = MICROBIT_ACCELEROMETER_EVT_SHAKE,
     /**
      * Raised when the logo is upward and the screen is vertical
      */
-    //% block="logo up"
+    //% block="logo para cima"
     //% jres=gestures.tiltforward
     LogoUp = MICROBIT_ACCELEROMETER_EVT_TILT_UP,
     /**
      * Raised when the logo is downward and the screen is vertical
      */
-    //% block="logo down"
+    //% block="logo para baixo"
     //% jres=gestures.tiltbackwards
     LogoDown = MICROBIT_ACCELEROMETER_EVT_TILT_DOWN,
     /**
      * Raised when the screen is pointing up and the board is horizontal
      */
-    //% block="screen up"
+    //% block="tela virada para cima"
     //% jres=gestures.frontsideup
     ScreenUp = MICROBIT_ACCELEROMETER_EVT_FACE_UP,
     /**
      * Raised when the screen is pointing down and the board is horizontal
      */
-    //% block="screen down"
+    //% block="tela virada para baixo"
     //% jres=gestures.backsideup
     ScreenDown = MICROBIT_ACCELEROMETER_EVT_FACE_DOWN,
     /**
      * Raised when the screen is pointing left
      */
-    //% block="tilt left"
+    //% block="tela inclinada para esquerda"
     //% jres=gestures.tiltleft
     TiltLeft = MICROBIT_ACCELEROMETER_EVT_TILT_LEFT,
     /**
      * Raised when the screen is pointing right
      */
-    //% block="tilt right"
+    //% block="tela inclinada para direita"
     //% jres=gestures.tiltright
     TiltRight = MICROBIT_ACCELEROMETER_EVT_TILT_RIGHT,
     /**
      * Raised when the board is falling!
      */
-    //% block="free fall"
+    //% block="em queda livre"
     //% jres=gestures.freefall
     FreeFall = MICROBIT_ACCELEROMETER_EVT_FREEFALL,
     /**
@@ -228,7 +228,6 @@ namespace input {
      */
     //% help=input/on-pin-released weight=6 blockGap=16
     //% blockId=device_pin_released block="no pino %NAME|desativado"
-    //% advanced=true
     void onPinReleased(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -332,7 +331,7 @@ namespace input {
      */
     //% help=input/rotation weight=52
     //% blockId=device_get_rotation block="rotação (°)|%NAME" blockGap=8
-    //% parts="accelerometer" advanced=true
+    //% parts="accelerometer"
     int rotation(Rotation kind) {
       switch (kind) {
       case Rotation::Pitch: return uBit.accelerometer.getPitch();
@@ -348,7 +347,6 @@ namespace input {
     //% help=input/magnetic-force weight=54
     //% blockId=device_get_magnetic_force block="força magnética (µT)|%NAME" blockGap=8
     //% parts="compass"
-    //% advanced=true
     TNumber magneticForce(Dimension dimension) {
         /* https://github.com/microsoft/pxt-microbit/issues/4995
         if (!uBit.compass.isCalibrated())
@@ -367,7 +365,7 @@ namespace input {
     /**
      * Obsoleto, a calibração da bússola é automática.
      */
-    //% help=input/calibrate-compass advanced=true
+    //% help=input/calibrate-compass
     //% blockId="input_compass_calibrate" block="calibrar bússola"
     //% weight=55
     void calibrateCompass() {
@@ -382,7 +380,6 @@ namespace input {
     //% blockId=device_set_accelerometer_range block="definir o acelerômetro|alcance %range"
     //% weight=5
     //% parts="accelerometer"
-    //% advanced=true
     void setAccelerometerRange(AcceleratorRange range) {
         uBit.accelerometer.setRange((int)range);
     }

@@ -2,10 +2,10 @@
 declare namespace input {
 
     /**
-     * Registers an event that runs when a sound is detected
+     * Registra um evento que é executado quando um som é detectado
      */
     //% help=input/on-sound
-    //% blockId=input_on_sound block="on %sound sound"
+    //% blockId=input_on_sound block="quando o som estiver %sound"
     //% parts="microphone"
     //% weight=88 blockGap=12
     //% group="micro:bit (V2)" shim=input::onSound
@@ -25,11 +25,11 @@ declare namespace input {
      * Sets the threshold for a sound type.
      */
     //% help=input/set-sound-threshold
-    //% blockId=input_set_sound_threshold block="set %sound sound threshold to %value"
+    //% blockId=input_set_sound_threshold block="definir som %sound no limite %value"
     //% parts="microphone"
     //% threshold.min=0 threshold.max=255
     //% weight=14 blockGap=8
-    //% advanced=true
+    //% advanced=false
     //% group="micro:bit (V2)" threshold.defl=128 shim=input::setSoundThreshold
     function setSoundThreshold(sound: SoundThreshold, threshold?: int32): void;
 }
