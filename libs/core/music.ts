@@ -127,45 +127,45 @@ enum BeatFraction {
 }
 
 enum MelodyOptions {
-    //% block="once"
+    //% block="uma vez"
     Once = 1,
-    //% block="forever"
+    //% block="sempre"
     Forever = 2,
-    //% block="once in background"
+    //% block="uma vez em segundo plano"
     OnceInBackground = 4,
-    //% block="forever in background"
+    //% block="sempre em segundo plano"
     ForeverInBackground = 8
 }
 
 enum MelodyStopOptions {
-    //% block="all"
+    //% block="tudo"
     All = MelodyOptions.Once | MelodyOptions.OnceInBackground,
-    //% block="foreground"
+    //% block="em primeiro plano"
     Foreground = MelodyOptions.Once,
-    //% block="background"
+    //% block="em segundo plano"
     Background = MelodyOptions.OnceInBackground
 }
 
 enum MusicEvent {
-    //% block="melody note played"
+    //% block="nota da melodia tocada"
     MelodyNotePlayed = 1,
-    //% block="melody started"
+    //% block="melodia iniciada"
     MelodyStarted = 2,
-    //% block="melody ended"
+    //% block="melodia finalizada"
     MelodyEnded = 3,
-    //% block="melody repeated"
+    //% block="melodia repetida"
     MelodyRepeated = 4,
-    //% block="background melody note played"
+    //% block="nota da melodia de fundo tocada"
     BackgroundMelodyNotePlayed = MelodyNotePlayed | 0xf0,
-    //% block="background melody started"
+    //% block="melodia de fundo iniciada"
     BackgroundMelodyStarted = MelodyStarted | 0xf0,
-    //% block="background melody ended"
+    //% block="melodia de fundo finalizada"
     BackgroundMelodyEnded = MelodyEnded | 0xf0,
-    //% block="background melody repeated"
+    //% block="melodia de fundo repetida"
     BackgroundMelodyRepeated = MelodyRepeated | 0xf0,
-    //% block="background melody paused"
+    //% block="melodia de fundo pausada"
     BackgroundMelodyPaused = 5 | 0xf0,
-    //% block="background melody resumed"
+    //% block="melodia de fundo retomada"
     BackgroundMelodyResumed = 6 | 0xf0
 }
 
@@ -290,7 +290,7 @@ namespace music {
      * @param bpm A alteração em batidas por minuto para o ritmo, por exemplo: 20
      */
     //% help=music/change-tempo-by weight=39
-    //% blockId=device_change_tempo block="alterar ritmo por by (bpm)|%value" blockGap=8
+    //% blockId=device_change_tempo block="alterar ritmo por (bpm)|%value" blockGap=8
     //% group="Tempo e Ritmo"
     //% weight=100
     export function changeTempoBy(bpm: number): void {
@@ -382,11 +382,11 @@ namespace music {
     }
 
     /**
-     * Play a melody from the melody editor.
-     * @param melody string of up to eight notes [C D E F G A B C5] or rests [-] separated by spaces, which will be played one at a time, ex: "E D G F B A C5 B "
-     * @param tempo number in beats per minute (bpm), dictating how long each note will play for
+     * Tocar melodia
+     * @param melody Uma sequência de até oito notas [C D E F G A B C5] ou pausas [-], separadas por espaços, que serão tocadas uma de cada vez, Exemplo: \"E D G F B A C5 B \"
+     * @param tempo número em batidas por minuto (bpm), ditando por quanto tempo cada nota será tocada
      */
-    //% block="play melody $melody at tempo $tempo|(bpm)" blockId=playMelody
+    //% block="tocar melodia $melody no tempo $tempo|(bpm)" blockId=playMelody
     //% weight=85 blockGap=8 help=music/play-melody
     //% melody.shadow="melody_editor"
     //% tempo.min=40 tempo.max=500
@@ -472,7 +472,7 @@ namespace music {
     }
 
     /**
-     * Create a melody with the melody editor.
+     * Crie uma melodia com o editor de melodia.
      * @param melody
      */
     //% block="$melody" blockId=melody_editor
@@ -490,11 +490,11 @@ namespace music {
     }
 
     /**
-     * Stops the melodies
-     * @param options which melody to stop
+     * Para as melodias
+     * @param options qual melodia parar
      */
     //% help=music/stop-melody weight=59 blockGap=16
-    //% blockId=device_stop_melody block="stop melody $options"
+    //% blockId=device_stop_melody block="parar melodia $options"
     //% parts="headphone"
     //% group="Melodia Avançada"
     export function stopMelody(options: MelodyStopOptions) {
@@ -512,10 +512,10 @@ namespace music {
     }
 
     /**
-     * Stop all sounds and melodies currently playing.
+     * Para todos sons tocando atualmente
      */
     //% help=music/stop-all-sounds
-    //% blockId=music_stop_all_sounds block="stop all sounds"
+    //% blockId=music_stop_all_sounds block="parar todos os sons"
     //% weight=10
     //% group="Volume"
     export function stopAllSounds() {

@@ -7,10 +7,10 @@ namespace pins {
 
 namespace music {
 /**
- * Set the default output volume of the sound synthesizer.
- * @param volume the volume 0...255
+ * Define a intensidade do volume de 0 até 255
+ * @param volume o volume de 0 até 255
  */
-//% blockId=synth_set_volume block="set volume %volume"
+//% blockId=synth_set_volume block="definir volume %volume"
 //% volume.min=0 volume.max=255
 //% volume.defl=127
 //% help=music/set-volume
@@ -26,7 +26,7 @@ void setVolume(int volume) {
 }
 
 /**
- * Returns the current output volume of the sound synthesizer.
+ * Retorna o volume de saída atual do sintetizador de som.
  */
 //% blockId=synth_get_volume block="volume"
 //% help=music/volume
@@ -42,11 +42,11 @@ int volume() {
 }
 
 /**
-* Turn the built-in speaker on or off.
-* Disabling the speaker resets the sound pin to the default of P0.
-* @param enabled whether the built-in speaker is enabled in addition to the sound pin
+* Ligue ou desligue o alto-falante integrado.
+* Desativar o alto-falante redefine o pino de som para o padrão P0.
+* @param enabled se o alto-falante embutido está habilitado além do pino de som
 */
-//% blockId=music_set_built_in_speaker_enable block="set built-in speaker $enabled"
+//% blockId=music_set_built_in_speaker_enable block="definir alto-falante embutido $enabled"
 //% group="micro:bit (V2)"
 //% parts=builtinspeaker
 //% help=music/set-built-in-speaker-enabled
@@ -64,9 +64,9 @@ void setBuiltInSpeakerEnabled(bool enabled) {
 }
 
 /**
-* Check whether any sound is being played, no matter the source
+* Verifique se algum som está sendo reproduzido, independentemente da fonte
 */
-//% blockId=music_sound_is_playing block="sound is playing"
+//% blockId=music_sound_is_playing block="som tocando"
 //% group="micro:bit (V2)"
 //% help=music/is-sound-playing
 //% weight=0

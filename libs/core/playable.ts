@@ -1,10 +1,10 @@
 namespace music {
     export enum PlaybackMode {
-        //% block="until done"
+        //% block="até terminar"
         UntilDone,
-        //% block="in background"
+        //% block="em segundo plano"
         InBackground,
-        //% block="looping in background"
+        //% block="looping em segundo plano"
         LoopingInBackground
     }
 
@@ -77,13 +77,13 @@ namespace music {
     }
 
     /**
-     * Play a song, melody, or other sound. The music plays until finished or can play as a
+     * Toque uma música, melodia ou outro som. A música toca até terminar ou pode tocar como uma tarefa em segundo plano.
      * background task.
-     * @param toPlay the song or melody to play
-     * @param playbackMode play the song or melody until it's finished or as background task
+     * @param toPlay o som ou melodia a tocar 
+     * @param playbackMode toque a música ou melodia até terminar ou como tarefa em segundo plano
      */
     //% blockId="music_playable_play"
-    //% block="play $toPlay $playbackMode"
+    //% block="reproduzir $toPlay $playbackMode"
     //% toPlay.shadow=music_string_playable
     //% group="Melodia"
     //% help="music/play"
@@ -93,7 +93,7 @@ namespace music {
     }
 
     //% blockId="music_playable_play_default_bkg"
-    //% block="play $toPlay $playbackMode"
+    //% block="reproduzir $toPlay $playbackMode"
     //% toPlay.shadow=music_string_playable
     //% playbackMode.defl=music.PlaybackMode.InBackground
     //% group="Melodia"
@@ -109,7 +109,7 @@ namespace music {
      * @param bpm number in beats per minute dictating how long each note will play
      */
     //% blockId="music_string_playable"
-    //% block="melody $melody at tempo $bpm|(bpm)"
+    //% block="melodia $melody no tempo $bpm|(bpm)"
     //% weight=85 blockGap=8
     //% help=music/string-playable
     //% group="Melodia"
@@ -124,12 +124,12 @@ namespace music {
     }
 
     /**
-     * Plays a tone through pin ``P0`` for the given duration.
-     * @param note pitch of the tone to play in Hertz (Hz).
-     * @param duration tone duration in milliseconds (ms)
+     * Reproduz um tom através do pino ``P0`` pela duração determinada.
+     * @param note altura do tom a ser reproduzido em Hertz (Hz).
+     * @param duration duração do tom em milissegundos (ms)
      */
     //% blockId="music_tone_playable"
-    //% block="tone $note for $duration"
+    //% block="nota musical $note por $duration"
     //% toolboxParent=music_playable_play
     //% toolboxParentArgument=toPlay
     //% group="Nota Musical"
