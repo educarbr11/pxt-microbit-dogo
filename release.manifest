@@ -59,7 +59,7 @@ CACHE:
 /pxt-microbit-dogo/worker.js
 /pxt-microbit-dogo/monacoworker.js
 
-# ver Fri Nov 29 2024 16:29:46 GMT-0300 (Brasilia Standard Time)
+# ver Mon Dec 09 2024 18:06:24 GMT-0300 (Brasilia Standard Time)
 
 # target
 /pxt-microbit-dogo/docs/static/providers/github-mark.png
@@ -69,7 +69,6 @@ CACHE:
 /pxt-microbit-dogo/docs/static/LOGO_DOGOCODE.png
 /pxt-microbit-dogo/docs/static/logo.square.white.svg
 /pxt-microbit-dogo/docs/static/logo-dogomaker.png
-/pxt-microbit-dogo/docs/static/icons/apple-touch-icon.png
 /pxt-microbit-dogo/docs/static/bg-dogocode.jpg
 /pxt-microbit-dogo/docs/static/download/transfer.png
 /pxt-microbit-dogo/docs/static/download/connect-microbit.gif

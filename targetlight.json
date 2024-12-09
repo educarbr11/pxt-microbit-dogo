@@ -1,8 +1,8 @@
 {
     "id": "microbit",
-    "nickname": "microbit",
+    "nickname": "DoGo Code",
     "name": "makecode.microbit.org",
-    "title": "Microsoft MakeCode for micro:bit",
+    "title": "DoGo Code Microbit",
     "description": "A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode.",
     "corepkg": "core",
     "cloud": {

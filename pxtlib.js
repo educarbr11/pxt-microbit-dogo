@@ -17175,8 +17175,8 @@ var ts;
         pxtc.oops = pxtc.Util.oops;
         pxtc.U = pxtc.Util;
         pxtc.ON_START_TYPE = "pxt-on-start";
-        pxtc.ON_START_COMMENT = "ao iniciar faça"; // TODO: Localize? (adding lf doesn't work because this is run before translations are downloaded)
-        pxtc.HANDLER_COMMENT = "adicione o código aqui"; // TODO: Localize? (adding lf doesn't work because this is run before translations are downloaded)
+        pxtc.ON_START_COMMENT = "on start"; // TODO: Localize? (adding lf doesn't work because this is run before translations are downloaded)
+        pxtc.HANDLER_COMMENT = "code goes here"; // TODO: Localize? (adding lf doesn't work because this is run before translations are downloaded)
         pxtc.TS_STATEMENT_TYPE = "typescript_statement";
         pxtc.TS_DEBUGGER_TYPE = "debugger_keyword";
         pxtc.TS_BREAK_TYPE = "break_keyword";

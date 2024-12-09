@@ -1,12 +1,12 @@
 {
     "accentColor": "#5C005C",
-    "logoUrl": "https://microbit.org/",
+    "logoUrl": "",
     "logo": "docs/static/LOGO_DOGOCODE.png",
     "docsLogo": "docs/static/logo.square.white.svg",
     "portraitLogo": "docs/static/logo-dogomaker.png",
     "footerLogo": "docs/static/logo-dogomaker.png",
-    "cardLogo": "docs/static/icons/apple-touch-icon.png",
-    "appLogo": "docs/static/icons/apple-touch-icon.png",
+    "cardLogo": "docs/static/logo-dogomaker.png",
+    "appLogo": "docs/static/logo-dogomaker.png",
     "organization": "Based on Microsoft MakeCode",
     "organizationUrl": "https://makecode.com/",
     "organizationLogo": "docs/static/logo-dogomaker.png",
@@ -484,7 +484,7 @@
         }
     ],
     "id": "microbit",
-    "title": "Microsoft MakeCode for micro:bit",
+    "title": "DoGo Code Microbit",
     "name": "makecode.microbit.org",
     "description": "A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode.",
     "htmlDocIncludes": {}
