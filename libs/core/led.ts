@@ -1,15 +1,15 @@
 /**
  * Control of the LED screen.
  */
-//% color=#5C2D91 weight=101 icon="\uf205"
+//% color=#5C2D91 weight=101 icon="\uf205" block="LED"
 namespace led {
     /**
-     * Get the on/off state of the specified LED using x, y coordinates. (0,0) is upper left.
-     * @param x the horizontal coordinate of the LED
-     * @param y the vertical coordinate of the LED
+     * Obter o estado ligado/desligado do LED especificado utilizar as coordenadas x, y. (0,0) é a parte superior esquerda.
+     * @param x a coordenada horizontal do LED começando em 0
+     * @param y a coordenada horizontal do LED começando em 0
      */
     //% help=led/point weight=76
-    //% blockId=device_point block="point|x %x|y %y"
+    //% blockId=device_point block="led ligado em|x %x|y %y"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
@@ -28,14 +28,14 @@ namespace led {
     export let barGraphToConsole = true
 
     /**
-     * Displays a vertical bar graph based on the `value` and `high` value.
-     * If `high` is 0, the chart gets adjusted automatically.
-     * @param value current value to plot
-     * @param high maximum value. If 0, maximum value adjusted automatically, eg: 0
-     * @param valueToConsole if true, prints value to the serial port
+     * Exibe um gráfico de barras vertical com base no valor `value` e`high`.
+     * Se `high` for 0, o gráfico é ajustado automaticamente
+     * @param value valor atual a plotar gráfico acendendo os LEDs
+     * @param high valor máximo do grafico que será plotado. Se for 0, o valor máximo é ajustado automaticamente, por exemplo: 0
+     * @param valueToConsole se verdadeiro, imprime o valor na porta serial
      */
     //% help=led/plot-bar-graph weight=20
-    //% blockId=device_plot_bar_graph block="plot bar graph of $value up to $high|| serial write $valueToConsole" icon="\uf080" blockExternalInputs=true
+    //% blockId=device_plot_bar_graph block="gráfico: valor$value valor máximo $high|| mostrar no monitor serial $valueToConsole" icon="\uf080" blockExternalInputs=true
     //% parts="ledmatrix"
     //% valueToConsole.shadow=toggleOnOff
     //% valueToConsole.defl=true
@@ -83,12 +83,12 @@ namespace led {
     }
 
     /**
-     * Toggles a particular pixel
+     * Alterna um pixel em particular
      * @param x pixel column
      * @param y pixel row
      */
     //% help=led/toggle weight=77
-    //% blockId=device_led_toggle block="toggle|x %x|y %y" icon="\uf204" blockGap=8
+    //% blockId=device_led_toggle block="mudar estado do led em|x %x|y %y" icon="\uf204" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
