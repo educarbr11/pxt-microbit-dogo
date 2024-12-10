@@ -1,15 +1,14 @@
 namespace loops {
     /**
      * Repeats the code forever in the background.
-     * After each iteration, allows other codes to run for a set duration
-     * so that it runs on a timer
-     * @param interval time (in ms) to wait between each iteration of the action.
-     * @param body code to execute
+     * Após cada iteração, permite que outros códigos sejam executados por um período definido, para que funcione como um temporizador.
+     * @param interval tempo (em ms) de espera entre cada iteração da ação.
+     * @param body code a executar
      */
     //% weight=45 blockAllowMultiple=1
     //% interval.shadow=longTimePicker
     //% afterOnStart=true help=loops/every-interval
-    //% blockId=every_interval block="every $interval ms"
+    //% blockId=every_interval block="a cada $interval ms"
     export function everyInterval(interval: number, a: () => void): void {
         control.runInParallel(() => {
             let start = 0;

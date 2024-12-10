@@ -20,7 +20,7 @@ namespace input {
      * @param body o código a ser executado quando o logotipo é pressionado
      */
     //% weight=83 blockGap=32
-    //% blockId=input_logo_event block="quando o logo ser $action"
+    //% blockId=input_logo_event block="logotipo for $action"
     //% group="micro:bit (V2)"
     //% parts="logotouch"
     //% help="input/on-logo-event"
@@ -36,7 +36,7 @@ namespace input {
      * Obtenha o estado do logotipo (pressionado ou não).
      */
     //% weight=58
-    //% blockId="input_logo_is_pressed" block="logo foi pressionado"
+    //% blockId="input_logo_is_pressed" block="logotipo pressionado"
     //% blockGap=8
     //% group="micro:bit (V2)"
     //% parts="logotouch"
