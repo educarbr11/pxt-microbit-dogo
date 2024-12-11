@@ -4278,63 +4278,63 @@ var pxt;
             _blockDefinitions = {
                 'device_while': {
                     name: pxt.Util.lf("a loop that repeats while the condition is true"),
-                    tooltip: pxt.Util.lf("Run the same sequence of actions while the condition is met."),
+                    tooltip: pxt.Util.lf("Execute a mesma sequência de ações enquanto a condição for atendida."),
                     url: '/blocks/loops/while',
                     category: 'loops',
                     block: {
-                        message0: pxt.Util.lf("while %1"),
-                        appendField: pxt.Util.lf("{id:while}do")
+                        message0: pxt.Util.lf("enquanto %1"),
+                        appendField: pxt.Util.lf("{id:while}faça")
                     }
                 },
                 'pxt_controls_for': {
                     name: pxt.Util.lf("a loop that repeats the number of times you say"),
-                    tooltip: pxt.Util.lf("Have the variable '{0}' take on the values from 0 to the end number, counting by 1, and do the specified blocks."),
+                    tooltip: pxt.Util.lf("Faça com que a variável '{0}' assuma os valores de 0 até o número final, contando por 1, e faça os blocos especificados."),
                     url: '/blocks/loops/for',
                     category: 'loops',
                     block: {
-                        message0: pxt.Util.lf("for %1 from 0 to %2"),
-                        variable: pxt.Util.lf("{id:var}index"),
-                        appendField: pxt.Util.lf("{id:for}do")
+                        message0: pxt.Util.lf("para %1 de 0 a %2"),
+                        variable: pxt.Util.lf("{id:var}índice"),
+                        appendField: pxt.Util.lf("{id:for}faça")
                     }
                 },
                 'controls_simple_for': {
                     name: pxt.Util.lf("a loop that repeats the number of times you say"),
-                    tooltip: pxt.Util.lf("Have the variable '{0}' take on the values from 0 to the end number, counting by 1, and do the specified blocks."),
+                    tooltip: pxt.Util.lf("Faça com que a variável '{0}' assuma os valores de 0 até o número final, contando por 1, e faça os blocos especificados."),
                     url: '/blocks/loops/for',
                     category: 'loops',
                     block: {
-                        message0: pxt.Util.lf("for %1 from 0 to %2"),
-                        variable: pxt.Util.lf("{id:var}index"),
-                        appendField: pxt.Util.lf("{id:for}do")
+                        message0: pxt.Util.lf("para %1 de 0 a %2"),
+                        variable: pxt.Util.lf("{id:var}índice"),
+                        appendField: pxt.Util.lf("{id:for}faça")
                     }
                 },
                 'pxt_controls_for_of': {
                     name: pxt.Util.lf("a loop that repeats for each value in an array"),
-                    tooltip: pxt.Util.lf("Have the variable '{0}' take the value of each item in the array one by one, and do the specified blocks."),
+                    tooltip: pxt.Util.lf("Faça com que a variável '{0}' pegue o valor de cada item do array, um por um, e faça os blocos especificados."),
                     url: '/blocks/loops/for-of',
                     category: 'loops',
                     block: {
-                        message0: pxt.Util.lf("for element %1 of %2"),
+                        message0: pxt.Util.lf("para elemento %1 de %2"),
                         variable: pxt.Util.lf("{id:var}value"),
-                        appendField: pxt.Util.lf("{id:for_of}do")
+                        appendField: pxt.Util.lf("{id:for_of}fazer")
                     }
                 },
                 'controls_for_of': {
                     name: pxt.Util.lf("a loop that repeats for each value in an array"),
-                    tooltip: pxt.Util.lf("Have the variable '{0}' take the value of each item in the array one by one, and do the specified blocks."),
+                    tooltip: pxt.Util.lf("Faça com que a variável '{0}' pegue o valor de cada item do array, um por um, e faça os blocos especificados."),
                     url: '/blocks/loops/for-of',
                     category: 'loops',
                     block: {
-                        message0: pxt.Util.lf("for element %1 of %2"),
-                        variable: pxt.Util.lf("{id:var}value"),
-                        appendField: pxt.Util.lf("{id:for_of}do")
+                        message0: pxt.Util.lf("para elemento %1 de %2"),
+                        variable: pxt.Util.lf("{id:var}valor"),
+                        appendField: pxt.Util.lf("{id:for_of}fazer")
                     }
                 },
                 'math_op2': {
-                    name: pxt.Util.lf("minimum or maximum of 2 numbers"),
+                    name: pxt.Util.lf("mínimo ou máximo de 2 números"),
                     tooltip: {
-                        "min": pxt.Util.lf("smaller value of 2 numbers"),
-                        "max": pxt.Util.lf("larger value of 2 numbers")
+                        "min": pxt.Util.lf("valor menor de 2 números"),
+                        "max": pxt.Util.lf("valor maior de 2 números")
                     },
                     url: '/blocks/math',
                     operators: {
@@ -4343,47 +4343,47 @@ var pxt;
                     category: 'math'
                 },
                 'math_op3': {
-                    name: pxt.Util.lf("absolute number"),
-                    tooltip: pxt.Util.lf("absolute value of a number"),
+                    name: pxt.Util.lf("número absoluto"),
+                    tooltip: pxt.Util.lf("valor absoluto de um número"),
                     url: '/reference/math',
                     category: 'math',
                     block: {
-                        message0: pxt.Util.lf("absolute of %1")
+                        message0: pxt.Util.lf("absoluto de %1")
                     }
                 },
                 'math_number': {
-                    name: pxt.Util.lf("{id:block}number"),
+                    name: pxt.Util.lf("{id:block}número"),
                     url: '/types/number',
                     category: 'math',
                     tooltip: (pxt.appTarget && pxt.appTarget.compile) ?
-                        pxt.Util.lf("a decimal number") : pxt.Util.lf("an integer number")
+                        pxt.Util.lf("um número decimal") : pxt.Util.lf("um número inteiro")
                 },
                 'math_integer': {
-                    name: pxt.Util.lf("{id:block}number"),
+                    name: pxt.Util.lf("{id:block}número"),
                     url: '/types/number',
                     category: 'math',
-                    tooltip: pxt.Util.lf("an integer number")
+                    tooltip: pxt.Util.lf("um número inteiro")
                 },
                 'math_whole_number': {
-                    name: pxt.Util.lf("{id:block}number"),
+                    name: pxt.Util.lf("{id:block}número"),
                     url: '/types/number',
                     category: 'math',
-                    tooltip: pxt.Util.lf("a whole number")
+                    tooltip: pxt.Util.lf("um número inteiro positivo")
                 },
                 'math_number_minmax': {
-                    name: pxt.Util.lf("{id:block}number"),
+                    name: pxt.Util.lf("{id:block}número"),
                     url: '/blocks/math',
                     category: 'math'
                 },
                 'math_arithmetic': {
-                    name: pxt.Util.lf("arithmetic operation"),
+                    name: pxt.Util.lf("operação aritmética"),
                     url: '/blocks/math',
                     tooltip: {
-                        ADD: pxt.Util.lf("Return the sum of the two numbers."),
-                        MINUS: pxt.Util.lf("Return the difference of the two numbers."),
-                        MULTIPLY: pxt.Util.lf("Return the product of the two numbers."),
-                        DIVIDE: pxt.Util.lf("Return the quotient of the two numbers."),
-                        POWER: pxt.Util.lf("Return the first number raised to the power of the second number."),
+                        ADD: pxt.Util.lf("Retorne a soma dos dois números."),
+                        MINUS: pxt.Util.lf("Retorne a diferença entre os dois números."),
+                        MULTIPLY: pxt.Util.lf("Retorne o produto dos dois números."),
+                        DIVIDE: pxt.Util.lf("Retorne o quociente dos dois números."),
+                        POWER: pxt.Util.lf("Retorne o primeiro número elevado à potência do segundo número."),
                     },
                     operators: {
                         'OP': ["ADD", "MINUS", "MULTIPLY", "DIVIDE", "POWER"]
@@ -4398,26 +4398,26 @@ var pxt;
                     }
                 },
                 'math_modulo': {
-                    name: pxt.Util.lf("division remainder"),
-                    tooltip: pxt.Util.lf("Return the remainder from dividing the two numbers."),
+                    name: pxt.Util.lf("resto da divisão"),
+                    tooltip: pxt.Util.lf("Retorne o resto da divisão dos dois números."),
                     url: '/blocks/math',
                     category: 'math',
                     block: {
-                        MATH_MODULO_TITLE: pxt.Util.lf("remainder of %1 / %2")
+                        MATH_MODULO_TITLE: pxt.Util.lf("resto de %1 / %2")
                     }
                 },
                 'math_js_op': {
-                    name: pxt.Util.lf("math function"),
+                    name: pxt.Util.lf("função matemática"),
                     tooltip: {
-                        "sqrt": pxt.Util.lf("Returns the square root of the argument"),
-                        "sin": pxt.Util.lf("Returns the sine of the argument"),
-                        "cos": pxt.Util.lf("Returns the cosine of the argument"),
-                        "acos": pxt.Util.lf("Returns the arccosine of the argument"),
-                        "asine": pxt.Util.lf("Returns the arcsine of the argument"),
-                        "tan": pxt.Util.lf("Returns the tangent of the argument"),
-                        "atan2": pxt.Util.lf("Returns the arctangent of the quotient of the two arguments"),
-                        "idiv": pxt.Util.lf("Returns the integer portion of the division operation on the two arguments"),
-                        "imul": pxt.Util.lf("Returns the integer portion of the multiplication operation on the two arguments")
+                        "sqrt": pxt.Util.lf("Retorna a raiz quadrada do argumento"),
+                        "sin": pxt.Util.lf("Retorna o seno do argumento"),
+                        "cos": pxt.Util.lf("Retorna o cosseno do argumento"),
+                        "acos": pxt.Util.lf("Retorna o arco cosseno do argumento"),
+                        "asine": pxt.Util.lf("Retorna o arco seno do argumento"),
+                        "tan": pxt.Util.lf("Retorna a tangente do argumento"),
+                        "atan2": pxt.Util.lf("Retorna o arco tangente do quociente dos dois argumentos"),
+                        "idiv": pxt.Util.lf("Retorna a porção inteira da operação de divisão dos dois argumentos"),
+                        "imul": pxt.Util.lf("Retorna a porção inteira da operação de multiplicação dos dois argumentos")
                     },
                     url: '/blocks/math',
                     operators: {
@@ -4425,24 +4425,24 @@ var pxt;
                     },
                     category: 'math',
                     block: {
-                        "sqrt": pxt.Util.lf("{id:op}square root"),
-                        "sin": pxt.Util.lf("{id:op}sin"),
-                        "cos": pxt.Util.lf("{id:op}cos"),
-                        "asin": pxt.Util.lf("{id:op}asin"),
-                        "acos": pxt.Util.lf("{id:op}acos"),
-                        "tan": pxt.Util.lf("{id:op}tan"),
-                        "atan2": pxt.Util.lf("{id:op}atan2"),
-                        "idiv": pxt.Util.lf("{id:op}integer /"),
-                        "imul": pxt.Util.lf("{id:op}integer ×"),
+                        "sqrt": pxt.Util.lf("{id:op}raiz quadrada"),
+                        "sin": pxt.Util.lf("{id:op}seno"),
+                        "cos": pxt.Util.lf("{id:op}cosseno"),
+                        "asin": pxt.Util.lf("{id:op}arco seno"),
+                        "acos": pxt.Util.lf("{id:op}arco cosseno"),
+                        "tan": pxt.Util.lf("{id:op}tangente"),
+                        "atan2": pxt.Util.lf("{id:op}arco tangente"),
+                        "idiv": pxt.Util.lf("{id:op}divisão inteira /"),
+                        "imul": pxt.Util.lf("{id:op}multiplicação inteira ×"),
                     }
                 },
                 "math_js_round": {
-                    name: pxt.Util.lf("rounding functions"),
+                    name: pxt.Util.lf("funções de arredondamento"),
                     tooltip: {
-                        "round": pxt.Util.lf("Increases the argument to the next higher whole number if its fractional part is more than one half"),
-                        "ceil": pxt.Util.lf("Increases the argument to the next higher whole number"),
-                        "floor": pxt.Util.lf("Decreases the argument to the next lower whole number"),
-                        "trunc": pxt.Util.lf("Removes the fractional part of the argument")
+                        "round": pxt.Util.lf("Aumenta o argumento para o próximo número inteiro se sua parte fracionária for maior que um meio"),
+                        "ceil": pxt.Util.lf("Aumenta o argumento para o próximo número inteiro"),
+                        "floor": pxt.Util.lf("Diminui o argumento para o próximo número inteiro inferior"),
+                        "trunc": pxt.Util.lf("Remove a parte fracionária do argumento")
                     },
                     url: '/blocks/math',
                     operators: {
@@ -4450,34 +4450,34 @@ var pxt;
                     },
                     category: 'math',
                     block: {
-                        "round": pxt.Util.lf("{id:op}round"),
-                        "ceil": pxt.Util.lf("{id:op}ceiling"),
-                        "floor": pxt.Util.lf("{id:op}floor"),
-                        "trunc": pxt.Util.lf("{id:op}truncate"),
+                        "round": pxt.Util.lf("{id:op}arredondar"),
+                        "ceil": pxt.Util.lf("{id:op}arredondar para cima"),
+                        "floor": pxt.Util.lf("{id:op}arredondar para baixo"),
+                        "trunc": pxt.Util.lf("{id:op}truncar"),
                     }
                 },
                 'variables_change': {
                     name: pxt.Util.lf("update the value of a number variable"),
-                    tooltip: pxt.Util.lf("Changes the value of the variable by this amount"),
+                    tooltip: pxt.Util.lf("Altera o valor da variável por este valor"),
                     url: '/blocks/variables/change',
                     category: 'variables',
                     block: {
-                        message0: pxt.Util.lf("change %1 by %2")
+                        message0: pxt.Util.lf("mudar %1 por %2")
                     }
                 },
                 'controls_repeat_ext': {
                     name: pxt.Util.lf("a loop that repeats and increments an index"),
-                    tooltip: pxt.Util.lf("Do some statements several times."),
+                    tooltip: pxt.Util.lf("Execute algumas instruções várias vezes."),
                     url: '/blocks/loops/repeat',
                     category: 'loops',
                     block: {
-                        CONTROLS_REPEAT_TITLE: pxt.Util.lf("repeat %1 times"),
-                        CONTROLS_REPEAT_INPUT_DO: pxt.Util.lf("{id:repeat}do")
+                        CONTROLS_REPEAT_TITLE: pxt.Util.lf("repete %1 vezes"),
+                        CONTROLS_REPEAT_INPUT_DO: pxt.Util.lf("{id:repeat}faça")
                     }
                 },
                 'variables_get': {
                     name: pxt.Util.lf("get the value of a variable"),
-                    tooltip: pxt.Util.lf("Returns the value of this variable."),
+                    tooltip: pxt.Util.lf("Retorna o valor desta variável."),
                     url: '/blocks/variables',
                     category: 'variables',
                     block: {
@@ -4495,80 +4495,80 @@ var pxt;
                 },
                 'variables_set': {
                     name: pxt.Util.lf("assign the value of a variable"),
-                    tooltip: pxt.Util.lf("Sets this variable to be equal to the input."),
+                    tooltip: pxt.Util.lf("Define esta variável para ser igual à entrada."),
                     url: '/blocks/variables/assign',
                     category: 'variables',
                     block: {
-                        VARIABLES_SET: pxt.Util.lf("set %1 to %2")
+                        VARIABLES_SET: pxt.Util.lf("definir %1 para %2")
                     }
                 },
                 'controls_if': {
                     name: pxt.Util.lf("a conditional statement"),
                     tooltip: {
-                        CONTROLS_IF_TOOLTIP_1: pxt.Util.lf("If a value is true, then do some statements."),
-                        CONTROLS_IF_TOOLTIP_2: pxt.Util.lf("If a value is true, then do the first block of statements. Otherwise, do the second block of statements."),
-                        CONTROLS_IF_TOOLTIP_3: pxt.Util.lf("If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements."),
-                        CONTROLS_IF_TOOLTIP_4: pxt.Util.lf("If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements. If none of the values are true, do the last block of statements.")
+                        CONTROLS_IF_TOOLTIP_1: pxt.Util.lf("Se um valor for verdadeiro, execute algumas instruções."),
+                        CONTROLS_IF_TOOLTIP_2: pxt.Util.lf("Se um valor for verdadeiro, execute o primeiro bloco de instruções. Caso contrário, execute o segundo bloco de instruções."),
+                        CONTROLS_IF_TOOLTIP_3: pxt.Util.lf("Se o primeiro valor for verdadeiro, execute o primeiro bloco de instruções. Caso contrário, se o segundo valor for verdadeiro, execute o segundo bloco de instruções."),
+                        CONTROLS_IF_TOOLTIP_4: pxt.Util.lf("Se o primeiro valor for verdadeiro, execute o primeiro bloco de instruções. Caso contrário, se o segundo valor for verdadeiro, execute o segundo bloco de instruções. Se nenhum dos valores for verdadeiro, execute o último bloco de instruções.")
                     },
                     tooltipSearch: "CONTROLS_IF_TOOLTIP_2",
                     url: '/blocks/logic/if',
                     category: 'logic',
                     block: {
-                        CONTROLS_IF_MSG_IF: pxt.Util.lf("{id:logic}if"),
-                        CONTROLS_IF_MSG_THEN: pxt.Util.lf("{id:logic}then"),
-                        CONTROLS_IF_MSG_ELSE: pxt.Util.lf("{id:logic}else"),
-                        CONTROLS_IF_MSG_ELSEIF: pxt.Util.lf("{id:logic}else if")
+                        CONTROLS_IF_MSG_IF: pxt.Util.lf("{id:logic}se"),
+                        CONTROLS_IF_MSG_THEN: pxt.Util.lf("{id:logic}então"),
+                        CONTROLS_IF_MSG_ELSE: pxt.Util.lf("{id:logic}senão"),
+                        CONTROLS_IF_MSG_ELSEIF: pxt.Util.lf("{id:logic}senão se")
                     }
                 },
                 'lists_create_with': {
-                    name: pxt.Util.lf("create an array"),
-                    tooltip: pxt.Util.lf("Creates a new array."),
+                    name: pxt.Util.lf("criar um array"),
+                    tooltip: pxt.Util.lf("Cria um novo array."),
                     url: '/reference/arrays/create',
                     category: 'arrays',
                     blockTextSearch: "LISTS_CREATE_WITH_INPUT_WITH",
                     block: {
-                        LISTS_CREATE_EMPTY_TITLE: pxt.Util.lf("empty array"),
-                        LISTS_CREATE_WITH_INPUT_WITH: pxt.Util.lf("array of"),
+                        LISTS_CREATE_EMPTY_TITLE: pxt.Util.lf("array vazio"),
+                        LISTS_CREATE_WITH_INPUT_WITH: pxt.Util.lf("array de"),
                         LISTS_CREATE_WITH_CONTAINER_TITLE_ADD: pxt.Util.lf("array"),
-                        LISTS_CREATE_WITH_ITEM_TITLE: pxt.Util.lf("value")
+                        LISTS_CREATE_WITH_ITEM_TITLE: pxt.Util.lf("valor")
                     }
                 },
                 'lists_length': {
-                    name: pxt.Util.lf("array length"),
-                    tooltip: pxt.Util.lf("Returns the number of items in an array."),
+                    name: pxt.Util.lf("comprimento do array"),
+                    tooltip: pxt.Util.lf("Retorna o número de itens em um array."),
                     url: '/reference/arrays/length',
                     category: 'arrays',
                     block: {
-                        LISTS_LENGTH_TITLE: pxt.Util.lf("length of array %1")
+                        LISTS_LENGTH_TITLE: pxt.Util.lf("comprimento do array %1")
                     }
                 },
                 'lists_index_get': {
-                    name: pxt.Util.lf("get a value in an array"),
-                    tooltip: pxt.Util.lf("Returns the value at the given index in an array."),
+                    name: pxt.Util.lf("obter um valor em um array"),
+                    tooltip: pxt.Util.lf("Retorna o valor no índice dado em um array."),
                     url: '/reference/arrays/get',
                     category: 'arrays',
                     block: {
-                        message0: pxt.Util.lf("%1 get value at %2")
+                        message0: pxt.Util.lf("%1 obter valor em %2")
                     }
                 },
                 'lists_index_set': {
-                    name: pxt.Util.lf("set a value in an array"),
-                    tooltip: pxt.Util.lf("Sets the value at the given index in an array"),
+                    name: pxt.Util.lf("definir um valor em um array"),
+                    tooltip: pxt.Util.lf("Define o valor no índice dado em um array"),
                     url: '/reference/arrays/set',
                     category: 'arrays',
                     block: {
-                        message0: pxt.Util.lf("%1 set value at %2 to %3")
+                        message0: pxt.Util.lf("%1 definir valor em %2 para %3")
                     }
                 },
                 'logic_compare': {
                     name: pxt.Util.lf("comparing two numbers"),
                     tooltip: {
-                        LOGIC_COMPARE_TOOLTIP_EQ: pxt.Util.lf("Return true if both inputs equal each other."),
-                        LOGIC_COMPARE_TOOLTIP_NEQ: pxt.Util.lf("Return true if both inputs are not equal to each other."),
-                        LOGIC_COMPARE_TOOLTIP_LT: pxt.Util.lf("Return true if the first input is smaller than the second input."),
-                        LOGIC_COMPARE_TOOLTIP_LTE: pxt.Util.lf("Return true if the first input is smaller than or equal to the second input."),
-                        LOGIC_COMPARE_TOOLTIP_GT: pxt.Util.lf("Return true if the first input is greater than the second input."),
-                        LOGIC_COMPARE_TOOLTIP_GTE: pxt.Util.lf("Return true if the first input is greater than or equal to the second input.")
+                        LOGIC_COMPARE_TOOLTIP_EQ: pxt.Util.lf("Retorne verdadeiro se ambas as entradas forem iguais."),
+                        LOGIC_COMPARE_TOOLTIP_NEQ: pxt.Util.lf("Retorne verdadeiro se ambas as entradas não forem iguais."),
+                        LOGIC_COMPARE_TOOLTIP_LT: pxt.Util.lf("Retorne verdadeiro se a primeira entrada for menor que a segunda entrada."),
+                        LOGIC_COMPARE_TOOLTIP_LTE: pxt.Util.lf("Retorne verdadeiro se a primeira entrada for menor ou igual à segunda entrada."),
+                        LOGIC_COMPARE_TOOLTIP_GT: pxt.Util.lf("Retorne verdadeiro se a primeira entrada for maior que a segunda entrada."),
+                        LOGIC_COMPARE_TOOLTIP_GTE: pxt.Util.lf("Retorne verdadeiro se a primeira entrada for maior ou igual à segunda entrada.")
                     },
                     url: '/blocks/logic/boolean',
                     category: 'logic',
@@ -4579,117 +4579,117 @@ var pxt;
                 'logic_operation': {
                     name: pxt.Util.lf("boolean operation"),
                     tooltip: {
-                        LOGIC_OPERATION_TOOLTIP_AND: pxt.Util.lf("Return true if both inputs are true."),
-                        LOGIC_OPERATION_TOOLTIP_OR: pxt.Util.lf("Return true if at least one of the inputs is true.")
+                        LOGIC_OPERATION_TOOLTIP_AND: pxt.Util.lf("Retorne verdadeiro se ambas as entradas forem verdadeiras."),
+                        LOGIC_OPERATION_TOOLTIP_OR: pxt.Util.lf("Retorne verdadeiro se pelo menos uma das entradas for verdadeira.")
                     },
                     url: '/blocks/logic/boolean',
                     category: 'logic',
                     block: {
-                        LOGIC_OPERATION_AND: pxt.Util.lf("{id:op}and"),
-                        LOGIC_OPERATION_OR: pxt.Util.lf("{id:op}or")
+                        LOGIC_OPERATION_AND: pxt.Util.lf("{id:op}e"),
+                        LOGIC_OPERATION_OR: pxt.Util.lf("{id:op}ou")
                     }
                 },
                 'logic_negate': {
                     name: pxt.Util.lf("logical negation"),
-                    tooltip: pxt.Util.lf("Returns true if the input is false. Returns false if the input is true."),
+                    tooltip: pxt.Util.lf("Retorne verdadeiro se a entrada for falsa. Retorne falso se a entrada for verdadeira."),
                     url: '/blocks/logic/boolean',
                     category: 'logic',
                     block: {
-                        LOGIC_NEGATE_TITLE: pxt.Util.lf("not %1")
+                        LOGIC_NEGATE_TITLE: pxt.Util.lf("o oposto de %1")
                     }
                 },
                 'logic_boolean': {
                     name: pxt.Util.lf("a `true` or `false` value"),
-                    tooltip: pxt.Util.lf("Returns either true or false."),
+                    tooltip: pxt.Util.lf("Retorna verdadeiro ou falso."),
                     url: '/blocks/logic/boolean',
                     category: 'logic',
                     block: {
-                        LOGIC_BOOLEAN_TRUE: pxt.Util.lf("{id:boolean}true"),
-                        LOGIC_BOOLEAN_FALSE: pxt.Util.lf("{id:boolean}false")
+                        LOGIC_BOOLEAN_TRUE: pxt.Util.lf("{id:boolean}verdadeiro"),
+                        LOGIC_BOOLEAN_FALSE: pxt.Util.lf("{id:boolean}falso")
                     }
                 },
                 'text': {
-                    name: pxt.Util.lf("a piece of text"),
-                    tooltip: pxt.Util.lf("A letter, word, or line of text."),
+                    name: pxt.Util.lf("um pedaço de texto"),
+                    tooltip: pxt.Util.lf("Uma letra, palavra ou linha de texto."),
                     url: '/types/string',
                     category: 'text',
                     block: {
-                        search: pxt.Util.lf("a piece of text") // Only used for search; this string is not surfaced in the block's text
+                        search: pxt.Util.lf("um pedaço de texto") // Apenas usado para busca; essa string não aparece no texto do bloco
                     }
                 },
                 'text_length': {
-                    name: pxt.Util.lf("number of characters in the string"),
-                    tooltip: pxt.Util.lf("Returns the number of letters (including spaces) in the provided text."),
+                    name: pxt.Util.lf("número de caracteres na string"),
+                    tooltip: pxt.Util.lf("Retorna o número de letras (incluindo espaços) no texto fornecido."),
                     url: '/reference/text/length',
                     category: 'text',
                     block: {
-                        TEXT_LENGTH_TITLE: pxt.Util.lf("length of %1")
+                        TEXT_LENGTH_TITLE: pxt.Util.lf("comprimento de %1")
                     }
                 },
                 'text_join': {
-                    name: pxt.Util.lf("join items to create text"),
-                    tooltip: pxt.Util.lf("Create a piece of text by joining together any number of items."),
+                    name: pxt.Util.lf("juntar itens para criar texto"),
+                    tooltip: pxt.Util.lf("Crie um pedaço de texto juntando qualquer número de itens."),
                     url: '/reference/text/join',
                     category: 'text',
                     block: {
-                        TEXT_JOIN_TITLE_CREATEWITH: pxt.Util.lf("join")
+                        TEXT_JOIN_TITLE_CREATEWITH: pxt.Util.lf("juntar")
                     }
                 },
                 'procedures_defnoreturn': {
-                    name: pxt.Util.lf("define the function"),
-                    tooltip: pxt.Util.lf("Create a function."),
+                    name: pxt.Util.lf("definir a função"),
+                    tooltip: pxt.Util.lf("Crie uma função."),
                     url: '/types/function/define',
                     category: 'functions',
                     block: {
-                        PROCEDURES_DEFNORETURN_TITLE: pxt.Util.lf("function"),
-                        PROCEDURE_ALREADY_EXISTS: pxt.Util.lf("A function named '%1' already exists.")
+                        PROCEDURES_DEFNORETURN_TITLE: pxt.Util.lf("função"),
+                        PROCEDURE_ALREADY_EXISTS: pxt.Util.lf("Já existe uma função chamada '%1'.")
                     }
                 },
                 'procedures_callnoreturn': {
-                    name: pxt.Util.lf("call the function"),
-                    tooltip: pxt.Util.lf("Call the user-defined function."),
+                    name: pxt.Util.lf("chamar a função"),
+                    tooltip: pxt.Util.lf("Chame a função definida pelo usuário."),
                     url: '/types/function/call',
                     category: 'functions',
                     block: {
-                        PROCEDURES_CALLNORETURN_TITLE: pxt.Util.lf("call function")
+                        PROCEDURES_CALLNORETURN_TITLE: pxt.Util.lf("chamar função")
                     }
                 },
                 'function_return': {
-                    name: pxt.Util.lf("return a value from within a function"),
-                    tooltip: pxt.Util.lf("Return a value from within a user-defined function."),
+                    name: pxt.Util.lf("retornar um valor de dentro de uma função"),
+                    tooltip: pxt.Util.lf("Retorne um valor de dentro de uma função definida pelo usuário."),
                     url: '/types/function/return',
                     category: 'functions',
                     block: {
-                        message_with_value: pxt.Util.lf("return %1"),
-                        message_no_value: pxt.Util.lf("return")
+                        message_with_value: pxt.Util.lf("retornar %1"),
+                        message_no_value: pxt.Util.lf("retornar")
                     }
                 },
                 'function_definition': {
-                    name: pxt.Util.lf("define the function"),
-                    tooltip: pxt.Util.lf("Create a function."),
+                    name: pxt.Util.lf("definir a função"),
+                    tooltip: pxt.Util.lf("Crie uma função."),
                     url: '/types/function/define',
                     category: 'functions',
                     block: {
-                        FUNCTIONS_EDIT_OPTION: pxt.Util.lf("Edit Function")
+                        FUNCTIONS_EDIT_OPTION: pxt.Util.lf("Editar Função")
                     }
                 },
                 'function_call': {
-                    name: pxt.Util.lf("call the function"),
-                    tooltip: pxt.Util.lf("Call the user-defined function."),
+                    name: pxt.Util.lf("chamar a função"),
+                    tooltip: pxt.Util.lf("Chame a função definida pelo usuário."),
                     url: '/types/function/call',
                     category: 'functions',
                     block: {
-                        FUNCTIONS_CALL_TITLE: pxt.Util.lf("call"),
-                        FUNCTIONS_GO_TO_DEFINITION_OPTION: pxt.Util.lf("Go to Definition")
+                        FUNCTIONS_CALL_TITLE: pxt.Util.lf("chamar"),
+                        FUNCTIONS_GO_TO_DEFINITION_OPTION: pxt.Util.lf("Ir para Definição")
                     }
                 },
                 'function_call_output': {
-                    name: pxt.Util.lf("call the function with a return value"),
-                    tooltip: pxt.Util.lf("Call the user-defined function with a return value."),
+                    name: pxt.Util.lf("chamar a função com um valor de retorno"),
+                    tooltip: pxt.Util.lf("Chame a função definida pelo usuário com um valor de retorno."),
                     url: '/types/function/call',
                     category: 'functions',
                     block: {}
-                }
+                },
             };
             _blockDefinitions[pxtc.ON_START_TYPE] = {
                 name: pxt.Util.lf("on start event"),
@@ -4711,20 +4711,20 @@ var pxt;
             };
             _blockDefinitions[pxtc.TS_BREAK_TYPE] = {
                 name: pxt.Util.lf("break"),
-                tooltip: pxt.Util.lf("Break out of the current loop or switch"),
+                tooltip: pxt.Util.lf("Parar o programa atual ou alternar"),
                 url: '/blocks/loops/break',
                 category: 'loops',
                 block: {
-                    message0: pxt.Util.lf("break")
+                    message0: pxt.Util.lf("parar")
                 }
             };
             _blockDefinitions[pxtc.TS_CONTINUE_TYPE] = {
                 name: pxt.Util.lf("continue"),
-                tooltip: pxt.Util.lf("Skip current iteration and continues with the next iteration in the loop"),
+                tooltip: pxt.Util.lf("Pula a iteração atual e continua com a próxima iteração no loop."),
                 url: '/blocks/loops/continue',
                 category: 'loops',
                 block: {
-                    message0: pxt.Util.lf("continue")
+                    message0: pxt.Util.lf("continuar")
                 }
             };
             if (pxt.blocks.showBlockIdInTooltip) {
