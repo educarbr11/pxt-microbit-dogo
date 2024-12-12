@@ -52,14 +52,14 @@ declare namespace radio {
     function onDataReceived(body: () => void): void;
 
     /**
-     * Sets the group id for radio communications. A micro:bit can only listen to one group ID at any time.
-     * @param id the group id between ``0`` and ``255``, eg: 1
+     * Define o ID do grupo para comunicações por rádio. Um micro:bit só pode escutar um ID de grupo por vez.
+     * @param id o ID do grupo, entre ``0`` e ``255``, ex: 1
      */
     //% help=radio/set-group
     //% weight=100
-    //% blockId=radio_set_group block="radio set group %ID"
+    //% blockId=radio_set_group block="definir canal de rádio %ID"
     //% id.min=0 id.max=255
-    //% group="Group" shim=radio::setGroup
+    //% group="CANAL" shim=radio::setGroup
     function setGroup(id: int32): void;
 
     /**

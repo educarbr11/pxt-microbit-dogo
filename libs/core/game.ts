@@ -1,7 +1,7 @@
 enum Direction {
-    //% block=right
+    //% block=direita
     Right,
-    //% block=left
+    //% block=esquerda
     Left
 }
 
@@ -10,11 +10,11 @@ enum LedSpriteProperty {
     X,
     //% block=y
     Y,
-    //% block=direction
+    //% block=direção
     Direction,
-    //% block=brightness
+    //% block=brilho
     Brightness,
-    //% block=blink
+    //% block=Piscar
     Blink
 }
 
@@ -22,7 +22,7 @@ enum LedSpriteProperty {
  * A single-LED sprite game engine
  */
 //% color=#007A4B weight=32 icon="\uf11b"
-//% advanced=true
+//% advanced=true block="JOGO"
 namespace game {
     let _score: number = 0;
     let _life: number = 3;
@@ -38,12 +38,12 @@ namespace game {
     let _backgroundAnimation = false; // indicates if an auxiliary animation (and fiber) is already running
 
     /**
-     * Creates a new LED sprite pointing to the right.
-     * @param x sprite horizontal coordinate, eg: 2
-     * @param y sprite vertical coordinate, eg: 2
+    * Cria um novo ator de LED apontando para a direita.
+    * @param x coordenada horizontal do ator, ex: 2
+    * @param y coordenada vertical do ator, ex: 2
      */
     //% weight=60 blockGap=8 help=game/create-sprite
-    //% blockId=game_create_sprite block="create sprite at|x: %x|y: %y"
+    //% blockId=game_create_sprite block="criar ator na posição|x: %x|y: %y"
     //% parts="ledmatrix"
     export function createSprite(x: number, y: number): LedSprite {
         init();
@@ -52,20 +52,20 @@ namespace game {
     }
 
     /**
-     * Gets the current score
+     * Pega a pontuação atual
      */
     //% weight=9 help=game/score
-    //% blockId=game_score block="score" blockGap=8
+    //% blockId=game_score block="pontos" blockGap=8
     export function score(): number {
         return _score;
     }
 
     /**
-     * Adds points to the current score and shows an animation
-     * @param points amount of points to change, eg: 1
+     * Adiciona pontos à pontuação atual e exibe uma animação.
+     * @param points quantidade de pontos para alterar, ex: 1
      */
     //% weight=10 help=game/add-score
-    //% blockId=game_add_score block="change score by|%points" blockGap=8
+    //% blockId=game_add_score block="alterar pontuação para|%points" blockGap=8
     //% parts="ledmatrix"
     export function addScore(points: number): void {
         setScore(_score + points);
@@ -84,11 +84,11 @@ namespace game {
     }
 
     /**
-     * Shows an animation, then starts a game countdown timer, which causes Game Over when it reaches 0
-     * @param ms countdown duration in milliseconds, eg: 10000
+     * Mostra uma animação e, em seguida, inicia um cronômetro regressivo, que causa Game Over quando chega a 0.
+     * @param ms duração do cronômetro regressivo em milissegundos, ex: 10000
      */
     //% weight=9 help=game/start-countdown
-    //% blockId=game_start_countdown block="start countdown|(ms) %duration" blockGap=8
+    //% blockId=game_start_countdown block="iniciar cronômetro regressivo|(ms) %duration" blockGap=8
     //% parts="ledmatrix"
     export function startCountdown(ms: number): void {
         if (checkStart()) {
@@ -108,11 +108,11 @@ namespace game {
         }
     }
 
-    /**
-     * Displays a game over animation and the score.
+   /**
+     * Exibe uma animação de fim de jogo e a pontuação.
      */
     //% weight=8 help=game/game-over
-    //% blockId=game_game_over block="game over"
+    //% blockId=game_game_over block="fim de jogo"
     //% parts="ledmatrix"
     export function gameOver(): void {
         if (!_isGameOver) {
@@ -148,30 +148,30 @@ namespace game {
         }
     }
 
-    /**
-     * Sets the current score value
-     * @param value new score value.
+   /**
+     * Define o valor atual da pontuação.
+     * @param value novo valor da pontuação.
      */
-    //% blockId=game_set_score block="set score %points" blockGap=8
+    //% blockId=game_set_score block="definir pontuação %points" blockGap=8
     //% weight=10 help=game/set-score
     export function setScore(value: number): void {
         _score = Math.max(0, value);
     }
 
     /**
-     * Gets the current life
+     * Pega o estado de vida atual
      */
     //% weight=10
     export function life(): number {
         return _life;
     }
 
-    /**
-     * Sets the current life value
-     * @param value current life value
-     */
+   /**
+    * Define o valor atual de vidas.
+    * @param value valor atual de vidas.
+    */
     //% weight=10 help=game/set-life
-    //% blockId=game_set_life block="set life %value" blockGap=8
+    //% blockId=game_set_life block="definir vida %value" blockGap=8
     export function setLife(value: number): void {
         _life = Math.max(0, value);
         if (_life <= 0) {
@@ -179,19 +179,19 @@ namespace game {
         }
     }
 
-    /**
-     * Add life points to the current life amount
-     * @param lives amount of lives to add
+   /**
+     * Adiciona pontos de vida ao total atual.
+     * @param lives quantidade de vidas a adicionar.
      */
     //% weight=10 help=game/add-life
-    //% blockId=game_add_life block="add life %lives" blockGap=8
+    //% blockId=game_add_life block="adicionar vidas %lives" blockGap=8
     export function addLife(lives: number): void {
         setLife(_life + lives);
     }
 
     /**
-     * Gets the remaining time (since `start countdown`) or current time (since the device started or `start stopwatch`) in milliseconds.
-     */
+    * Obtém o tempo restante (desde o início da contagem regressiva) ou o tempo atual (desde que o dispositivo foi iniciado ou desde o início do cronômetro) em milissegundos.
+    */
     //% weight=10
     export function currentTime(): number {
         if (_endTime > 0) {
@@ -202,12 +202,12 @@ namespace game {
     }
 
     /**
-     * Remove some life
-     * @param life amount of life to remove
+     * Remove uma quantidade de vidas.
+     * @param life quantidade de vidas a ser removida
      */
     //% weight=10 help=game/remove-life
     //% parts="ledmatrix"
-    //% blockId=game_remove_life block="remove life %life" blockGap=8
+    //% blockId=game_remove_life block="remover vida %life" blockGap=8
     export function removeLife(life: number): void {
         setLife(_life - life);
         if (!_paused && !_backgroundAnimation) {
@@ -225,7 +225,7 @@ namespace game {
     }
 
     /**
-     * Increments the level and display a message.
+    * Incrementa o nível e exibe uma mensagem.
      */
     //% weight=10
     //% parts="ledmatrix"
@@ -236,7 +236,7 @@ namespace game {
     }
 
     /**
-     * Gets the current level
+     * Pega o valor de level atual
      */
     //% weight=10
     export function level(): number {
@@ -244,7 +244,7 @@ namespace game {
     }
 
     /**
-     * Starts a stopwatch timer. `current time` will return the elapsed time.
+    * Inicia um cronômetro. `current time` retornará o tempo decorrido.
      */
     //% weight=10
     export function startStopwatch(): void {
@@ -253,16 +253,16 @@ namespace game {
     }
 
     /**
-     * Indicates if the game is still running. Returns `false` if the game is over or paused.
+     * Indica se o jogo ainda está em andamento. Retorna `false` se o jogo estiver terminado ou pausado.
      */
     //% weight=5 help=game/is-running
-    //% blockId=game_isrunning block="is running" blockGap=8
+    //% blockId=game_isrunning block="está em andamento" blockGap=8
     export function isRunning(): boolean {
         return !_isGameOver && !_paused && !!_img;
     }
 
     /**
-     * Displays the score on the screen.
+    * Exibe a pontuação na tela.
      */
     //%  weight=60
     //% parts="ledmatrix"
@@ -273,38 +273,38 @@ namespace game {
     }
 
     /**
-     * Indicates if the game is over and displaying the game over sequence.
+     * Indica se o jogo acabou e exibe a sequência de game over.
      */
     //% weight=7 help=game/is-game-over
-    //% blockId=game_isgameover block="is game over" blockGap=8
+    //% blockId=game_isgameover block="jogo acabou" blockGap=8
     export function isGameOver(): boolean {
         return _isGameOver;
     }
 
     /**
-     * Indicates if the game rendering is paused to allow other animations
+     * Indica se a renderização do jogo está pausada para permitir outras animações.
      */
     //% weight=6 help=game/is-paused
-    //% blockId=game_ispaused block="is paused" blockGap=8
+    //% blockId=game_ispaused block="está pausado" blockGap=8
     export function isPaused(): boolean {
         return _paused;
     }
 
-    /**
-     * Pauses the game rendering engine to allow other animations
+   /**
+     * Indica se a renderização do jogo está pausada para permitir outras animações.
      */
-    //% blockId=game_pause block="pause"
-    //% advanced=true blockGap=8 help=game/pause
+    //% weight=6 help=game/is-paused
+    //% blockId=game_ispaused block="jogo está pausado" blockGap=8
     export function pause(): void {
         plot()
         _paused = true;
     }
 
 
-    /**
-     * Resumes the game rendering engine
+  /**
+     * Retoma o mecanismo de renderização do jogo
      */
-    //% blockId=game_resume block="resume"
+    //% blockId=game_resume block="continuar"
     //% advanced=true blockGap=8 help=game/resume
     export function resume(): void {
         _paused = false;
@@ -312,7 +312,7 @@ namespace game {
     }
 
     /**
-     * returns false if game can't start
+     * Retorna `false` se o jogo não puder ser iniciado.
      */
     function checkStart(): boolean {
         if (_countdownPause > 0 || _startTime > 0) {
@@ -331,7 +331,7 @@ namespace game {
     }
 
     /**
-     * A game sprite rendered as a single LED
+     * Cria um ator do jogo renderizado como um único LED.
      */
     //%
     export class LedSprite {
@@ -354,12 +354,12 @@ namespace game {
         }
 
         /**
-         * Move a certain number of LEDs in the current direction
-         * @param this the sprite to move
-         * @param leds number of leds to move, eg: 1, -1
+         * Move a certa quantidade de LEDs na direção atual.
+         * @param sprite o ator a ser movido
+         * @param leds número de LEDs a mover, ex: 1, -1
          */
         //% weight=50 help=game/move
-        //% blockId=game_move_sprite block="%sprite|move by %leds" blockGap=8
+        //% blockId=game_move_sprite block="%sprite(ator)|move por %leds" blockGap=8
         //% parts="ledmatrix"
         public move(leds: number): void {
             if (this._dir == 0) {
@@ -388,11 +388,11 @@ namespace game {
             plot();
         }
 
-        /**
-         * Go to this position on the screen
-         * @param this TODO
-         * @param x TODO
-         * @param y TODO
+       /**
+         * Vai para uma posição específica na tela.
+         * @param sprite o ator a ser movido
+         * @param x a posição horizontal (0-4)
+         * @param y a posição vertical (0-4)
          */
         //% parts="ledmatrix"
         public goTo(x: number, y: number): void {
@@ -403,12 +403,12 @@ namespace game {
             plot();
         }
 
-        /**
-         * If touching the edge of the stage and facing towards it, then turn away.
-         * @param this the sprite to check for bounce
+       /**
+         * Se o ator estiver tocando a borda da tela e estiver indo na direção da borda, ele vira para o lado oposto.
+         * @param sprite o ator a ser verificado para "quicar"
          */
         //% weight=18 help=game/if-on-edge-bounce
-        //% blockId=game_sprite_bounce block="%sprite|if on edge, bounce"
+        //% blockId=game_sprite_bounce block="%sprite(ator)|se estiver na borda, voltar"
         //% parts="ledmatrix"
         public ifOnEdgeBounce(): void {
             if (this._dir == 0 && this._y == 0) {
@@ -455,14 +455,14 @@ namespace game {
             plot();
         }
 
-        /**
-         * Turn the sprite
-         * @param this the sprite to trun
-         * @param direction left or right
-         * @param degrees angle in degrees to turn, eg: 45, 90, 180, 135
+       /**
+         * Vira o ator
+         * @param sprite o ator a ser virado
+         * @param direction esquerda ou direita
+         * @param degrees ângulo em graus para virar, ex: 45, 90, 180, 135
          */
         //% weight=49 help=game/turn
-        //% blockId=game_turn_sprite block="%sprite|turn %direction|by (°) %degrees"
+        //% blockId=game_turn_sprite block="%sprite(ator)|virar a %direction|em (°) %degrees"
         public turn(direction: Direction, degrees: number) {
             if (direction == Direction.Right)
                 this.setDirection(this._dir + degrees);
@@ -470,31 +470,31 @@ namespace game {
                 this.setDirection(this._dir - degrees);
         }
 
-        /**
-         * Turn to the right (clockwise)
-         * @param this the sprite to turn
-         * @param degrees TODO
+       /**
+         * Vira para a direita (horário)
+         * @param sprite o ator a ser virado
+         * @param degrees ângulo em graus para virar, ex: 45, 90, 180, 135
          */
         public turnRight(degrees: number): void {
             this.turn(Direction.Right, degrees);
         }
 
-        /**
-         * Turn to the left (counter-clockwise)
-         * @param this the sprite to turn
-         * @param degrees TODO
+       /**
+         * Vira para a esquerda (anti-horário)
+         * @param sprite o ator a ser virado
+         * @param degrees ângulo em graus para virar, ex: 45, 90, 180, 135
          */
         public turnLeft(degrees: number): void {
             this.turn(Direction.Left, degrees);
         }
 
-        /**
-         * Sets a property of the sprite
-         * @param property the name of the property to change
-         * @param the updated value
-         */
-        //% weight=29 help=game/set
-        //% blockId=game_sprite_set_property block="%sprite|set %property|to %value" blockGap=8
+     /**
+     * Define uma propriedade do ator
+     * @param property o nome da propriedade a ser alterada
+     * @param value o valor atualizado
+     */
+    //% weight=29 help=game/set
+    //% blockId=game_sprite_set_property block="%sprite(ator)|definir %property|para %value" blockGap=8
         public set(property: LedSpriteProperty, value: number) {
             switch (property) {
                 case LedSpriteProperty.X: this.setX(value); break;
@@ -505,13 +505,13 @@ namespace game {
             }
         }
 
-        /**
-         * Changes a property of the sprite
-         * @param property the name of the property to change
-         * @param value amount of change, eg: 1
+       /**
+         * Altera uma propriedade do ator
+         * @param property o nome da propriedade a ser alterada
+         * @param value a quantidade de alteração, ex: 1
          */
         //% weight=30 help=game/change
-        //% blockId=game_sprite_change_xy block="%sprite|change %property|by %value" blockGap=8
+        //% blockId=game_sprite_change_xy block="%sprite(ator)|alterar %property|por %value" blockGap=8
         public change(property: LedSpriteProperty, value: number) {
             switch (property) {
                 case LedSpriteProperty.X: this.changeXBy(value); break;
@@ -523,11 +523,11 @@ namespace game {
         }
 
         /**
-         * Gets a property of the sprite
-         * @param property the name of the property to change
+         * Obtém uma propriedade do ator
+         * @param property o nome da propriedade a ser obtida
          */
         //% weight=28 help=game/get
-        //% blockId=game_sprite_property block="%sprite|%property"
+        //% blockId=game_sprite_property block="%sprite(ator)|%property"
         public get(property: LedSpriteProperty) {
             switch (property) {
                 case LedSpriteProperty.X: return this.x();
@@ -539,10 +539,10 @@ namespace game {
             }
         }
 
-        /**
-         * Set the direction of the current sprite, rounded to the nearest multiple of 45
-         * @param this the sprite to set direction for
-         * @param degrees new direction in degrees
+       /**
+         * Define a direção do ator atual, arredondada para o múltiplo mais próximo de 45
+         * @param this o ator para o qual definir a direção
+         * @param degrees nova direção em graus
          */
         //% parts="ledmatrix"
         public setDirection(degrees: number): void {
@@ -556,7 +556,7 @@ namespace game {
         }
 
         /**
-         * Reports the ``x`` position of a sprite on the LED screen
+        * Relata a posição ``x`` de um ator na tela de LEDs
          * @param this TODO
          */
         public x(): number {
@@ -564,15 +564,15 @@ namespace game {
         }
 
         /**
-         * Reports the ``y`` position of a sprite on the LED screen
+        * Relata a posição ``y`` de um ator na tela de LEDs
          * @param this TODO
-         */
+         */ 
         public y(): number {
             return this._y;
         }
 
         /**
-         * Reports the current direction of a sprite
+        * Relata a direção atual de um ator
          * @param this TODO
          */
         public direction(): number {
@@ -580,7 +580,7 @@ namespace game {
         }
 
         /**
-         * Set the ``x`` position of a sprite
+        * Define a posição ``x`` de um ator
          * @param this TODO
          * @param x TODO
          */
@@ -589,7 +589,7 @@ namespace game {
         }
 
         /**
-         * Set the ``y`` position of a sprite
+        * Define a posição ``y`` de um ator
          * @param this TODO
          * @param y TODO
          */
@@ -598,7 +598,7 @@ namespace game {
         }
 
         /**
-         * Changes the ``y`` position by the given amount
+        * Altera a posição ``y`` pelo valor fornecido
          * @param this TODO
          * @param y TODO
          */
@@ -607,7 +607,7 @@ namespace game {
         }
 
         /**
-         * Changes the ``x`` position by the given amount
+        * Altera a posição ``x`` pelo valor fornecido
          * @param this TODO
          * @param x TODO
          */
@@ -615,47 +615,47 @@ namespace game {
             this.goTo(this._x + x, this._y);
         }
 
-        /**
-         * Reports true if sprite has the same position as specified sprite
-         * @param this the sprite to check overlap or touch
-         * @param other the other sprite to check overlap or touch
+       /**
+         * Retorna verdadeiro se o ator estiver na mesma posição que o ator especificado
+         * @param this o ator para verificar sobreposição ou toque
+         * @param other o outro ator para verificar sobreposição ou toque
          */
         //% weight=20 help=game/is-touching
-        //% blockId=game_sprite_touching_sprite block="is %sprite|touching %other" blockGap=8
+        //% blockId=game_sprite_touching_sprite block="o %sprite(ator)|está tocando %other" blockGap=8
         public isTouching(other: LedSprite): boolean {
             return this._enabled && other._enabled && this._x == other._x && this._y == other._y;
         }
 
-        /**
-         * Reports true if sprite is touching an edge
-         * @param this the sprite to check for an edge contact
+       /**
+         * Retorna verdadeiro se o ator estiver tocando a borda
+         * @param this o ator para verificar contato com a borda
          */
         //% weight=19 help=game/is-touching-edge
-        //% blockId=game_sprite_touching_edge block="is %sprite|touching edge" blockGap=8
+        //% blockId=game_sprite_touching_edge block="o %sprite(ator)|está tocando a borda" blockGap=8
         public isTouchingEdge(): boolean {
             return this._enabled && (this._x == 0 || this._x == 4 || this._y == 0 || this._y == 4);
         }
 
         /**
-         * Turns on the sprite (on by default)
-         * @param this the sprite
+         * Liga o ator (ligado por padrão)
+        * @param this o ator
          */
         public on(): void {
             this.setBrightness(255);
         }
 
         /**
-         * Turns off the sprite (on by default)
-         * @param this the sprite
+         * Desliga o ator (ligado por padrão)
+         * @param this o ator
          */
         public off(): void {
             this.setBrightness(0);
         }
 
         /**
-         * Set the ``brightness`` of a sprite
-         * @param this the sprite
-         * @param brightness the brightness from 0 (off) to 255 (on), eg: 255.
+         * Define o ``brilho`` de um ator
+        * @param this o ator
+        * @param brilho o brilho de 0 (desligado) a 255 (ligado), por exemplo: 255.tness the brightness from 0 (off) to 255 (on), eg: 255.
          */
         //% parts="ledmatrix"
         public setBrightness(brightness: number): void {
@@ -663,9 +663,9 @@ namespace game {
             plot();
         }
 
-        /**
-         * Reports the ``brightness` of a sprite on the LED screen
-         * @param this the sprite
+       /**
+         * Informa o ``brilho`` de um ator na tela de LED
+         * @param this o ator
          */
         //% parts="ledmatrix"
         public brightness(): number {
@@ -674,16 +674,16 @@ namespace game {
         }
 
         /**
-         * Changes the ``y`` position by the given amount
-         * @param this the sprite
-         * @param value the value to change brightness
+         * Altera a posição ``y`` pela quantidade dada
+         * @param this o ator
+         * @param value o valor para alterar o brilho
          */
         public changeBrightnessBy(value: number): void {
             this.setBrightness(this._brightness + value);
         }
 
-        /**
-         * Changes the ``direction`` position by the given amount by turning right
+       /**
+         * Altera a posição da ``direção`` pela quantidade dada, girando para a direita
          * @param this TODO
          * @param angle TODO
          */
@@ -692,11 +692,11 @@ namespace game {
         }
 
         /**
-         * Deletes the sprite from the game engine. The sprite will no longer appear on the screen or interact with other sprites.
-         * @param this sprite to delete
+         * Exclui o ator do mecanismo de jogo. O ator não aparecerá mais na tela nem interagirá com outros atores.
+         * @param this ator a ser excluído
          */
         //% weight=59 blockGap=8 help=game/delete
-        //% blockId="game_delete_sprite" block="delete %this(sprite)"
+        //% blockId="game_delete_sprite" block="apaga %this(ator)"
         public delete(): void {
             this._enabled = false;
             if (_sprites.removeElement(this))
@@ -704,16 +704,16 @@ namespace game {
         }
 
         /**
-         * Reports whether the sprite has been deleted from the game engine.
+        * Informa se o ator foi excluído do mecanismo de jogo.
          */
         //% weight=58 help=game/is-deleted
-        //% blockId="game_sprite_is_deleted" block="is %sprite|deleted"
+        //% blockId="game_sprite_is_deleted" block="foi excluido? %sprite(ator)"
         public isDeleted(): boolean {
             return !this._enabled;
         }
 
         /**
-         * Sets the blink duration interval in millisecond.
+        * Define o intervalo de duração do piscar em milissegundos.
          * @param sprite TODO
          * @param ms TODO
          */
@@ -722,7 +722,7 @@ namespace game {
         }
 
         /**
-         * Changes the ``blink`` duration by the given amount of millisecons
+        * Altera a duração do ``piscar`` pela quantidade de milissegundos fornecida.
          * @param this TODO
          * @param ms TODO
          */
@@ -731,7 +731,7 @@ namespace game {
         }
 
         /**
-         * Reports the ``blink`` duration of a sprite
+        * Relata a duração do ``piscar`` de um ator.
          * @param this TODO
          */
         public blink(): number {
@@ -774,7 +774,7 @@ namespace game {
     }
 
     /**
-     * Plots the current sprites on the screen
+    * Exibe os atores atuais na tela.
      */
     //% parts="ledmatrix"
     function plot(): void {
@@ -795,7 +795,7 @@ namespace game {
     }
 
     /**
-     * Gets an invalid sprite; used to initialize locals.
+    * Obtém um ator inválido; usado para inicializar variáveis locais.
      */
     //% weight=0
     export function invalidSprite(): LedSprite {
