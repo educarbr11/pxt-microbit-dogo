@@ -4334,7 +4334,10 @@ var pxt;
                     operators: {
                         'op': ["min", "max"]
                     },
-                    category: 'math'
+                    category: 'math',
+                    block: {
+                        message0: pxt.Util.lf("[%1] de %2 e %3")
+                    }
                 },
                 'math_op3': {
                     name: pxt.Util.lf("número absoluto"),
