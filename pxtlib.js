@@ -4531,12 +4531,12 @@ var pxt;
                     }
                 },
                 'lists_length': {
-                    name: pxt.Util.lf("comprimento do array"),
+                    name: pxt.Util.lf("tamanho do array"),
                     tooltip: pxt.Util.lf("Retorna o número de itens em um array."),
                     url: '/reference/arrays/length',
                     category: 'arrays',
                     block: {
-                        LISTS_LENGTH_TITLE: pxt.Util.lf("comprimento do array %1")
+                        LISTS_LENGTH_TITLE: pxt.Util.lf("tamanho do array %1")
                     }
                 },
                 'lists_index_get': {
