@@ -4524,30 +4524,30 @@ var pxt;
                     }
                 },
                 'lists_create_with': {
-                    name: pxt.Util.lf("criar um array"),
-                    tooltip: pxt.Util.lf("Cria um novo array."),
+                    name: pxt.Util.lf("criar uma lista"),
+                    tooltip: pxt.Util.lf("Cria uma nova lista."),
                     url: '/reference/arrays/create',
                     category: 'arrays',
                     blockTextSearch: "LISTS_CREATE_WITH_INPUT_WITH",
                     block: {
-                        LISTS_CREATE_EMPTY_TITLE: pxt.Util.lf("array vazio"),
-                        LISTS_CREATE_WITH_INPUT_WITH: pxt.Util.lf("array de"),
-                        LISTS_CREATE_WITH_CONTAINER_TITLE_ADD: pxt.Util.lf("array"),
+                        LISTS_CREATE_EMPTY_TITLE: pxt.Util.lf("lista vazia"),
+                        LISTS_CREATE_WITH_INPUT_WITH: pxt.Util.lf("lista de"),
+                        LISTS_CREATE_WITH_CONTAINER_TITLE_ADD: pxt.Util.lf("lista"),
                         LISTS_CREATE_WITH_ITEM_TITLE: pxt.Util.lf("valor")
                     }
                 },
                 'lists_length': {
-                    name: pxt.Util.lf("tamanho do array"),
-                    tooltip: pxt.Util.lf("Retorna o número de itens em um array."),
+                    name: pxt.Util.lf("tamanho da lista"),
+                    tooltip: pxt.Util.lf("Retorna o número de itens em uma lista."),
                     url: '/reference/arrays/length',
                     category: 'arrays',
                     block: {
-                        LISTS_LENGTH_TITLE: pxt.Util.lf("tamanho do array %1")
+                        LISTS_LENGTH_TITLE: pxt.Util.lf("tamanho da lista %1")
                     }
                 },
                 'lists_index_get': {
-                    name: pxt.Util.lf("obter um valor em um array"),
-                    tooltip: pxt.Util.lf("Retorna o valor no índice dado em um array."),
+                    name: pxt.Util.lf("obter um valor em uma lista"),
+                    tooltip: pxt.Util.lf("Retorna o valor no índice dado em uma lista."),
                     url: '/reference/arrays/get',
                     category: 'arrays',
                     block: {
@@ -4555,8 +4555,8 @@ var pxt;
                     }
                 },
                 'lists_index_set': {
-                    name: pxt.Util.lf("definir um valor em um array"),
-                    tooltip: pxt.Util.lf("Define o valor no índice dado em um array"),
+                    name: pxt.Util.lf("definir um valor em uma lista"),
+                    tooltip: pxt.Util.lf("Define o valor no índice dado em uma lista"),
                     url: '/reference/arrays/set',
                     category: 'arrays',
                     block: {
