@@ -4406,7 +4406,7 @@ var pxt;
                     url: '/blocks/math',
                     category: 'math',
                     block: {
-                        MATH_MODULO_TITLE: pxt.Util.lf("resto de %1 / %2")
+                        MATH_MODULO_TITLE: pxt.Util.lf("resto da divisão de %1 / %2")
                     }
                 },
                 'math_js_op': {
@@ -4456,7 +4456,7 @@ var pxt;
                         "round": pxt.Util.lf("{id:op}arredondar"),
                         "ceil": pxt.Util.lf("{id:op}arredondar para cima"),
                         "floor": pxt.Util.lf("{id:op}arredondar para baixo"),
-                        "trunc": pxt.Util.lf("{id:op}truncar"),
+                        "trunc": pxt.Util.lf("{id:op}remover a parte decimal"),
                     }
                 },
                 'variables_change': {
