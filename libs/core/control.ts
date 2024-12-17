@@ -2,7 +2,7 @@
 * Runtime and event utilities.
 */
 //% weight=1 color="#333333" icon="\uf233"
-//% advanced=true
+//% advanced=true block="CONTROLE"
 namespace control {
     /**
      * Run other code in the parallel.
@@ -196,11 +196,11 @@ namespace control {
 }
 
 /**
- * Convert any value to text
- * @param value value to be converted to text
+ * Converter qualquer valor númerico para texto
+ * @param value valor a ser convertido
  */
 //% help=text/convert-to-text weight=1
-//% block="convert $value=math_number to text"
+//% block="tranformar $value=math_number para texto"
 //% blockId=variable_to_text blockNamespace="text"
 function convertToText(value: any): string {
     return "" + value;

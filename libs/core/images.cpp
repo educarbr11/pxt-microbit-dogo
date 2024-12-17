@@ -31,24 +31,24 @@ unsigned RefMImage::gcsize(RefMImage *t) {
  * Creation, manipulation and display of LED images.
  */
 //% color=#7600A8 weight=31 icon="\uf03e"
-//% advanced=true
+//% advanced=true block="IMAGENS"
 namespace images {
 /**
- * Creates an image that fits on the LED screen.
+ * Cria uma imagem que se ajusta à tela de LEDs.
  */
-//% weight=75 help=images/create-image
-//% blockId=device_build_image block="create image"
-//% parts="ledmatrix"
+    //% peso=75 ajuda=imagens/criar-imagem
+    //% blockId=dispositivo_criar_imagem block="criar imagem"
+    //% partes="matrizled"
 Image createImage(ImageLiteral_ leds) {
     return NEW_GC(RefMImage, imageBytes(leds));
 }
 
 /**
- * Creates an image with 2 frames.
+ * Cria uma imagem com 2 quadros.
  */
-//% weight=74 help=images/create-big-image
-//% blockId=device_build_big_image block="create big image" imageLiteral=2
-//% parts="ledmatrix"
+    //% peso=74 ajuda=imagens/criar-imagem-grande
+    //% blockId=dispositivo_criar_imagem_grande block="criar imagem grande" imageLiteral=2
+    //% partes="matrizled"
 Image createBigImage(ImageLiteral_ leds) {
     return createImage(leds);
 }
@@ -72,54 +72,54 @@ Buffer charCodeBuffer(int charCode) {
 
 namespace ImageMethods {
 /**
- * Plots the image at a given column to the screen
+ * Exibe a imagem em uma coluna dada na tela
  */
-//% help=images/plot-image
-//% parts="ledmatrix"
+    //% ajuda=imagens/exibir-imagem
+    //% partes="matrizled"
 void plotImage(Image i, int xOffset = 0) {
     uBit.display.print(MicroBitImage(i->img), -xOffset, 0, 0, 0);
 }
 
 /**
- * Shows an frame from the image at offset ``x offset``.
- * @param xOffset column index to start displaying the image
- * @param interval time in milliseconds to pause after drawing
+ * Exibe um quadro da imagem no deslocamento ``x offset``.
+ * @param xOffset índice da coluna para começar a exibir a imagem
+ * @param interval tempo em milissegundos para pausar após desenhar
  */
-//% help=images/show-image weight=80 blockNamespace=images
-//% blockId=device_show_image_offset block="show image %sprite(myImage)|at offset %offset ||and interval (ms) %interval"
+//% ajuda=imagens/exibir-imagem weight=80 blockNamespace=imagens
+//% blockId=device_show_image_offset block="exibir imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval"
 //% interval.defl=400
-//% blockGap=8 parts="ledmatrix" async
+//% blockGap=8 partes="matrizled" assíncrono
 void showImage(Image sprite, int xOffset, int interval = 400) {
     uBit.display.print(MicroBitImage(sprite->img), -xOffset, 0, 0, interval);
 }
 
 /**
- * Draws the ``index``-th frame of the image on the screen.
- * @param xOffset column index to start displaying the image
+ * Desenha o quadro ``index``-ésimo da imagem na tela.
+ * @param xOffset índice da coluna para começar a exibir a imagem
  */
-//% help=images/plot-frame weight=80
-//% parts="ledmatrix"
+//% ajuda=imagens/desenhar-quadro weight=80
+//% partes="matrizled"
 void plotFrame(Image i, int xOffset) {
     // TODO showImage() used in original implementation
     plotImage(i, xOffset * i->img->height);
 }
 
 /**
- * Scrolls an image .
- * @param frameOffset x offset moved on each animation step, eg: 1, 2, 5
- * @param interval time between each animation step in milli seconds, eg: 200
+ * Rola uma imagem.
+ * @param frameOffset deslocamento x movido em cada passo de animação, ex: 1, 2, 5
+ * @param interval tempo entre cada passo de animação em milissegundos, ex: 200
  */
-//% help=images/scroll-image weight=79 async blockNamespace=images
-//% blockId=device_scroll_image
-//% block="scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %delay"
-//% blockGap=8 parts="ledmatrix"
+//% ajuda=imagens/rolar-imagem weight=79 async blockNamespace=imagens
+//% blockId=device_rolar_imagem
+//% block="rolar imagem %sprite(minhaImagem)|com deslocamento %frameoffset|e intervalo (ms) %delay"
+//% blockGap=8 partes="matrizled"
 void scrollImage(Image id, int frameOffset, int interval) {
     MicroBitImage i(id->img);
     uBit.display.animate(i, interval, frameOffset, MICROBIT_DISPLAY_ANIMATE_DEFAULT_POS, 0);
 }
 
 /**
- * Sets all pixels off.
+ * desligar todos os leds
  */
 //% help=images/clear
 //% parts="ledmatrix"
@@ -129,7 +129,7 @@ void clear(Image i) {
 }
 
 /**
- * Sets a specific pixel brightness at a given position
+ * Define o brilho de um pixel específico em uma posição dada
  */
 //%
 //% parts="ledmatrix"
@@ -139,7 +139,7 @@ void setPixelBrightness(Image i, int x, int y, int value) {
 }
 
 /**
- * Gets the pixel brightness ([0..255]) at a given position
+ * Obtém o brilho do pixel ([0..255]) em uma posição dada
  */
 //%
 //% parts="ledmatrix"

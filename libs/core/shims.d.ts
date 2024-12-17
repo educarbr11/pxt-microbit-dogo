@@ -5,81 +5,81 @@
      * Creation, manipulation and display of LED images.
      */
     //% color=#7600A8 weight=31 icon="\uf03e"
-    //% advanced=true
+    //% advanced=true block="IMAGENS"
 declare namespace images {
 
     /**
-     * Creates an image that fits on the LED screen.
+     * Cria uma imagem que se ajusta à tela de LEDs.
      */
-    //% weight=75 help=images/create-image
-    //% blockId=device_build_image block="create image"
-    //% parts="ledmatrix" imageLiteral=1 shim=images::createImage
+    //% peso=75 ajuda=imagens/criar-imagem
+    //% blockId=dispositivo_criar_imagem block="criar imagem"
+    //% partes="matrizled" imageLiteral=1 shim=images::createImage
     function createImage(leds: string): Image;
 
     /**
-     * Creates an image with 2 frames.
+     * Cria uma imagem com 2 quadros.
      */
-    //% weight=74 help=images/create-big-image
-    //% blockId=device_build_big_image block="create big image" imageLiteral=2
-    //% parts="ledmatrix" shim=images::createBigImage
+    //% peso=74 ajuda=imagens/criar-imagem-grande
+    //% blockId=dispositivo_criar_imagem_grande block="criar imagem grande" imageLiteral=2
+    //% partes="matrizled" shim=images::createBigImage
     function createBigImage(leds: string): Image;
 }
 
 
 declare interface Image {
     /**
-     * Plots the image at a given column to the screen
+     * Exibe a imagem em uma coluna dada na tela
      */
-    //% help=images/plot-image
-    //% parts="ledmatrix" xOffset.defl=0 shim=ImageMethods::plotImage
+    //% ajuda=imagens/exibir-imagem
+    //% partes="matrizled" xOffset.defl=0 shim=ImageMethods::plotImage
     plotImage(xOffset?: int32): void;
 
     /**
-     * Shows an frame from the image at offset ``x offset``.
-     * @param xOffset column index to start displaying the image
-     * @param interval time in milliseconds to pause after drawing
+     * Exibe um quadro da imagem no deslocamento ``x offset``.
+     * @param xOffset índice da coluna para começar a exibir a imagem
+     * @param interval tempo em milissegundos para pausar após desenhar
      */
-    //% help=images/show-image weight=80 blockNamespace=images
-    //% blockId=device_show_image_offset block="show image %sprite(myImage)|at offset %offset ||and interval (ms) %interval"
+    //% ajuda=imagens/exibir-imagem weight=80 blockNamespace=imagens
+    //% blockId=device_show_image_offset block="exibir imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval"
     //%
-    //% blockGap=8 parts="ledmatrix" async interval.defl=400 shim=ImageMethods::showImage
+    //% blockGap=8 partes="matrizled" assíncrono interval.defl=400 shim=ImageMethods::showImage
     showImage(xOffset: int32, interval?: int32): void;
 
     /**
-     * Draws the ``index``-th frame of the image on the screen.
-     * @param xOffset column index to start displaying the image
+     * Desenha o quadro ``index``-ésimo da imagem na tela.
+     * @param xOffset índice da coluna para começar a exibir a imagem
      */
-    //% help=images/plot-frame weight=80
-    //% parts="ledmatrix" shim=ImageMethods::plotFrame
+    //% ajuda=imagens/desenhar-quadro weight=80
+    //% partes="matrizled" shim=ImageMethods::plotFrame
     plotFrame(xOffset: int32): void;
 
     /**
-     * Scrolls an image .
-     * @param frameOffset x offset moved on each animation step, eg: 1, 2, 5
-     * @param interval time between each animation step in milli seconds, eg: 200
+     * Rola uma imagem.
+     * @param frameOffset deslocamento x movido em cada passo de animação, ex: 1, 2, 5
+     * @param interval tempo entre cada passo de animação em milissegundos, ex: 200
      */
-    //% help=images/scroll-image weight=79 async blockNamespace=images
-    //% blockId=device_scroll_image
-    //% block="scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %delay"
-    //% blockGap=8 parts="ledmatrix" shim=ImageMethods::scrollImage
+    //% ajuda=imagens/rolar-imagem weight=79 async blockNamespace=imagens
+    //% blockId=device_rolar_imagem
+    //% block="rolar imagem %sprite(minhaImagem)|com deslocamento %frameoffset|e intervalo (ms) %delay"
+    //% blockGap=8 partes="matrizled" shim=ImageMethods::scrollImage
     scrollImage(frameOffset: int32, interval: int32): void;
 
     /**
-     * Sets all pixels off.
+     * desligar todos os leds
      */
     //% help=images/clear
     //% parts="ledmatrix" shim=ImageMethods::clear
     clear(): void;
 
     /**
-     * Sets a specific pixel brightness at a given position
+     * Define o brilho de um pixel específico em uma posição dada
      */
     //%
     //% parts="ledmatrix" shim=ImageMethods::setPixelBrightness
     setPixelBrightness(x: int32, y: int32, value: int32): void;
 
     /**
-     * Gets the pixel brightness ([0..255]) at a given position
+     * Obtém o brilho do pixel ([0..255]) em uma posição dada
      */
     //%
     //% parts="ledmatrix" shim=ImageMethods::pixelBrightness
@@ -245,7 +245,7 @@ declare namespace input {
      * @param body o código a ser executado quando o pino é pressionado
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_event block="quando o pino %name|é ativado" shim=input::onPinPressed
+    //% blockId=device_pin_event block="quando pino %name| ativado" shim=input::onPinPressed
     function onPinPressed(name: TouchPin, body: () => void): void;
 
     /**
@@ -254,7 +254,7 @@ declare namespace input {
      * @param body o código a ser executado quando o pino é desativado
      */
     //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="no pino %NAME|desativado" shim=input::onPinReleased
+    //% blockId=device_pin_released block="quando pino %NAME|desativado" shim=input::onPinReleased
     function onPinReleased(name: TouchPin, body: () => void): void;
 
     /**
@@ -273,7 +273,7 @@ declare namespace input {
      * @param name pino utilizado para detectar o toque, por exemplo: TouchPin.P0
      */
     //% help=input/pin-is-pressed weight=58
-    //% blockId="device_pin_is_pressed" block="pino %NAME|é ativado"
+    //% blockId="device_pin_is_pressed" block="pino %NAME| ativado"
     //% blockGap=8 shim=input::pinIsPressed
     function pinIsPressed(name: TouchPin): boolean;
 
@@ -369,76 +369,76 @@ declare namespace control {
     function micros(): int32;
 
     /**
-     * Schedules code that run in the background.
+     * Agenda o código para ser executado em segundo plano.
      */
     //% help=control/in-background blockAllowMultiple=1 afterOnStart=true
-    //% blockId="control_in_background" block="run in background" blockGap=8 shim=control::inBackground
+    //% blockId="control_in_background" block="executar em segundo plano" blockGap=8 shim=control::inBackground
     function inBackground(a: () => void): void;
 
     /**
-     * Blocks the calling thread until the specified event is raised.
+     * Bloqueia o thread chamador até que o evento especificado seja gerado.
      */
-    //% help=control/wait-for-event async
-    //% blockId=control_wait_for_event block="wait for event|from %src|with value %value" shim=control::waitForEvent
+    //% ajuda=controle/aguardar-por-evento assíncrono
+    //% blockId=controle_aguardar_por_evento bloco="aguardar por evento|de %src|com valor %value" shim=control::waitForEvent
     function waitForEvent(src: int32, value: int32): void;
 
     /**
-     * Resets the BBC micro:bit.
+     * Reiniciar BBC micro:bit.
      */
     //% weight=30 async help=control/reset blockGap=8
-    //% blockId="control_reset" block="reset" shim=control::reset
+    //% blockId="control_reset" block="reiniciar" shim=control::reset
     function reset(): void;
 
     /**
-     * Blocks the current fiber for the given microseconds
-     * @param micros number of micro-seconds to wait. eg: 4
+     * Bloqueia a fibra atual pelos microsegundos especificados
+     * @param micros número de microsegundos a aguardar. Ex: 4
      */
-    //% help=control/wait-micros weight=29 async
-    //% blockId="control_wait_us" block="wait (µs)%micros"
+    //% ajuda=controle/aguardar-micros peso=29 assíncrono
+    //% blockId="controle_aguardar_us" bloco="aguardar (µs)%micros"
     //% micros.min=0 micros.max=6000 shim=control::waitMicros
     function waitMicros(micros: int32): void;
 
     /**
-     * Raises an event in the event bus.
-     * @param src ID of the MicroBit Component that generated the event e.g. MICROBIT_ID_BUTTON_A.
-     * @param value Component specific code indicating the cause of the event.
-     * @param mode optional definition of how the event should be processed after construction (default is CREATE_AND_FIRE).
+     * Dispara um evento no barramento de eventos.
+     * @param src ID do componente MicroBit que gerou o evento, por exemplo, MICROBIT_ID_BUTTON_A.
+     * @param value Código específico do componente que indica a causa do evento.
+     * @param mode definição opcional de como o evento deve ser processado após a criação (o padrão é CREATE_AND_FIRE).
      */
-    //% weight=21 blockGap=12 blockId="control_raise_event" block="raise event|from source %src=control_event_source_id|with value %value=control_event_value_id" blockExternalInputs=1
-    //% help=control/raise-event
+    //% peso=21 espaçoEntreBlocos=12 blockId="controle_disparar_evento" bloco="disparar evento|de origem %src=controle_evento_origem_id|com valor %value=controle_evento_valor_id" entradasExternasBloco=1
+    //% ajuda=controle/disparar-evento
     //% mode.defl=1 shim=control::raiseEvent
     function raiseEvent(src: int32, value: int32, mode?: EventCreationMode): void;
 
     /**
-     * Registers an event handler.
+     * Registra um manipulador de eventos.
      */
-    //% weight=20 blockGap=8 blockId="control_on_event" block="on event|from %src=control_event_source_id|with value %value=control_event_value_id"
-    //% help=control/on-event
-    //% blockExternalInputs=1 flags.defl=0 shim=control::onEvent
+    //% peso=20 espaçoEntreBlocos=8 blockId="controle_on_evento" bloco="quando evento|de origem %src=controle_evento_origem_id|com valor %value=controle_evento_valor_id"
+    //% ajuda=controle/quando-evento
+    //% entradasExternasBloco=1 flags.defl=0 shim=control::onEvent
     function onEvent(src: int32, value: int32, handler: () => void, flags?: int32): void;
 
     /**
-     * Gets the value of the last event executed on the bus
+     * Obtém o valor do último evento executado no barramento
      */
-    //% blockId=control_event_value" block="event value"
-    //% help=control/event-value
-    //% weight=18 shim=control::eventValue
+    //% blockId=controle_valor_evento" bloco="valor do evento"
+    //% ajuda=controle/valor-evento
+    //% peso=18 shim=control::eventValue
     function eventValue(): int32;
 
     /**
-     * Gets the timestamp of the last event executed on the bus
+     * Obtém o carimbo de data e hora do último evento executado no barramento
      */
-    //% blockId=control_event_timestamp" block="event timestamp"
-    //% help=control/event-timestamp
-    //% weight=19 blockGap=8 shim=control::eventTimestamp
+    //% blockId=controle_carimbo_evento" bloco="carimbo do evento"
+    //% ajuda=controle/carimbo-evento
+    //% peso=19 blocoGap=8 shim=control::eventTimestamp
     function eventTimestamp(): int32;
 
     /**
-     * Make a friendly name for the device based on its serial number
+     * Cria um nome amigável para o dispositivo com base no seu número de série
      */
-    //% blockId="control_device_name" block="device name" weight=10 blockGap=8
-    //% help=control/device-name
-    //% advanced=true shim=control::deviceName
+    //% blockId="controle_nome_dispositivo" block="nome do dispositivo" peso=10 blocoGap=8
+    //% ajuda=controle/nome-dispositivo
+    //% avançado=true shim=control::deviceName
     function deviceName(): string;
 
     /**
@@ -448,18 +448,18 @@ declare namespace control {
     function _hardwareVersion(): string;
 
     /**
-     * Derive a unique, consistent serial number of this device from internal data.
+     * Deriva um número de série único e consistente para este dispositivo a partir de dados internos.
      */
-    //% blockId="control_device_serial_number" block="device serial number" weight=9
-    //% help=control/device-serial-number
-    //% advanced=true shim=control::deviceSerialNumber
+    //% blockId="controle_numero_serie_dispositivo" block="número de série do dispositivo" peso=9
+    //% ajuda=controle/numeros-de-serie-dispositivo
+    //% avançado=true shim=control::deviceSerialNumber
     function deviceSerialNumber(): int32;
 
     /**
-     * Derive a unique, consistent 64-bit serial number of this device from internal data.
+     * Deriva um número de série único e consistente de 64 bits para este dispositivo a partir de dados internos.
      */
-    //% help=control/device-long-serial-number
-    //% advanced=true shim=control::deviceLongSerialNumber
+    //% ajuda=controle/dispositivo-numero-serial-longo
+    //% avançado=true shim=control::deviceLongSerialNumber
     function deviceLongSerialNumber(): Buffer;
 
     /**
@@ -582,7 +582,7 @@ declare namespace led {
      * Obtém o brilho da tela de 0 (desligado) a 255 (brilho total).
      */
     //% help=led/brightness weight=60
-    //% blockId=device_get_brightness block="brilho" blockGap=8
+    //% blockId=device_get_brightness block="brilho do led" blockGap=8
     //% parts="ledmatrix"
     //% advanced=false shim=led::brightness
     function brightness(): int32;
@@ -697,102 +697,102 @@ declare namespace music {
 declare namespace pins {
 
     /**
-     * Read the specified pin or connector as either 0 or 1
+     * Leia o pino ou conector especificado como 0 ou 1
      * @param name pin to read from, eg: DigitalPin.P0
      */
     //% help=pins/digital-read-pin weight=30
-    //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
+    //% blockId=device_get_digital_pin block="ler pino digital %name" blockGap=8
     //% name.shadow=digital_pin_shadow shim=pins::digitalReadPin
     function digitalReadPin(name: int32): int32;
 
     /**
-     * Set a pin or connector value to either 0 or 1.
-     * @param name pin to write to, eg: DigitalPin.P0
-     * @param value value to set on the pin, 1 eg,0
+     * Define o valor de um pino ou conector como 0 ou 1.
+     * @param name pino para escrever o valor, ex: DigitalPin.P0
+     * @param value valor a ser definido no pino, 1 ex, 0
      */
     //% help=pins/digital-write-pin weight=29
-    //% blockId=device_set_digital_pin block="digital write|pin %name|to %value"
+    //% blockId=device_set_digital_pin block="mudar pino digital %name|para %value"
     //% value.min=0 value.max=1
     //% name.shadow=digital_pin_shadow shim=pins::digitalWritePin
     function digitalWritePin(name: int32, value: int32): void;
 
     /**
-     * Read the connector value as analog, that is, as a value comprised between 0 and 1023.
-     * @param name pin to write to, eg: AnalogPin.P0
+     * Lê o valor do conector como analógico, ou seja, como um valor entre 0 e 1023.
+     * @param name pino para ler, ex: AnalogPin.P0
      */
     //% help=pins/analog-read-pin weight=25
-    //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
+    //% blockId=device_get_analog_pin block="ler pino analógico %name" blockGap="8"
     //% name.shadow=analog_read_write_pin_shadow shim=pins::analogReadPin
     function analogReadPin(name: int32): int32;
 
     /**
-     * Set the connector value as analog. Value must be comprised between 0 and 1023.
-     * @param name pin name to write to, eg: AnalogPin.P0
-     * @param value value to write to the pin between ``0`` and ``1023``. eg:1023,0
+     * Define o valor do conector como analógico. O valor deve estar entre 0 e 1023.
+     * @param name nome do pino para escrever, ex: AnalogPin.P0
+     * @param value valor para escrever no pino entre ``0`` e ``1023``. ex: 1023, 0
      */
     //% help=pins/analog-write-pin weight=24
-    //% blockId=device_set_analog_pin block="analog write|pin %name|to %value" blockGap=8
+    //% blockId=device_set_analog_pin block="mudar pino analógico %name|para %value" blockGap=8
     //% value.min=0 value.max=1023
     //% name.shadow=analog_pin_shadow shim=pins::analogWritePin
     function analogWritePin(name: int32, value: int32): void;
 
     /**
-     * Configure the pulse-width modulation (PWM) period of the analog output in microseconds.
-     * If this pin is not configured as an analog output (using `analog write pin`), the operation has no effect.
-     * @param name analog pin to set period to, eg: AnalogPin.P0
-     * @param micros period in microseconds. eg:20000
+     * Configura o período de modulação por largura de pulso (PWM) da saída analógica em microssegundos.
+     * Se este pino não estiver configurado como saída analógica (usando `escrita analógica pino`), a operação não terá efeito.
+     * @param name pino analógico para definir o período, ex: AnalogPin.P0
+     * @param micros período em microssegundos. ex: 20000
      */
     //% help=pins/analog-set-period weight=23 blockGap=8
-    //% blockId=device_set_analog_period block="analog set period|pin %pin|to (µs)%micros"
+    //% blockId=device_set_analog_period block="definir período analógico no pino %pin|para (ms)%micros"
     //% pin.shadow=analog_pin_shadow shim=pins::analogSetPeriod
     function analogSetPeriod(name: int32, micros: int32): void;
 
     /**
-     * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
-     * @param name digital pin to register to, eg: DigitalPin.P0
-     * @param pulse the value of the pulse, eg: PulseValue.High
+     * Configura o pino como uma entrada digital e gera um evento quando o pino recebe um pulso, seja em nível alto ou baixo.
+     * @param name pino digital para registrar, ex: DigitalPin.P0
+     * @param pulse o valor do pulso, ex: PulseValue.High
      */
     //% help=pins/on-pulsed advanced=true
-    //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
+    //% blockId=pins_on_pulsed block="no|pino %pin|receber pulso %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
-    //% group="Pulse"
+    //% group="Pulso"
     //% weight=25
     //% blockGap=8 shim=pins::onPulsed
     function onPulsed(name: DigitalPin, pulse: PulseValue, body: () => void): void;
 
     /**
-     * Get the duration of the last pulse in microseconds. This function should be called from a ``onPulsed`` handler.
+     * Obtém a duração do último pulso em microssegundos. Esta função deve ser chamada a partir de um manipulador ``onPulsed``.
      */
     //% help=pins/pulse-duration advanced=true
-    //% blockId=pins_pulse_duration block="pulse duration (µs)"
-    //% group="Pulse"
+    //% blockId=pins_pulse_duration block="duração do pulso (ms)"
+    //% group="Pulso"
     //% weight=24
     //% blockGap=8 shim=pins::pulseDuration
     function pulseDuration(): int32;
 
     /**
-     * Return the duration of a pulse at a pin in microseconds.
-     * @param name the pin which measures the pulse, eg: DigitalPin.P0
-     * @param value the value of the pulse, eg: PulseValue.High
-     * @param maximum duration in microseconds
+     * Retorna a duração de um pulso em um pino em microssegundos.
+     * @param name o pino que mede o pulso, por exemplo: DigitalPin.P0
+     * @param value o valor do pulso, por exemplo: PulseValue.High
+     * @param maximum duração máxima em microssegundos
      */
-    //% blockId="pins_pulse_in" block="pulse in (µs)|pin %name|pulsed %value"
+    //% blockId="pins_pulse_in" block="pulso no (µs)|pino %name|pulso %value"
     //% advanced=true
     //% help=pins/pulse-in
     //% name.shadow=digital_pin_shadow
-    //% group="Pulse"
+    //% group="Pulso"
     //% weight=23
     //% blockGap=8 maxDuration.defl=2000000 shim=pins::pulseIn
     function pulseIn(name: int32, value: PulseValue, maxDuration?: int32): int32;
 
     /**
-     * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
-     * @param name pin to write to, eg: AnalogPin.P0
-     * @param value angle or rotation speed, eg:180,90,0
+     * Escreve um valor no servo, controlando o eixo de acordo. Em um servo padrão, isso ajustará o ângulo do eixo (em graus), movendo-o para essa orientação. Em um servo de rotação contínua, isso ajustará a velocidade do servo (com ``0`` sendo a velocidade máxima em uma direção, ``180`` sendo a velocidade máxima na outra direção, e um valor próximo a ``90`` representando nenhuma movimentação).
+     * @param name pino para escrever, por exemplo: AnalogPin.P0
+     * @param value ângulo ou velocidade de rotação, por exemplo: 180, 90, 0
      */
     //% help=pins/servo-write-pin weight=20
-    //% blockId=device_set_servo_pin block="servo write|pin %name|to %value" blockGap=8
+    //% blockId=device_set_servo_pin block="ajustar servo motor no|pino %name|para %value" blockGap=8
     //% parts=microservo trackArgs=0
     //% value.min=0 value.max=180
     //% name.shadow=analog_pin_shadow
@@ -800,18 +800,18 @@ declare namespace pins {
     function servoWritePin(name: int32, value: int32): void;
 
     /**
-     * Specifies that a continuous servo is connected.
+     * Especifica que um servo contínuo está conectado.
      */
     //% shim=pins::servoSetContinuous
     function servoSetContinuous(name: int32, value: boolean): void;
 
     /**
-     * Configure the IO pin as an analog/pwm output and set a pulse width. The period is 20 ms period and the pulse width is set based on the value given in **microseconds** or `1/1000` milliseconds.
-     * @param name pin name
-     * @param micros pulse duration in microseconds, eg:1500
+     * Configura o pino de E/S como uma saída analógica/PWM e ajusta uma largura de pulso. O período é de 20 ms, e a largura do pulso é definida com base no valor fornecido em **microsegundos** ou `1/1000` milissegundos.
+     * @param name nome do pino
+     * @param micros duração do pulso em microsegundos, por exemplo: 1500
      */
     //% help=pins/servo-set-pulse weight=19
-    //% blockId=device_set_servo_pulse block="servo set pulse|pin %value|to (µs) %micros"
+    //% blockId=device_set_servo_pulse block="configurar pulso do servo no|pino %value|para (µs) %micros"
     //% value.shadow=analog_pin_shadow
     //% group="Servo" shim=pins::servoSetPulse
     function servoSetPulse(name: int32, micros: int32): void;
@@ -829,13 +829,15 @@ declare namespace pins {
     function analogSetPitchPin(name: int32): void;
 
     /**
-     * Sets the volume on the pitch pin
-     * @param volume the intensity of the sound from 0..255
+     * Define o pino usado ao utilizar pitch analógico ou música.
+     * @param name pino para modular o pitch
      */
-    //% blockId=device_analog_set_pitch_volume block="analog set pitch volume $volume"
-    //% help=pins/analog-set-pitch-volume weight=3 advanced=true
-    //% volume.min=0 volume.max=255
-    //% deprecated shim=pins::analogSetPitchVolume
+    //% blockId=device_analog_set_pitch_pin block="analógico definir pino de pitch %name"
+    //% help=pins/analog-set-pitch-pin advanced=true
+    //% name.shadow=analog_pin_shadow
+    //% group="Pinos"
+    //% weight=12
+    //% blockGap=8 shim=pins::analogSetPitchVolume
     function analogSetPitchVolume(volume: int32): void;
 
     /**
@@ -982,10 +984,10 @@ declare namespace pins {
     function pushButton(pin: int32): void;
 
     /**
-     * Set the pin used when producing sounds and melodies. Default is P0.
-     * @param name pin to modulate pitch from
+     * Define o pino usado para produzir sons e melodias. O padrão é P0.
+     * @param name pino para modular o pitch
      */
-    //% blockId=pin_set_audio_pin block="set audio pin $name"
+    //% blockId=pin_set_audio_pin block="definir pino de áudio $name"
     //% help=pins/set-audio-pin
     //% name.shadow=digital_pin_shadow
     //% weight=1
@@ -993,11 +995,10 @@ declare namespace pins {
     function setAudioPin(name: int32): void;
 
     /**
-     * Sets whether or not audio will be output using a pin on the edge
-     * connector.
+     * Define se o áudio será ou não gerado usando um pino no conector de borda.
      */
     //% blockId=pin_set_audio_pin_enabled
-    //% block="set audio pin enabled $enabled"
+    //% block="definir áudio no pino habilitado $enabled"
     //% weight=0 help=pins/set-audio-pin-enabled shim=pins::setAudioPinEnabled
     function setAudioPinEnabled(enabled: boolean): void;
 }
@@ -1009,64 +1010,64 @@ declare namespace pins {
 declare namespace serial {
 
     /**
-     * Read a line of text from the serial port and return the buffer when the delimiter is met.
-     * @param delimiter text delimiter that separates each text chunk
+     * Lê uma linha de texto da porta serial e retorna o buffer quando o delimitador for encontrado.
+     * @param delimiter delimitador de texto que separa cada parte do texto
      */
     //% help=serial/read-until
-    //% blockId=serial_read_until block="serial|read until %delimiter=serial_delimiter_conv"
+    //% blockId=serial_read_until block="serial com|ler até %delimiter=serial_delimiter_conv"
     //% weight=19 shim=serial::readUntil
     function readUntil(delimiter: string): string;
 
     /**
-     * Read the buffered received data as a string
+     * Lê os dados recebidos no buffer como uma string
      */
     //% help=serial/read-string
-    //% blockId=serial_read_buffer block="serial|read string"
+    //% blockId=serial_read_buffer block="serial com:|ler string"
     //% weight=18 shim=serial::readString
     function readString(): string;
 
     /**
-     * Register an event to be fired when one of the delimiter is matched.
-     * @param delimiters the characters to match received characters against.
+     * Registra um evento a ser disparado quando um dos delimitadores for correspondido.
+     * @param delimitadores os caracteres para comparar os caracteres recebidos.
      */
     //% help=serial/on-data-received
-    //% weight=18 blockId=serial_on_data_received block="serial|on data received %delimiters=serial_delimiter_conv" shim=serial::onDataReceived
+    //% weight=18 blockId=serial_on_data_received block="serial com:|ao receber dados %delimitadores=serial_delimiter_conv" shim=serial::onDataReceived
     function onDataReceived(delimiters: string, body: () => void): void;
 
     /**
-     * Send a piece of text through the serial connection.
+     * Envia um pedaço de texto através da conexão serial.
      */
     //% help=serial/write-string
     //% weight=87 blockGap=8
-    //% blockId=serial_writestring block="serial|write string %text"
-    //% text.shadowOptions.toString=true shim=serial::writeString
+    //% blockId=serial_writestring block="serial com:|escrever string %texto"
+    //% texto.shadowOptions.toString=true shim=serial::writeString
     function writeString(text: string): void;
 
     /**
-     * Send a buffer through serial connection
+     * Envia um buffer através da conexão serial.
      */
-    //% blockId=serial_writebuffer block="serial|write buffer %buffer=serial_readbuffer"
+    //% blockId=serial_writebuffer block="serial com:|escrever buffer %buffer=serial_readbuffer"
     //% help=serial/write-buffer advanced=true weight=6 shim=serial::writeBuffer
     function writeBuffer(buffer: Buffer): void;
 
     /**
-     * Read multiple characters from the receive buffer. 
-     * If length is positive, pauses until enough characters are present.
-     * @param length default buffer length
+     * Lê múltiplos caracteres do buffer de recepção.
+     * Se o comprimento for positivo, pausa até que haja caracteres suficientes.
+     * @param length comprimento do buffer padrão
      */
-    //% blockId=serial_readbuffer block="serial|read buffer %length"
+    //% blockId=serial_readbuffer block="serial com:|ler buffer %length"
     //% help=serial/read-buffer advanced=true weight=5 shim=serial::readBuffer
     function readBuffer(length: int32): Buffer;
 
     /**
-     * Set the serial input and output to use pins instead of the USB connection.
-     * @param tx the new transmission pin, eg: SerialPin.P0
-     * @param rx the new reception pin, eg: SerialPin.P1
-     * @param rate the new baud rate. eg: 115200
+     * Define a entrada e saída serial para usar pinos em vez da conexão USB.
+     * @param tx o novo pino de transmissão, ex: SerialPin.P0
+     * @param rx o novo pino de recepção, ex: SerialPin.P1
+     * @param rate a nova taxa de transmissão. ex: 115200
      */
     //% weight=10
     //% help=serial/redirect
-    //% blockId=serial_redirect block="serial|redirect to|TX %tx|RX %rx|at baud rate %rate"
+    //% blockId=serial_redirect block="serial com:|redirecionar para|TX %tx|RX %rx|com taxa de transmissão %rate"
     //% blockExternalInputs=1
     //% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
     //% tx.fieldOptions.tooltips="false"
@@ -1076,37 +1077,37 @@ declare namespace serial {
     function redirect(tx: SerialPin, rx: SerialPin, rate: BaudRate): void;
 
     /**
-    Set the baud rate of the serial port
+     * Define a taxa de transmissão (baud rate) da porta serial
      */
     //% weight=10
-    //% blockId=serial_setbaudrate block="serial|set baud rate %rate"
+    //% blockId=serial_setbaudrate block="serial com:|definir taxa de transmissão %rate"
     //% blockGap=8 inlineInputMode=inline
     //% help=serial/set-baud-rate
-    //% group="Configuration" advanced=true shim=serial::setBaudRate
+    //% group="Configuração" advanced=true shim=serial::setBaudRate
     function setBaudRate(rate: BaudRate): void;
 
     /**
-     * Direct the serial input and output to use the USB connection.
+     * Direciona a entrada e saída serial para usar a conexão USB.
      */
     //% weight=9 help=serial/redirect-to-usb
-    //% blockId=serial_redirect_to_usb block="serial|redirect to USB" shim=serial::redirectToUSB
+    //% blockId=serial_redirect_to_usb block="serial com:|direcionar para USB" shim=serial::redirectToUSB
     function redirectToUSB(): void;
 
     /**
-     * Sets the size of the RX buffer in bytes
-     * @param size length of the rx buffer in bytes, eg: 32
+     * Define o tamanho do buffer RX em bytes
+     * @param size comprimento do buffer RX em bytes, ex: 32
      */
     //% help=serial/set-rx-buffer-size
-    //% blockId=serialSetRxBufferSize block="serial set rx buffer size to $size"
+    //% blockId=serialSetRxBufferSize block="serial com: definir tamanho do buffer RX para $size"
     //% advanced=true shim=serial::setRxBufferSize
     function setRxBufferSize(size: uint8): void;
 
     /**
-     * Sets the size of the TX buffer in bytes
-     * @param size length of the tx buffer in bytes, eg: 32
+     * Define o tamanho do buffer TX em bytes
+     * @param size comprimento do buffer TX em bytes, ex: 32
      */
     //% help=serial/set-tx-buffer-size
-    //% blockId=serialSetTxBufferSize block="serial set tx buffer size to $size"
+    //% blockId=serialSetTxBufferSize block="serial com: definir tamanho do buffer TX para $size"
     //% advanced=true shim=serial::setTxBufferSize
     function setTxBufferSize(size: uint8): void;
 

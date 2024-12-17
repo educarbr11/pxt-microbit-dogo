@@ -245,28 +245,28 @@ namespace control {
     }
 
     /**
-     * Schedules code that run in the background.
+ * Agenda o código para ser executado em segundo plano.
      */
     //% help=control/in-background blockAllowMultiple=1 afterOnStart=true
-    //% blockId="control_in_background" block="run in background" blockGap=8
+    //% blockId="control_in_background" block="executar em segundo plano" blockGap=8
     void inBackground(Action a) {
       runInParallel(a);
     }
 
     /**
-    * Blocks the calling thread until the specified event is raised.
+ * Bloqueia o thread chamador até que o evento especificado seja gerado.
     */
-    //% help=control/wait-for-event async
-    //% blockId=control_wait_for_event block="wait for event|from %src|with value %value"
+    //% ajuda=controle/aguardar-por-evento assíncrono
+    //% blockId=controle_aguardar_por_evento bloco="aguardar por evento|de %src|com valor %value"
     void waitForEvent(int src, int value) {
         pxt::waitForEvent(src, value);
     }
 
     /**
-     * Resets the BBC micro:bit.
+     * Reiniciar BBC micro:bit.
      */
     //% weight=30 async help=control/reset blockGap=8
-    //% blockId="control_reset" block="reset"
+    //% blockId="control_reset" block="reiniciar"
     void reset() {
       microbit_reset();
     }
@@ -278,66 +278,66 @@ namespace control {
     void singleSimulator() { }
 
     /**
-    * Blocks the current fiber for the given microseconds
-    * @param micros number of micro-seconds to wait. eg: 4
+    * Bloqueia a fibra atual pelos microsegundos especificados
+    * @param micros número de microsegundos a aguardar. Ex: 4
     */
-    //% help=control/wait-micros weight=29 async
-    //% blockId="control_wait_us" block="wait (µs)%micros"
+    //% ajuda=controle/aguardar-micros peso=29 assíncrono
+    //% blockId="controle_aguardar_us" bloco="aguardar (µs)%micros"
     //% micros.min=0 micros.max=6000
     void waitMicros(int micros) {
         sleep_us(micros);
     }
 
     /**
-     * Raises an event in the event bus.
-     * @param src ID of the MicroBit Component that generated the event e.g. MICROBIT_ID_BUTTON_A.
-     * @param value Component specific code indicating the cause of the event.
-     * @param mode optional definition of how the event should be processed after construction (default is CREATE_AND_FIRE).
-     */
-    //% weight=21 blockGap=12 blockId="control_raise_event" block="raise event|from source %src=control_event_source_id|with value %value=control_event_value_id" blockExternalInputs=1
-    //% help=control/raise-event
+ * Dispara um evento no barramento de eventos.
+ * @param src ID do componente MicroBit que gerou o evento, por exemplo, MICROBIT_ID_BUTTON_A.
+ * @param value Código específico do componente que indica a causa do evento.
+ * @param mode definição opcional de como o evento deve ser processado após a criação (o padrão é CREATE_AND_FIRE).
+ */
+    //% peso=21 espaçoEntreBlocos=12 blockId="controle_disparar_evento" bloco="disparar evento|de origem %src=controle_evento_origem_id|com valor %value=controle_evento_valor_id" entradasExternasBloco=1
+    //% ajuda=controle/disparar-evento
     //% mode.defl=CREATE_AND_FIRE
     void raiseEvent(int src, int value, EventCreationMode mode) {
         MicroBitEvent evt(src, value, (MicroBitEventLaunchMode)mode);
     }
 
     /**
-     * Registers an event handler.
-     */
-    //% weight=20 blockGap=8 blockId="control_on_event" block="on event|from %src=control_event_source_id|with value %value=control_event_value_id"
-    //% help=control/on-event
-    //% blockExternalInputs=1
+ * Registra um manipulador de eventos.
+ */
+    //% peso=20 espaçoEntreBlocos=8 blockId="controle_on_evento" bloco="quando evento|de origem %src=controle_evento_origem_id|com valor %value=controle_evento_valor_id"
+    //% ajuda=controle/quando-evento
+    //% entradasExternasBloco=1
     void onEvent(int src, int value, Action handler, int flags = 0) {
         if (!flags) flags = ::EventFlags::QueueIfBusy;
         registerWithDal(src, value, handler, (int)flags);
     }
 
-    /**
-    * Gets the value of the last event executed on the bus
-    */
-    //% blockId=control_event_value" block="event value"
-    //% help=control/event-value
-    //% weight=18
+  /**
+ * Obtém o valor do último evento executado no barramento
+ */
+    //% blockId=controle_valor_evento" bloco="valor do evento"
+    //% ajuda=controle/valor-evento
+    //% peso=18
     int eventValue() {
         return pxt::lastEvent.value;
     }
 
     /**
-    * Gets the timestamp of the last event executed on the bus
-    */
-    //% blockId=control_event_timestamp" block="event timestamp"
-    //% help=control/event-timestamp
-    //% weight=19 blockGap=8
+ * Obtém o carimbo de data e hora do último evento executado no barramento
+ */
+    //% blockId=controle_carimbo_evento" bloco="carimbo do evento"
+    //% ajuda=controle/carimbo-evento
+    //% peso=19 blocoGap=8
     int eventTimestamp() {
         return pxt::lastEvent.timestamp;
     }
 
-    /**
-     * Make a friendly name for the device based on its serial number
-     */
-    //% blockId="control_device_name" block="device name" weight=10 blockGap=8
-    //% help=control/device-name
-    //% advanced=true
+ /**
+ * Cria um nome amigável para o dispositivo com base no seu número de série
+ */
+    //% blockId="controle_nome_dispositivo" block="nome do dispositivo" peso=10 blocoGap=8
+    //% ajuda=controle/nome-dispositivo
+    //% avançado=true
     String deviceName() {
         return mkString(microbit_friendly_name(), -1);
     }
@@ -370,20 +370,20 @@ namespace control {
     }
 
     /**
-    * Derive a unique, consistent serial number of this device from internal data.
-    */
-    //% blockId="control_device_serial_number" block="device serial number" weight=9
-    //% help=control/device-serial-number
-    //% advanced=true
+ * Deriva um número de série único e consistente para este dispositivo a partir de dados internos.
+ */
+    //% blockId="controle_numero_serie_dispositivo" block="número de série do dispositivo" peso=9
+    //% ajuda=controle/numeros-de-serie-dispositivo
+    //% avançado=true
     int deviceSerialNumber() {
         return microbit_serial_number();
     }
 
-   /**
-    * Derive a unique, consistent 64-bit serial number of this device from internal data.
-    */
-    //% help=control/device-long-serial-number
-    //% advanced=true
+/**
+ * Deriva um número de série único e consistente de 64 bits para este dispositivo a partir de dados internos.
+ */
+    //% ajuda=controle/dispositivo-numero-serial-longo
+    //% avançado=true
     Buffer deviceLongSerialNumber() {
         return mkBuffer((uint8_t*)&NRF_FICR->DEVICEID[0], sizeof(uint64_t));
     }

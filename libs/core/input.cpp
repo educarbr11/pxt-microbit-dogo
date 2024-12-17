@@ -211,7 +211,7 @@ namespace input {
      * @param body o código a ser executado quando o pino é pressionado
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_event block="quando o pino %name|é ativado"
+    //% blockId=device_pin_event block="quando pino %name| ativado"
     void onPinPressed(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -227,7 +227,7 @@ namespace input {
      * @param body o código a ser executado quando o pino é desativado
      */
     //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="no pino %NAME|desativado"
+    //% blockId=device_pin_released block="quando pino %NAME|desativado"
     void onPinReleased(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -261,7 +261,7 @@ namespace input {
      * @param name pino utilizado para detectar o toque, por exemplo: TouchPin.P0
      */
     //% help=input/pin-is-pressed weight=58
-    //% blockId="device_pin_is_pressed" block="pino %NAME|é ativado"
+    //% blockId="device_pin_is_pressed" block="pino %NAME| ativado"
     //% blockGap=8
     bool pinIsPressed(TouchPin name) {
         auto pin = getPin((int)name);

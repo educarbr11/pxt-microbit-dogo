@@ -5,7 +5,7 @@
   "SoundThreshold.Quiet|block": "silencioso",
   "input.onSound|block": "quando o som estiver %sound",
   "input.setSoundThreshold|block": "definir som %sound no limite %value",
-  "input.soundLevel|block": "sound level",
+  "input.soundLevel|block": "nível do som",
   "input|block": "ENTRADA",
   "{id:category}Input": "Input",
   "{id:group}micro:bit (V2)": "micro:bit (V2)"

@@ -195,7 +195,7 @@ namespace music {
      * @param ms duração da nota em milissegundos (ms)
      */
     //% help=music/play-tone weight=90
-    //% blockId=device_play_note block="reproduzir|nota %note=device_note|por %duration=device_beat" blockGap=8
+    //% blockId=device_play_note block="tocar|nota musical %note=device_note|no tempo %duration=device_beat" blockGap=8
     //% parts="headphone"
     //% useEnumVal=1
     //% group="Nota musical"
@@ -304,7 +304,7 @@ namespace music {
      * @param bpm O novo ritmo em batimentos por minuto, por exemplo: 120
      */
     //% help=music/set-tempo weight=38
-    //% blockId=device_set_tempo block="mudar ritmo para (bpm)|%value"
+    //% blockId=device_set_tempo block="definir ritmo para (bpm)|%value"
     //% bpm.min=40 bpm.max=500
     //% group="Tempo e Ritmo"
     //% weight=99
