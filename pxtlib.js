@@ -4309,8 +4309,8 @@ var pxt;
                     category: 'loops',
                     block: {
                         message0: pxt.Util.lf("para elemento %1 de %2"),
-                        variable: pxt.Util.lf("{id:var}value"),
-                        appendField: pxt.Util.lf("{id:for_of}fazer")
+                        variable: pxt.Util.lf("{id:var}valor"),
+                        appendField: pxt.Util.lf("{id:for_of}faça")
                     }
                 },
                 'controls_for_of': {
@@ -4321,7 +4321,7 @@ var pxt;
                     block: {
                         message0: pxt.Util.lf("para elemento %1 de %2"),
                         variable: pxt.Util.lf("{id:var}valor"),
-                        appendField: pxt.Util.lf("{id:for_of}fazer")
+                        appendField: pxt.Util.lf("{id:for_of}faça")
                     }
                 },
                 'math_op2': {
