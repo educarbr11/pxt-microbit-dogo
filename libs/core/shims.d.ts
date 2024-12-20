@@ -127,13 +127,13 @@ declare interface Image {
 
 
     /**
-     * Provides access to basic micro:bit functionality.
+     * Dá acesso às funções básicas do micro:bit.
      */
     //% color=#1E90FF weight=116 icon="\uf00a"
 declare namespace basic {
 
     /**
-     * Draws an image on the LED screen.
+     * Desenha uma imagem na tela de LED.
      * @param leds the pattern of LED to turn on/off.
      * @param interval time in milliseconds to pause after drawing.
      */
@@ -141,18 +141,18 @@ declare namespace basic {
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="show leds" icon="\uf00a"
+    //% block="matriz de led" icon="\uf00a"
     //% parts="ledmatrix" interval.defl=400 shim=basic::showLeds
     function showLeds(leds: string, interval?: int32): void;
 
     /**
-     * Display text on the display, one character at a time. If the string fits on the screen (i.e. is one letter), does not scroll.
-     * @param text the text to scroll on the screen, eg: "Hello!"
+     * Mostrar texto na tela, um caracteres por vez. Se a cadeia de caracteres se ajustar na tela (ou seja, é uma letra), não mover.
+     * @param text the text to scroll on the screen, eg: "Olá, Mundo!"
      * @param interval how fast to shift characters; eg: 150, 100, 200, -100
      */
     //% help=basic/show-string
     //% weight=87 blockGap=16
-    //% block="show|string %text"
+    //% block="mostrar|texto %text"
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix"
@@ -160,44 +160,44 @@ declare namespace basic {
     function showString(text: string, interval?: int32): void;
 
     /**
-     * Turn off all LEDs
+     * Desligar todos os LEDs
      */
     //% help=basic/clear-screen weight=79
-    //% blockId=device_clear_display block="clear screen"
+    //% blockId=device_clear_display block="limpar tela"
     //% parts="ledmatrix" shim=basic::clearScreen
     function clearScreen(): void;
 
     /**
-     * Shows a sequence of LED screens as an animation.
-     * @param leds pattern of LEDs to turn on/off
-     * @param interval time in milliseconds between each redraw.
+     * Exibe uma sequência de telas de LED como uma animação.
+     * @param leds padrão de LEDs para ligar/desligar
+     * @param interval tempo em milissegundos entre cada redesenho
      */
     //% help=basic/show-animation imageLiteral=1 async
     //% parts="ledmatrix" interval.defl=400 shim=basic::showAnimation
     function showAnimation(leds: string, interval?: int32): void;
 
     /**
-     * Draws an image on the LED screen.
-     * @param leds pattern of LEDs to turn on/off
+     * Desenha uma imagem na tela de LED.
+     * @param leds padrão de LEDs para ligar/desligar
      */
     //% help=basic/plot-leds weight=80
     //% parts="ledmatrix" imageLiteral=1 shim=basic::plotLeds
     function plotLeds(leds: string): void;
 
     /**
-     * Repeats the code forever in the background. On each iteration, allows other codes to run.
-     * @param body code to execute
+     * Repete o código em segundo plano sem parar. A cada repetição, permite que outros códigos sejam executados.
+     * @param body código para executar
      */
     //% help=basic/forever weight=55 blockGap=16 blockAllowMultiple=1 afterOnStart=true
-    //% blockId=device_forever block="forever" icon="\uf01e" shim=basic::forever
+    //% blockId=device_forever block="fazer sempre" icon="\uf01e" shim=basic::forever
     function forever(a: () => void): void;
 
     /**
-     * Pause for the specified time in milliseconds
-     * @param ms how long to pause for, eg: 100, 200, 500, 1000, 2000
+     * Pausa por um período especificado em milissegundos
+     * @param ms a duração da pausa, por exemplo: 100, 200, 500, 1000, 2000
      */
     //% help=basic/pause weight=54
-    //% async block="pause (ms) %pause" blockGap=16
+    //% async block="esperar (ms) %pause" blockGap=16
     //% blockId=device_pause icon="\uf110"
     //% pause.shadow=timePicker shim=basic::pause
     function pause(ms: int32): void;
@@ -209,146 +209,143 @@ declare namespace basic {
 declare namespace input {
 
     /**
-     * Do something when a button (A, B or both A+B) is pushed down and released again.
-     * @param button the button that needs to be pressed
-     * @param body code to run when event is raised
+     * Fazer algo quando um botão (A, B ou A + B) for pressionado e liberado novamente.
+     * @param button o botão que precisa ser pressionado
+     * @param body código a ser executado quando o evento for criado
      */
     //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="on button|%NAME|pressed"
+    //% blockId=device_button_event block="quando o botão|%NAME|for pressionado"
     //% parts="buttonpair" shim=input::onButtonPressed
     function onButtonPressed(button: Button, body: () => void): void;
 
     /**
-     * Do something when when a gesture is done (like shaking the micro:bit).
-     * @param gesture the type of gesture to track, eg: Gesture.Shake
-     * @param body code to run when gesture is raised
+     * Fazer algo quando um gesto for concluído (com agitar o micro:bit)
+     * @param gesture o tipo de gesto a monitorar, por exemplo: Gesture.Shake
+     * @param body código a ser executado quando o gesto for criado
      */
     //% help=input/on-gesture weight=84 blockGap=16
-    //% blockId=device_gesture_event block="on |%NAME"
+    //% blockId=device_gesture_event block="quando |%NAME"
     //% parts="accelerometer"
     //% NAME.fieldEditor="gestures" NAME.fieldOptions.columns=4 shim=input::onGesture
     function onGesture(gesture: Gesture, body: () => void): void;
 
     /**
-     * Tests if a gesture is currently detected.
+     * Testa se um gesto foi detectado no momento.
      * @param gesture the type of gesture to detect, eg: Gesture.Shake
      */
     //% help=input/is-gesture weight=10 blockGap=8
-    //% blockId=deviceisgesture block="is %gesture gesture"
+    //% blockId=deviceisgesture block="o gesto é %gesture"
     //% parts="accelerometer"
     //% gesture.fieldEditor="gestures" gesture.fieldOptions.columns=4 shim=input::isGesture
     function isGesture(gesture: Gesture): boolean;
 
     /**
-     * Do something when a pin is touched and released again (while also touching the GND pin).
-     * @param name the pin that needs to be pressed, eg: TouchPin.P0
-     * @param body the code to run when the pin is pressed
+     * Fazer algo quando um pin for tocado e liberado novamente (enquanto também toca no pin GND).
+     * @param name o pino que precisa ser pressionado. por exemplo: TouchPin.P0
+     * @param body o código a ser executado quando o pino é pressionado
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_event block="on pin %name|pressed" shim=input::onPinPressed
+    //% blockId=device_pin_event block="quando o pino %name|é ativado" shim=input::onPinPressed
     function onPinPressed(name: TouchPin, body: () => void): void;
 
     /**
-     * Do something when a pin is released.
-     * @param name the pin that needs to be released, eg: TouchPin.P0
-     * @param body the code to run when the pin is released
+     * Fazer algo quando o pino for liberado.
+     * @param name o pino que precisa ser desativado, por exemplo: TouchPin.P0
+     * @param body o código a ser executado quando o pino é desativado
      */
     //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="on pin %NAME|released"
-    //% advanced=true shim=input::onPinReleased
+    //% blockId=device_pin_released block="no pino %NAME|desativado" shim=input::onPinReleased
     function onPinReleased(name: TouchPin, body: () => void): void;
 
     /**
-     * Get the button state (pressed or not) for ``A`` and ``B``.
-     * @param button the button to query the request, eg: Button.A
+     * Obter o estado do botão (pressionado ou não) para ``A`` e ``B``.
+     * @param button o botão para consultar a solicitação, por exemplo: Botão.A
      */
     //% help=input/button-is-pressed weight=60
-    //% block="button|%NAME|is pressed"
+    //% block="botão|%NAME|pressionado"
     //% blockId=device_get_button2
     //% icon="\uf192" blockGap=8
     //% parts="buttonpair" shim=input::buttonIsPressed
     function buttonIsPressed(button: Button): boolean;
 
     /**
-     * Get the pin state (pressed or not). Requires to hold the ground to close the circuit.
-     * @param name pin used to detect the touch, eg: TouchPin.P0
+     * Obter o estado do pino (ativado ou não). Requer manter o chão para fechar o circuito.
+     * @param name pino utilizado para detectar o toque, por exemplo: TouchPin.P0
      */
     //% help=input/pin-is-pressed weight=58
-    //% blockId="device_pin_is_pressed" block="pin %NAME|is pressed"
+    //% blockId="device_pin_is_pressed" block="pino %NAME|é ativado"
     //% blockGap=8 shim=input::pinIsPressed
     function pinIsPressed(name: TouchPin): boolean;
 
     /**
-     * Get the acceleration value in milli-gravitys (when the board is laying flat with the screen up, x=0, y=0 and z=-1024)
+     * Obter o valor de aceleração em mili-gravidade (quando a placa está na posição horizontal com a tela para cima, x=0, y=0 e z=1024)
      * @param dimension x, y, or z dimension, eg: Dimension.X
      */
     //% help=input/acceleration weight=58
-    //% blockId=device_acceleration block="acceleration (mg)|%NAME" blockGap=8
+    //% blockId=device_acceleration block="força de aceleração (ma)|%NAME" blockGap=8
     //% parts="accelerometer" shim=input::acceleration
     function acceleration(dimension: Dimension): int32;
 
     /**
-     * Reads the light level applied to the LED screen in a range from ``0`` (dark) to ``255`` bright.
+     * Lê o nível de luz aplicado à tela de LED em um alcance de ``0`` (escuro) a ``255`` (claro).
      */
     //% help=input/light-level weight=57
-    //% blockId=device_get_light_level block="light level" blockGap=8
+    //% blockId=device_get_light_level block="nível de luz" blockGap=8
     //% parts="ledmatrix" shim=input::lightLevel
     function lightLevel(): int32;
 
     /**
-     * Get the current compass heading in degrees.
+     * Obter a orientação atual em graus.
      */
     //% help=input/compass-heading
     //% weight=56
-    //% blockId=device_heading block="compass heading (°)" blockGap=8
+    //% blockId=device_heading block="direção da bússola (°)" blockGap=8
     //% parts="compass" shim=input::compassHeading
     function compassHeading(): int32;
 
     /**
-     * Gets the temperature in Celsius degrees (°C).
+     * Obtém a temperatura em graus Celsius (°C).
      */
     //% weight=55
     //% help=input/temperature
-    //% blockId=device_temperature block="temperature (°C)" blockGap=8
+    //% blockId=device_temperature block="temperatura (°C)" blockGap=8
     //% parts="thermometer" shim=input::temperature
     function temperature(): int32;
 
     /**
-     * The pitch or roll of the device, rotation along the ``x-axis`` or ``y-axis``, in degrees.
+     * O ajuste ou rotação do dispositivo, girando ao longo do ``eixo-x`` ou ``eixo-y``, em graus.
      * @param kind pitch or roll
      */
     //% help=input/rotation weight=52
-    //% blockId=device_get_rotation block="rotation (°)|%NAME" blockGap=8
-    //% parts="accelerometer" advanced=true shim=input::rotation
+    //% blockId=device_get_rotation block="rotação (°)|%NAME" blockGap=8
+    //% parts="accelerometer" shim=input::rotation
     function rotation(kind: Rotation): int32;
 
     /**
-     * Get the magnetic force value in ``micro-Teslas`` (``µT``). This function is not supported in the simulator.
+     * Obter o valor da força magnética em ``micro-Teslas`` (``µT``). Esta função não é suportada no simulador.
      * @param dimension the x, y, or z dimension, eg: Dimension.X
      */
     //% help=input/magnetic-force weight=54
-    //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
-    //% parts="compass"
-    //% advanced=true shim=input::magneticForce
+    //% blockId=device_get_magnetic_force block="força magnética (µT)|%NAME" blockGap=8
+    //% parts="compass" shim=input::magneticForce
     function magneticForce(dimension: Dimension): number;
 
     /**
-     * Obsolete, compass calibration is automatic.
+     * Obsoleto, a calibração da bússola é automática.
      */
-    //% help=input/calibrate-compass advanced=true
-    //% blockId="input_compass_calibrate" block="calibrate compass"
+    //% help=input/calibrate-compass
+    //% blockId="input_compass_calibrate" block="calibrar bússola"
     //% weight=55 shim=input::calibrateCompass
     function calibrateCompass(): void;
 
     /**
-     * Sets the accelerometer sample range in gravities.
-     * @param range a value describe the maximum strengh of acceleration measured
+     * Define o intervalo da amostra do acelerómetro em gravidades.
+     * @param range um valor descreve a força máxima da aceleração medida
      */
     //% help=input/set-accelerometer-range
-    //% blockId=device_set_accelerometer_range block="set accelerometer|range %range"
+    //% blockId=device_set_accelerometer_range block="definir o acelerômetro|alcance %range"
     //% weight=5
-    //% parts="accelerometer"
-    //% advanced=true shim=input::setAccelerometerRange
+    //% parts="accelerometer" shim=input::setAccelerometerRange
     function setAccelerometerRange(range: AcceleratorRange): void;
 }
 
@@ -531,109 +528,109 @@ declare namespace control {
 declare namespace led {
 
     /**
-     * Turn on the specified LED using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
-     * @param x the horizontal coordinate of the LED starting at 0
-     * @param y the vertical coordinate of the LED starting at 0
+     * Ligar o LED especificado ao utilizar coordenadas x, y (x é horizontal, y é vertical). (0,0) é é a parte superior esquerda.
+     * @param x a coordenada horizontal do LED começando em 0
+     * @param y a coordenada vertical do LED começando em 0
      */
     //% help=led/plot weight=78
-    //% blockId=device_plot block="plot|x %x|y %y" blockGap=8
+    //% blockId=device_plot block="ligar led em|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::plot
     function plot(x: int32, y: int32): void;
 
     /**
-     * Turn on the specified LED with specific brightness using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
-     * @param x the horizontal coordinate of the LED starting at 0
-     * @param y the vertical coordinate of the LED starting at 0
-     * @param brightness the brightness from 0 (off) to 255 (bright), eg:255
+     * Ligar o LED especificado com brilho específico ao utilizar coordenadas x, y (x é horizontal, y é vertical). (0,0) é a parte superior esquerdo.
+     * @param x a coordenada horizontal do LED começando em 0
+     * @param y a coordenada vertical do LED começando em 0
+     * @param brightness o brilho de 0 (desligado) to 255 (brilho total), eg:255
      */
     //% help=led/plot-brightness weight=78
-    //% blockId=device_plot_brightness block="plot|x %x|y %y|brightness %brightness" blockGap=8
+    //% blockId=device_plot_brightness block="ligar led em|x %x|y %y|brilho %brightness" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4 brightness.min=0 brightness.max=255
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
-    //% advanced=true shim=led::plotBrightness
+    //% advanced=false shim=led::plotBrightness
     function plotBrightness(x: int32, y: int32, brightness: int32): void;
 
     /**
-     * Turn off the specified LED using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
+     * Desligar o LED especificado ao utilizar coordenadas x, y (x é horizontal, y é vertical). (0,0) é é a parte superior esquerda.
      * @param x the horizontal coordinate of the LED
      * @param y the vertical coordinate of the LED
      */
     //% help=led/unplot weight=77
-    //% blockId=device_unplot block="unplot|x %x|y %y" blockGap=8
+    //% blockId=device_unplot block="apagar led em|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::unplot
     function unplot(x: int32, y: int32): void;
 
     /**
-     * Get the brightness state of the specified LED using x, y coordinates. (0,0) is upper left.
-     * @param x the horizontal coordinate of the LED
-     * @param y the vertical coordinate of the LED
+     * Obter o estado ligado/desligado do LED especificado utilizar as coordenadas x, y. (0,0) é a parte superior esquerda.
+     * @param x a coordenada horizontal do LED começando em 0
+     * @param y a coordenada vertical do LED começando em 0
      */
     //% help=led/point-brightness weight=76
-    //% blockId=device_point_brightness block="point|x %x|y %y brightness"
+    //% blockId=device_point_brightness block="brilho do led em|x %x|y %y"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
-    //% advanced=true shim=led::pointBrightness
+    //% advanced=false shim=led::pointBrightness
     function pointBrightness(x: int32, y: int32): int32;
 
     /**
-     * Get the screen brightness from 0 (off) to 255 (full bright).
+     * Obtém o brilho da tela de 0 (desligado) a 255 (brilho total).
      */
     //% help=led/brightness weight=60
-    //% blockId=device_get_brightness block="brightness" blockGap=8
+    //% blockId=device_get_brightness block="brilho" blockGap=8
     //% parts="ledmatrix"
-    //% advanced=true shim=led::brightness
+    //% advanced=false shim=led::brightness
     function brightness(): int32;
 
     /**
-     * Set the screen brightness from 0 (off) to 255 (full bright).
-     * @param value the brightness value, eg:255, 127, 0
+     * Define o brilho de tela de 0 (desligada) até 255 (brilho total).
+     * @param value intensidade do brilho, eg:255, 127, 0
      */
     //% help=led/set-brightness weight=59
-    //% blockId=device_set_brightness block="set brightness %value"
+    //% blockId=device_set_brightness block="definir brilho do led %value"
     //% parts="ledmatrix"
-    //% advanced=true
+    //% advanced=false
     //% value.min=0 value.max=255 shim=led::setBrightness
     function setBrightness(value: int32): void;
 
     /**
-     * Cancels the current animation and clears other pending animations.
+     * Cancela a animação atual e limpa outras animações pendentes.
      */
     //% weight=50 help=led/stop-animation
-    //% blockId=device_stop_animation block="stop animation"
+    //% blockId=device_stop_animation block="parar animação de led"
     //% parts="ledmatrix"
-    //% advanced=true shim=led::stopAnimation
+    //% advanced=false shim=led::stopAnimation
     function stopAnimation(): void;
 
     /**
-     * Sets the display mode between black and white and greyscale for rendering LEDs.
-     * @param mode mode the display mode in which the screen operates
+     * Define o modo de exibição entre preto e branco e tons de cinza para a renderização de LEDs.
+     * @param mode modo de exibição no qual a tela opera
      */
     //% weight=1 help=led/set-display-mode
-    //% parts="ledmatrix" advanced=true weight=1
-    //% blockId="led_set_display_mode" block="set display mode $mode" shim=led::setDisplayMode
+    //% parts="ledmatrix" advanced=false weight=1
+    //% blockId="led_set_display_mode" block="definir modo de exibição $mode" shim=led::setDisplayMode
     function setDisplayMode(mode: DisplayMode): void;
 
     /**
-     * Gets the current display mode
+     * Obtém o modo de exibição atual
      */
-    //% weight=1 parts="ledmatrix" advanced=true shim=led::displayMode
+    //% weight=1 parts="ledmatrix" advanced=false shim=led::displayMode
     function displayMode(): DisplayMode;
 
     /**
-     * Turns on or off the display
+     * Liga ou desliga a tela
      */
-    //% help=led/enable blockId=device_led_enable block="led enable %on"
-    //% advanced=true parts="ledmatrix" shim=led::enable
+    //% help=led/enable blockId=device_led_enable block="led ativado? %on"
+    //% advanced=false parts="ledmatrix" shim=led::enable
     function enable(on: boolean): void;
 
     /**
-     * Takes a screenshot of the LED screen and returns an image.
+     * Faz uma captura de tela da tela de LED e retorna uma imagem.
      */
     //% help=led/screenshot
     //% parts="ledmatrix" shim=led::screenshot
@@ -642,10 +639,10 @@ declare namespace led {
 declare namespace music {
 
     /**
-     * Set the default output volume of the sound synthesizer.
-     * @param volume the volume 0...255
+     * Define a intensidade do volume de 0 até 255
+     * @param volume o volume de 0 até 255
      */
-    //% blockId=synth_set_volume block="set volume %volume"
+    //% blockId=synth_set_volume block="definir volume %volume"
     //% volume.min=0 volume.max=255
     //%
     //% help=music/set-volume
@@ -655,7 +652,7 @@ declare namespace music {
     function setVolume(volume?: int32): void;
 
     /**
-     * Returns the current output volume of the sound synthesizer.
+     * Retorna o volume de saída atual do sintetizador de som.
      */
     //% blockId=synth_get_volume block="volume"
     //% help=music/volume
@@ -665,11 +662,11 @@ declare namespace music {
     function volume(): int32;
 
     /**
-     * Turn the built-in speaker on or off.
-     * Disabling the speaker resets the sound pin to the default of P0.
-     * @param enabled whether the built-in speaker is enabled in addition to the sound pin
+     * Ligue ou desligue o alto-falante integrado.
+     * Desativar o alto-falante redefine o pino de som para o padrão P0.
+     * @param enabled se o alto-falante embutido está habilitado além do pino de som
      */
-    //% blockId=music_set_built_in_speaker_enable block="set built-in speaker $enabled"
+    //% blockId=music_set_built_in_speaker_enable block="definir alto-falante embutido $enabled"
     //% group="micro:bit (V2)"
     //% parts=builtinspeaker
     //% help=music/set-built-in-speaker-enabled
@@ -678,9 +675,9 @@ declare namespace music {
     function setBuiltInSpeakerEnabled(enabled: boolean): void;
 
     /**
-     * Check whether any sound is being played, no matter the source
+     * Verifique se algum som está sendo reproduzido, independentemente da fonte
      */
-    //% blockId=music_sound_is_playing block="sound is playing"
+    //% blockId=music_sound_is_playing block="som tocando"
     //% group="micro:bit (V2)"
     //% help=music/is-sound-playing
     //% weight=0 shim=music::isSoundPlaying
@@ -1252,21 +1249,21 @@ declare namespace light {
 declare namespace input {
 
     /**
-     * Do something when the logo is touched and released again.
-     * @param body the code to run when the logo is pressed
+     * Faça algo quando o logotipo for tocado e liberado novamente.
+     * @param body o código a ser executado quando o logotipo é pressionado
      */
     //% weight=83 blockGap=32
-    //% blockId=input_logo_event block="on logo $action"
+    //% blockId=input_logo_event block="quando o logo ser $action"
     //% group="micro:bit (V2)"
     //% parts="logotouch"
     //% help="input/on-logo-event" shim=input::onLogoEvent
     function onLogoEvent(action: TouchButtonEvent, body: () => void): void;
 
     /**
-     * Get the logo state (pressed or not).
+     * Obtenha o estado do logotipo (pressionado ou não).
      */
     //% weight=58
-    //% blockId="input_logo_is_pressed" block="logo is pressed"
+    //% blockId="input_logo_is_pressed" block="logo foi pressionado"
     //% blockGap=8
     //% group="micro:bit (V2)"
     //% parts="logotouch"

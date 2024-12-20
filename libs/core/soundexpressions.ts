@@ -53,65 +53,66 @@ class SoundExpression extends music.Playable {
 }
 
 enum WaveShape {
-    //% block="sine"
+    //% block="senoidal"
     Sine = 0,
-    //% block="sawtooth"
+    //% block="dente de serra"
     Sawtooth = 1,
-    //% block="triangle"
+    //% block="triangular"
     Triangle = 2,
-    //% block="square"
+    //% block="quadrada"
     Square = 3,
-    //% block="noise"
+    //% block="ruído"
     Noise = 4
 }
 
 enum InterpolationCurve {
     //% block="linear"
     Linear,
-    //% block="curve"
+    //% block="curva"
     Curve,
-    //% block="logarithmic"
+    //% block="logarítmica"
     Logarithmic
 }
 
 enum SoundExpressionEffect {
-    //% block="none"
+    //% block="nenhum"
     None = 0,
     //% block="vibrato"
     Vibrato = 1,
-    //% block="tremolo"
+    //% block="trêmulo"
     Tremolo = 2,
-    //% block="warble"
+    //% block="oscilação"
     Warble = 3
 }
 
 enum SoundExpressionPlayMode {
-    //% block="until done"
+    //% block="até terminar"
     UntilDone,
-    //% block="in background"
+    //% block="em segundo plano"
     InBackground
 }
 
+
 namespace soundExpression {
-    //% fixedInstance whenUsed block="{id:soundexpression}giggle"
+    //% fixedInstance whenUsed block="{id:soundexpression}risadinha"
     export const giggle = new SoundExpression("giggle");
-    //% fixedInstance whenUsed block="{id:soundexpression}happy"
+    //% fixedInstance whenUsed block="{id:soundexpression}feliz"
     export const happy = new SoundExpression("happy");
-    //% fixedInstance whenUsed block="{id:soundexpression}hello"
+    //% fixedInstance whenUsed block="{id:soundexpression}olá"
     export const hello = new SoundExpression("hello");
-    //% fixedInstance whenUsed block="{id:soundexpression}mysterious"
+    //% fixedInstance whenUsed block="{id:soundexpression}misterioso"
     export const mysterious = new SoundExpression("mysterious");
-    //% fixedInstance whenUsed block="{id:soundexpression}sad"
+    //% fixedInstance whenUsed block="{id:soundexpression}triste"
     export const sad = new SoundExpression("sad");
-    //% fixedInstance whenUsed block="{id:soundexpression}slide"
+    //% fixedInstance whenUsed block="{id:soundexpression}escorregada"
     export const slide = new SoundExpression("slide");
-    //% fixedInstance whenUsed block="{id:soundexpression}soaring"
+    //% fixedInstance whenUsed block="{id:soundexpression}subindo"
     export const soaring = new SoundExpression("soaring");
-    //% fixedInstance whenUsed block="{id:soundexpression}spring"
+    //% fixedInstance whenUsed block="{id:soundexpression}primavera"
     export const spring = new SoundExpression("spring");
-    //% fixedInstance whenUsed block="{id:soundexpression}twinkle"
+    //% fixedInstance whenUsed block="{id:soundexpression}brilho"
     export const twinkle = new SoundExpression("twinkle");
-    //% fixedInstance whenUsed block="{id:soundexpression}yawn"
+    //% fixedInstance whenUsed block="{id:soundexpression}bocejo"
     export const yawn = new SoundExpression("yawn");
 
     export enum InterpolationEffect {
@@ -321,12 +322,12 @@ namespace soundExpression {
 
 namespace music {
     /**
-     * Play a sound effect from a sound expression string.
-     * @param sound the sound expression string
-     * @param mode the play mode, play until done or in the background
+     * Reproduza um efeito sonoro a partir de uma sequência de expressão sonora.
+     * @param sound a string de expressão sonora
+     * @param mode o modo de reprodução, jogue até terminar ou em segundo plano
      */
     //% blockId=soundExpression_playSoundEffect
-    //% block="play sound $sound $mode"
+    //% block="reproduzir som $sound $mode"
     //% sound.shadow=soundExpression_createSoundEffect
     //% weight=100 help=music/play-sound-effect
     //% blockGap=8
@@ -342,19 +343,19 @@ namespace music {
     }
 
     /**
-     * Create a sound expression from a set of sound effect parameters.
-     * @param waveShape waveform of the sound effect
-     * @param startFrequency starting frequency for the sound effect waveform
-     * @param endFrequency ending frequency for the sound effect waveform
-     * @param startVolume starting volume of the sound, or starting amplitude
-     * @param endVolume ending volume of the sound, or ending amplitude
-     * @param duration the amount of time in milliseconds (ms) that sound will play for
-     * @param effect the effect to apply to the waveform or volume
-     * @param interpolation interpolation method for frequency scaling
+     * Crie uma expressão sonora a partir de um conjunto de parâmetros de efeitos sonoros.
+     * @param waveShape forma de onda do efeito sonoro
+     * @param startFrequency frequência inicial para a forma de onda do efeito sonoro
+     * @param endFrequency frequência final para a forma de onda do efeito sonoro
+     * @param startVolume volume inicial do som ou amplitude inicial
+     * @param endVolume volume final do som ou amplitude final
+     * @param duration a quantidade de tempo em milissegundos (ms) que o som será reproduzido
+     * @param effect o efeito a ser aplicado à forma de onda ou volume
+     * @param interpolation método de interpolação para escala de frequência
      */
     //% blockId=soundExpression_createSoundEffect
     //% help=music/create-sound-effect
-    //% block="$waveShape|| start frequency $startFrequency end frequency $endFrequency duration $duration start volume $startVolume end volume $endVolume effect $effect interpolation $interpolation"
+    //% block="$waveShape|| início frequency $startFrequency frequência final $endFrequency duração $duration volume inicial $startVolume volume final $endVolume efeito $effect interpolação $interpolation"
     //% waveShape.defl=WaveShape.Sine
     //% waveShape.fieldEditor=soundeffect
     //% startFrequency.defl=5000

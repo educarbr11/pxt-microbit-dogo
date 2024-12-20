@@ -29,7 +29,7 @@ namespace loops {
     //% blockHidden=true shim=TD_ID
     //% colorSecondary="#FFFFFF"
     //% ms.fieldEditor="numberdropdown" ms.fieldOptions.decompileLiterals=true
-    //% ms.fieldOptions.data='[["100 ms", 100], ["200 ms", 200], ["500 ms", 500], ["1 second", 1000], ["1 minute", 60000], ["1 hour", 3600000]]'
+    //% ms.fieldOptions.data='[["100 ms", 100], ["200 ms", 200], ["500 ms", 500], ["1 segundo", 1000], ["1 minuto", 60000], ["1 hora", 3600000]]'
     export function __timePicker(ms: number): number {
         return ms;
     }

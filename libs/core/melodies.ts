@@ -24,47 +24,46 @@ THE SOFTWARE.
 */
 
 // Melodies from file microbitmusictunes.c https://github.com/bbcmicrobit/MicroPython
-
 enum Melodies {
     //% block="dadadum" blockIdentity=music.builtInMelody
     Dadadadum = 0,
-    //% block="entertainer" blockIdentity=music.builtInMelody
+    //% block="entretenimento" blockIdentity=music.builtInMelody
     Entertainer,
-    //% block="prelude" blockIdentity=music.builtInMelody
+    //% block="prelúdio" blockIdentity=music.builtInMelody
     Prelude,
     //% block="ode" blockIdentity=music.builtInMelody
     Ode,
     //% block="nyan" blockIdentity=music.builtInMelody
     Nyan,
-    //% block="ringtone" blockIdentity=music.builtInMelody
+    //% block="toque" blockIdentity=music.builtInMelody
     Ringtone,
     //% block="funk" blockIdentity=music.builtInMelody
     Funk,
     //% block="blues" blockIdentity=music.builtInMelody
     Blues,
-    //% block="birthday" blockIdentity=music.builtInMelody
+    //% block="aniversário" blockIdentity=music.builtInMelody
     Birthday,
-    //% block="wedding" blockIdentity=music.builtInMelody
+    //% block="casamento" blockIdentity=music.builtInMelody
     Wedding,
     //% block="funeral" blockIdentity=music.builtInMelody
     Funeral,
-    //% block="punchline" blockIdentity=music.builtInMelody
+    //% block="piada" blockIdentity=music.builtInMelody
     Punchline,
-    //% block="baddy" blockIdentity=music.builtInMelody
+    //% block="vilão" blockIdentity=music.builtInMelody
     Baddy,
-    //% block="chase" blockIdentity=music.builtInMelody
+    //% block="perseguição" blockIdentity=music.builtInMelody
     Chase,
     //% block="ba ding" blockIdentity=music.builtInMelody
     BaDing,
-    //% block="wawawawaa" blockIdentity=music.builtInMelody
+    //% block="wahwahwah" blockIdentity=music.builtInMelody
     Wawawawaa,
-    //% block="jump up" blockIdentity=music.builtInMelody
+    //% block="pular para cima" blockIdentity=music.builtInMelody
     JumpUp,
-    //% block="jump down" blockIdentity=music.builtInMelody
+    //% block="pular para baixo" blockIdentity=music.builtInMelody
     JumpDown,
-    //% block="power up" blockIdentity=music.builtInMelody
+    //% block="ligar" blockIdentity=music.builtInMelody
     PowerUp,
-    //% block="power down" blockIdentity=music.builtInMelody
+    //% block="desligar" blockIdentity=music.builtInMelody
     PowerDown,
 }
 

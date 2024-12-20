@@ -127,53 +127,53 @@ enum BeatFraction {
 }
 
 enum MelodyOptions {
-    //% block="once"
+    //% block="uma vez"
     Once = 1,
-    //% block="forever"
+    //% block="sempre"
     Forever = 2,
-    //% block="once in background"
+    //% block="uma vez em segundo plano"
     OnceInBackground = 4,
-    //% block="forever in background"
+    //% block="sempre em segundo plano"
     ForeverInBackground = 8
 }
 
 enum MelodyStopOptions {
-    //% block="all"
+    //% block="tudo"
     All = MelodyOptions.Once | MelodyOptions.OnceInBackground,
-    //% block="foreground"
+    //% block="em primeiro plano"
     Foreground = MelodyOptions.Once,
-    //% block="background"
+    //% block="em segundo plano"
     Background = MelodyOptions.OnceInBackground
 }
 
 enum MusicEvent {
-    //% block="melody note played"
+    //% block="nota da melodia tocada"
     MelodyNotePlayed = 1,
-    //% block="melody started"
+    //% block="melodia iniciada"
     MelodyStarted = 2,
-    //% block="melody ended"
+    //% block="melodia finalizada"
     MelodyEnded = 3,
-    //% block="melody repeated"
+    //% block="melodia repetida"
     MelodyRepeated = 4,
-    //% block="background melody note played"
+    //% block="nota da melodia de fundo tocada"
     BackgroundMelodyNotePlayed = MelodyNotePlayed | 0xf0,
-    //% block="background melody started"
+    //% block="melodia de fundo iniciada"
     BackgroundMelodyStarted = MelodyStarted | 0xf0,
-    //% block="background melody ended"
+    //% block="melodia de fundo finalizada"
     BackgroundMelodyEnded = MelodyEnded | 0xf0,
-    //% block="background melody repeated"
+    //% block="melodia de fundo repetida"
     BackgroundMelodyRepeated = MelodyRepeated | 0xf0,
-    //% block="background melody paused"
+    //% block="melodia de fundo pausada"
     BackgroundMelodyPaused = 5 | 0xf0,
-    //% block="background melody resumed"
+    //% block="melodia de fundo retomada"
     BackgroundMelodyResumed = 6 | 0xf0
 }
 
 /**
  * Generation of music tones.
  */
-//% color=#E63022 weight=106 icon="\uf025"
-//% groups='["Melody", "Tone", "Volume", "Tempo", "Melody Advanced"]'
+//% color=#E63022 weight=106 icon="\uf025" block="MÚSICA"
+//% groups='["Nota musical", "Volume", "Tempo e Ritmo", "Melodia Avançada", "Nota Musical", "Melodia"]'
 namespace music {
     const INTERNAL_MELODY_ENDED = 5;
 
@@ -190,15 +190,15 @@ namespace music {
     const MICROBIT_MELODY_ID = 2000;
 
     /**
-     * Plays a tone through pin ``P0`` for the given duration.
-     * @param frequency pitch of the tone to play in Hertz (Hz), eg: Note.C
-     * @param ms tone duration in milliseconds (ms)
+     * Reproduz uma nota musical através do pino 'P0' por uma determinada duração.
+     * @param frequency ajustar nota musical para reproduzir em Hertz (Hz)
+     * @param ms duração da nota em milissegundos (ms)
      */
     //% help=music/play-tone weight=90
-    //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" blockGap=8
+    //% blockId=device_play_note block="reproduzir|nota %note=device_note|por %duration=device_beat" blockGap=8
     //% parts="headphone"
     //% useEnumVal=1
-    //% group="Tone"
+    //% group="Nota musical"
     //% deprecated=1
     export function playTone(frequency: number, ms: number): void {
         if (isNaN(frequency) || isNaN(ms)) return;
@@ -207,34 +207,34 @@ namespace music {
     }
 
     /**
-     * Plays a tone through pin ``P0``.
-     * @param frequency pitch of the tone to play in Hertz (Hz), eg: Note.C
+     * Reproduz nota através do pino 'P0'.
+     * @param frequency ajuste da nota musical produzida em Hertz (Hz)
      */
     //% help=music/ring-tone weight=80
-    //% blockId=device_ring block="ring tone (Hz)|%note=device_note" blockGap=8
+    //% blockId=device_ring block="frequência da nota (Hz) |%note=device_note" blockGap=8
     //% parts="headphone"
     //% useEnumVal=1
-    //% group="Tone"
+    //% group="Nota musical"
     export function ringTone(frequency: number): void {
         playTone(frequency, 0);
     }
 
     /**
-     * Rests (plays nothing) for a specified time through pin ``P0``.
-     * @param ms rest duration in milliseconds (ms)
+     * Pausa (não reproduz nada) por um tempo especificado através do pino 'P0'.
+     * @param ms duração da pausa em milissegundos (ms)
      */
     //% help=music/rest weight=79
-    //% blockId=device_rest block="rest for |%duration=device_beat"
+    //% blockId=device_rest block="pausar |%duration=device_beat"
     //% parts="headphone"
-    //% group="Tone"
+    //% group="Nota musical"
     export function rest(ms: number): void {
         playTone(0, ms);
     }
 
 
     /**
-     * Gets the frequency of a note.
-     * @param name the note name
+     * seleciona a frequência de uma nota musical.
+     * @param name o nome da nota musical
      */
     //% weight=50 help=music/note-frequency
     //% blockId=device_note block="%name"
@@ -242,7 +242,7 @@ namespace music {
     //% name.fieldEditor="note" name.defl="262"
     //% name.fieldOptions.decompileLiterals=true
     //% useEnumVal=1
-    //% group="Tone"
+    //% group="Nota musical"
     //% blockGap=8
     export function noteFrequency(name: Note): number {
         return name;
@@ -253,11 +253,11 @@ namespace music {
     }
 
     /**
-     * Returns the duration of a beat in milli-seconds
+     * Retorna a duração de uma batida em segundos
      */
     //% help=music/beat weight=49
-    //% blockId=device_beat block="%fraction|beat"
-    //% group="Tempo"
+    //% blockId=device_beat block="%fraction|batida"
+    //% group="Tempo e Ritmo"
     //% blockGap=8
     export function beat(fraction?: BeatFraction): number {
         init();
@@ -275,23 +275,23 @@ namespace music {
     }
 
     /**
-     * Returns the tempo in beats per minute. Tempo is the speed (bpm = beats per minute) at which notes play. The larger the tempo value, the faster the notes will play.
+     * Retorna o tempo em batidas por minuto. O tempo é a velocidade (bpm = batidas por minuto) em que as notas são reproduzidas. Quanto maior o valor do tempo, mais rapidamente as notas serão reproduzidas.
      */
     //% help=music/tempo weight=40
-    //% blockId=device_tempo block="tempo (bpm)" blockGap=8
-    //% group="Tempo"
+    //% blockId=device_tempo block="ritmo (bpm)" blockGap=8
+    //% group="Tempo e Ritmo"
     export function tempo(): number {
         init();
         return beatsPerMinute;
     }
 
     /**
-     * Change the tempo by the specified amount
-     * @param bpm The change in beats per minute to the tempo, eg: 20
+     * Alterar o ritmo pela quantidade especificada
+     * @param bpm A alteração em batidas por minuto para o ritmo, por exemplo: 20
      */
     //% help=music/change-tempo-by weight=39
-    //% blockId=device_change_tempo block="change tempo by (bpm)|%value" blockGap=8
-    //% group="Tempo"
+    //% blockId=device_change_tempo block="alterar ritmo por (bpm)|%value" blockGap=8
+    //% group="Tempo e Ritmo"
     //% weight=100
     export function changeTempoBy(bpm: number): void {
         init();
@@ -300,13 +300,13 @@ namespace music {
     }
 
     /**
-     * Sets the tempo to the specified amount
-     * @param bpm The new tempo in beats per minute, eg: 120
+     * Define o tempo até a quantidade especificada
+     * @param bpm O novo ritmo em batimentos por minuto, por exemplo: 120
      */
     //% help=music/set-tempo weight=38
-    //% blockId=device_set_tempo block="set tempo to (bpm)|%value"
+    //% blockId=device_set_tempo block="mudar ritmo para (bpm)|%value"
     //% bpm.min=40 bpm.max=500
-    //% group="Tempo"
+    //% group="Tempo e Ritmo"
     //% weight=99
     export function setTempo(bpm: number): void {
         init();
@@ -320,38 +320,38 @@ namespace music {
     let currentBackgroundMelody: Melody;
 
     /**
-     * Gets the melody array of a built-in melody.
+     * Obtém o arranjo de melodia de um melody incorporada.
      * @param name the note name, eg: Note.C
      */
     //% weight=50 help=music/built-in-melody
     //% blockId=device_builtin_melody block="%melody"
     //% blockHidden=true
-    //% group="Melody Advanced"
+    //% group="Melodia Avançada"
     //% deprecated=1
     export function builtInMelody(melody: Melodies): string[] {
         return getMelody(melody);
     }
 
     /**
-     * Gets the melody array of a built-in melody.
-     * @param melody the melody name
+     * Obtém o arranjo de melodia de um melody incorporada.
+     * @param melody o nome da melodia
      */
     //% weight=60 help=music/built-in-playable-melody
-    //% blockId=device_builtin_melody_playable block="melody $melody"
+    //% blockId=device_builtin_melody_playable block="melodia $melody"
     //% toolboxParent=music_playable_play_default_bkg
     //% toolboxParentArgument=toPlay
     //% duplicateShadowOnDrag
-    //% group="Melody Advanced"
+    //% group="Melodia Avançada"
     export function builtInPlayableMelody(melody: Melodies): StringArrayPlayable {
         return new StringArrayPlayable(getMelody(melody), undefined);
     }
 
     /**
-     * Registers code to run on various melody events
+     * Regista o código a ser executado em vários eventos de melody
      */
-    //% blockId=melody_on_event block="music on %value"
+    //% blockId=melody_on_event block="quando %value"
     //% help=music/on-event weight=59 blockGap=32
-    //% group="Melody Advanced"
+    //% group="Melodia Avançada"
     export function onEvent(value: MusicEvent, handler: () => void) {
         control.onEvent(MICROBIT_MELODY_ID, value, handler);
     }
@@ -361,7 +361,7 @@ namespace music {
      */
     //% hidden=1 deprecated=1
     //% parts="headphone"
-    //% group="Melody Advanced"
+    //% group="Melodia Avançada"
     export function beginMelody(melodyArray: string[], options: MelodyOptions = 1) {
         return startMelodyInternal(melodyArray, options);
     }
@@ -375,24 +375,24 @@ namespace music {
     //% help=music/begin-melody weight=60 blockGap=16
     //% blockId=device_start_melody block="start melody %melody=device_builtin_melody| repeating %options"
     //% parts="headphone"
-    //% group="Melody Advanced"
+    //% group="Melodia Avançada"
     //% deprecated=1
     export function startMelody(melodyArray: string[], options: MelodyOptions = 1) {
         return startMelodyInternal(melodyArray, options);
     }
 
     /**
-     * Play a melody from the melody editor.
-     * @param melody string of up to eight notes [C D E F G A B C5] or rests [-] separated by spaces, which will be played one at a time, ex: "E D G F B A C5 B "
-     * @param tempo number in beats per minute (bpm), dictating how long each note will play for
+     * Tocar melodia
+     * @param melody Uma sequência de até oito notas [C D E F G A B C5] ou pausas [-], separadas por espaços, que serão tocadas uma de cada vez, Exemplo: \"E D G F B A C5 B \"
+     * @param tempo número em batidas por minuto (bpm), ditando por quanto tempo cada nota será tocada
      */
-    //% block="play melody $melody at tempo $tempo|(bpm)" blockId=playMelody
+    //% block="tocar melodia $melody no tempo $tempo|(bpm)" blockId=playMelody
     //% weight=85 blockGap=8 help=music/play-melody
     //% melody.shadow="melody_editor"
     //% tempo.min=40 tempo.max=500
     //% tempo.defl=120
     //% parts=headphone
-    //% group="Melody"
+    //% group="Melodia"
     //% deprecated=1
     export function playMelody(melody: string, tempo: number) {
         melody = melody || "";
@@ -472,7 +472,7 @@ namespace music {
     }
 
     /**
-     * Create a melody with the melody editor.
+     * Crie uma melodia com o editor de melodia.
      * @param melody
      */
     //% block="$melody" blockId=melody_editor
@@ -484,19 +484,19 @@ namespace music {
     //% melody.fieldOptions.decompileIndirectFixedInstances="true"
     //% melody.fieldOptions.onParentBlock="true"
     //% shim=TD_ID
-    //% group="Melody"
+    //% group="Melodia"
     export function melodyEditor(melody: string): string {
         return melody;
     }
 
     /**
-     * Stops the melodies
-     * @param options which melody to stop
+     * Para as melodias
+     * @param options qual melodia parar
      */
     //% help=music/stop-melody weight=59 blockGap=16
-    //% blockId=device_stop_melody block="stop melody $options"
+    //% blockId=device_stop_melody block="parar melodia $options"
     //% parts="headphone"
-    //% group="Melody Advanced"
+    //% group="Melodia Avançada"
     export function stopMelody(options: MelodyStopOptions) {
         if (options & MelodyStopOptions.Background)
             startMelody([], MelodyOptions.OnceInBackground);
@@ -512,10 +512,10 @@ namespace music {
     }
 
     /**
-     * Stop all sounds and melodies currently playing.
+     * Para todos sons tocando atualmente
      */
     //% help=music/stop-all-sounds
-    //% blockId=music_stop_all_sounds block="stop all sounds"
+    //% blockId=music_stop_all_sounds block="parar todos os sons"
     //% weight=10
     //% group="Volume"
     export function stopAllSounds() {
@@ -536,7 +536,7 @@ namespace music {
      */
     //% help=music/set-play-tone
     //% advanced=true
-    //% group="Tone"
+    //% group="Nota musical"
     export function setPlayTone(f: (frequency: number, duration: number) => void) {
         _playTone = f;
     }

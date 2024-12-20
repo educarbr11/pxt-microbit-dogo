@@ -1,11 +1,11 @@
 #include "pxt.h"
 
 enum class DisplayMode_ {
-    //% block="black and white"
+    //% block="preto e branco"
     BlackAndWhite = DISPLAY_MODE_BLACK_AND_WHITE,
     //% blockHidden=true
     BackAndWhite = DISPLAY_MODE_BLACK_AND_WHITE,
-    //% block="greyscale"
+    //% block="cinza"
     Greyscale = DISPLAY_MODE_GREYSCALE,
     // TODO DISPLAY_MODE_BLACK_AND_WHITE_LIGHT_SENSE
 };
@@ -14,12 +14,12 @@ enum class DisplayMode_ {
 namespace led {
 
     /**
-     * Turn on the specified LED using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
-     * @param x the horizontal coordinate of the LED starting at 0
-     * @param y the vertical coordinate of the LED starting at 0
+     * Ligar o LED especificado ao utilizar coordenadas x, y (x é horizontal, y é vertical). (0,0) é é a parte superior esquerda.
+     * @param x a coordenada horizontal do LED começando em 0
+     * @param y a coordenada vertical do LED começando em 0
      */
     //% help=led/plot weight=78
-    //% blockId=device_plot block="plot|x %x|y %y" blockGap=8
+    //% blockId=device_plot block="ligar led em|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
@@ -28,17 +28,17 @@ namespace led {
     }
 
     /**
-     * Turn on the specified LED with specific brightness using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
-     * @param x the horizontal coordinate of the LED starting at 0
-     * @param y the vertical coordinate of the LED starting at 0
-     * @param brightness the brightness from 0 (off) to 255 (bright), eg:255
+     * Ligar o LED especificado com brilho específico ao utilizar coordenadas x, y (x é horizontal, y é vertical). (0,0) é a parte superior esquerdo.
+     * @param x a coordenada horizontal do LED começando em 0
+     * @param y a coordenada vertical do LED começando em 0
+     * @param brightness o brilho de 0 (desligado) to 255 (brilho total), eg:255
      */
     //% help=led/plot-brightness weight=78
-    //% blockId=device_plot_brightness block="plot|x %x|y %y|brightness %brightness" blockGap=8
+    //% blockId=device_plot_brightness block="ligar led em|x %x|y %y|brilho %brightness" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4 brightness.min=0 brightness.max=255
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
-    //% advanced=true
+    //% advanced=false
     void plotBrightness(int x, int y, int brightness) {
         brightness = max(0, min(0xff, brightness));
         // enable greyscale as needed
@@ -48,12 +48,12 @@ namespace led {
     }
 
     /**
-     * Turn off the specified LED using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
+     * Desligar o LED especificado ao utilizar coordenadas x, y (x é horizontal, y é vertical). (0,0) é é a parte superior esquerda.
      * @param x the horizontal coordinate of the LED
      * @param y the vertical coordinate of the LED
      */
     //% help=led/unplot weight=77
-    //% blockId=device_unplot block="unplot|x %x|y %y" blockGap=8
+    //% blockId=device_unplot block="apagar led em|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
@@ -62,86 +62,86 @@ namespace led {
     }
 
     /**
-     * Get the brightness state of the specified LED using x, y coordinates. (0,0) is upper left.
-     * @param x the horizontal coordinate of the LED
-     * @param y the vertical coordinate of the LED
+     * Obter o estado ligado/desligado do LED especificado utilizar as coordenadas x, y. (0,0) é a parte superior esquerda.
+     * @param x a coordenada horizontal do LED começando em 0
+     * @param y a coordenada vertical do LED começando em 0
      */
     //% help=led/point-brightness weight=76
-    //% blockId=device_point_brightness block="point|x %x|y %y brightness"
+    //% blockId=device_point_brightness block="brilho do led em|x %x|y %y"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
-    //% advanced=true
+    //% advanced=false
     int pointBrightness(int x, int y) {
       return uBit.display.image.getPixelValue(x, y);
     }
 
     /**
-     * Get the screen brightness from 0 (off) to 255 (full bright).
+     * Obtém o brilho da tela de 0 (desligado) a 255 (brilho total).
      */
     //% help=led/brightness weight=60
-    //% blockId=device_get_brightness block="brightness" blockGap=8
+    //% blockId=device_get_brightness block="brilho" blockGap=8
     //% parts="ledmatrix"
-    //% advanced=true
+    //% advanced=false
     int brightness() {
       return uBit.display.getBrightness();
     }
 
     /**
-     * Set the screen brightness from 0 (off) to 255 (full bright).
-     * @param value the brightness value, eg:255, 127, 0
+     * Define o brilho de tela de 0 (desligada) até 255 (brilho total).
+     * @param value intensidade do brilho, eg:255, 127, 0
      */
     //% help=led/set-brightness weight=59
-    //% blockId=device_set_brightness block="set brightness %value"
+    //% blockId=device_set_brightness block="definir brilho do led %value"
     //% parts="ledmatrix"
-    //% advanced=true
+    //% advanced=false
     //% value.min=0 value.max=255
     void setBrightness(int value) {
        uBit.display.setBrightness(value);
     }
 
     /**
-     * Cancels the current animation and clears other pending animations.
+     * Cancela a animação atual e limpa outras animações pendentes.
      */
     //% weight=50 help=led/stop-animation
-    //% blockId=device_stop_animation block="stop animation"
+    //% blockId=device_stop_animation block="parar animação de led"
     //% parts="ledmatrix"
-    //% advanced=true
+    //% advanced=false
     void stopAnimation() {
        uBit.display.stopAnimation();
     }
 
     /**
-     * Sets the display mode between black and white and greyscale for rendering LEDs.
-     * @param mode mode the display mode in which the screen operates
+     * Define o modo de exibição entre preto e branco e tons de cinza para a renderização de LEDs.
+     * @param mode modo de exibição no qual a tela opera
      */
     //% weight=1 help=led/set-display-mode
-    //% parts="ledmatrix" advanced=true weight=1
-    //% blockId="led_set_display_mode" block="set display mode $mode"
+    //% parts="ledmatrix" advanced=false weight=1
+    //% blockId="led_set_display_mode" block="definir modo de exibição $mode"
     void setDisplayMode(DisplayMode_ mode) {
         uBit.display.setDisplayMode((DisplayMode)mode);
     }
 
     /**
-    * Gets the current display mode
+    * Obtém o modo de exibição atual
     */
-    //% weight=1 parts="ledmatrix" advanced=true
+    //% weight=1 parts="ledmatrix" advanced=false
     DisplayMode_ displayMode() {
         return (DisplayMode_)uBit.display.getDisplayMode();
     }
 
     /**
-    * Turns on or off the display
+    * Liga ou desliga a tela
     */
-    //% help=led/enable blockId=device_led_enable block="led enable %on"
-    //% advanced=true parts="ledmatrix"
+    //% help=led/enable blockId=device_led_enable block="led ativado? %on"
+    //% advanced=false parts="ledmatrix"
     void enable(bool on) {
         if (on) uBit.display.enable();
         else uBit.display.disable();
     }
 
     /**
-     * Takes a screenshot of the LED screen and returns an image.
+     * Faz uma captura de tela da tela de LED e retorna uma imagem.
      */
     //% help=led/screenshot
     //% parts="ledmatrix"
