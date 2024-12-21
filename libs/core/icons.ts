@@ -277,7 +277,7 @@ namespace images {
 
     //% weight=50 blockGap=8
     //% help=images/icon-image
-    //% blockId=builtin_image block="icon image %i"
+    //% blockId=builtin_image block="imagem de ícone %i"
     //% i.fieldEditor="imagedropdown"
     //% i.fieldOptions.columns="5"
     //% i.fieldOptions.width="380"

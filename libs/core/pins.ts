@@ -2,16 +2,16 @@
  * Control currents in Pins for analog/digital signals, servos, i2c, ...
  */
 //% color=#B22222 weight=30 icon="\uf140"
-//% advanced=true
+//% advanced=true block="PINOS"
 //% groups='["Pins", "Pulse", "I2C", "SPI", "micro:bit (V2)"]'
 namespace pins {
     /**
-     * Returns the value of a C++ runtime constant
+     * Retorna o valor de uma constante de tempo de execução C++
      */
     //% help=pins/digital-pin
     //% shim=TD_ID
     //% blockId=digital_pin
-    //% block="digital pin $pin"
+    //% block="pino digital $pin"
     //% pin.fieldEditor=pinpicker
     //% pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false"
@@ -25,12 +25,12 @@ namespace pins {
     }
 
     /**
-     * Returns the value of a C++ runtime constant
+     * Retorna o valor de uma constante de tempo de execução C++
      */
     //% help=pins/analog-pin
     //% shim=TD_ID
     //% blockId=analog_pin
-    //% block="analog pin $pin"
+    //% block="pino analógico $pin"
     //% pin.fieldEditor=pinpicker
     //% pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false"
@@ -89,24 +89,24 @@ namespace pins {
     }
 
     /**
-     * Map a number from one range to another. That is, a value of ``from low`` would get mapped to ``to low``, a value of ``from high`` to ``to high``, values in-between to values in-between, etc.
-     * @param value value to map in ranges
-     * @param fromLow the lower bound of the value's current range
-     * @param fromHigh the upper bound of the value's current range, eg: 1023
-     * @param toLow the lower bound of the value's target range
-     * @param toHigh the upper bound of the value's target range, eg: 4
+     * Mapeia um número de um intervalo para outro. Ou seja, um valor de ``from low`` será mapeado para ``to low``, um valor de ``from high`` será mapeado para ``to high``, e valores intermediários para valores intermediários, etc.
+     * @param value valor a ser mapeado nos intervalos
+     * @param fromLow o limite inferior do intervalo atual do valor
+     * @param fromHigh o limite superior do intervalo atual do valor, por exemplo: 1023
+     * @param toLow o limite inferior do intervalo de destino do valor
+     * @param toHigh o limite superior do intervalo de destino do valor, por exemplo: 4
      */
     //% help=pins/map weight=23
-    //% blockId=pin_map block="map %value|from low %fromLow|from high %fromHigh|to low %toLow|to high %toHigh"
+    //% blockId=pin_map block="tranformar %value|de mínimo A %fromLow|máximo A %fromHigh|para mínimo B %toLow|máximo B %toHigh"
     export function map(value: number, fromLow: number, fromHigh: number, toLow: number, toHigh: number): number {
         return ((value - fromLow) * (toHigh - toLow)) / (fromHigh - fromLow) + toLow;
     }
 
-    /**
-     * Read one number from 7-bit I2C address.
+  /**
+     * Leia um número de um endereço I2C de 7 bits.
      */
     //% help=pins/i2c-read-number blockGap=8 advanced=true
-    //% blockId=pins_i2c_readnumber block="i2c read number|at address %address|of format %format|repeated %repeat" weight=7
+    //% blockId=pins_i2c_readnumber block="i2c ler número|no endereço %address|com formato %format|repetido %repeat" weight=7
     //% group="I2C"
     //% weight=45
     export function i2cReadNumber(address: number, format: NumberFormat, repeated?: boolean): number {
@@ -115,10 +115,10 @@ namespace pins {
     }
 
     /**
-     * Write one number to a 7-bit I2C address.
+     * Escreva um número em um endereço I2C de 7 bits.
      */
     //% help=pins/i2c-write-number blockGap=8 advanced=true
-    //% blockId=i2c_writenumber block="i2c write number|at address %address|with value %value|of format %format|repeated %repeat" weight=6
+    //% blockId=i2c_writenumber block="i2c escrever número|no endereço %address|com valor %value|com formato %format|repetido %repeat" weight=6
     //% group="I2C"
     //% weight=44
     export function i2cWriteNumber(address: number, value: number, format: NumberFormat, repeated?: boolean): void {

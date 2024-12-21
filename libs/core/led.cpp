@@ -80,7 +80,7 @@ namespace led {
      * Obtém o brilho da tela de 0 (desligado) a 255 (brilho total).
      */
     //% help=led/brightness weight=60
-    //% blockId=device_get_brightness block="brilho" blockGap=8
+    //% blockId=device_get_brightness block="brilho do led" blockGap=8
     //% parts="ledmatrix"
     //% advanced=false
     int brightness() {

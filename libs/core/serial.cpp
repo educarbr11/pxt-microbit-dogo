@@ -44,7 +44,7 @@ enum BaudRate {
 };
 
 //% weight=2 color=#002050 icon="\uf287"
-//% advanced=true
+//% advanced=false
 namespace serial {
 #if MICROBIT_CODAL
     bool is_redirected;
@@ -52,23 +52,23 @@ namespace serial {
 
     // note that at least one // followed by % is needed per declaration!
 
-    /**
-     * Read a line of text from the serial port and return the buffer when the delimiter is met.
-     * @param delimiter text delimiter that separates each text chunk
-     */
-    //% help=serial/read-until
-    //% blockId=serial_read_until block="serial|read until %delimiter=serial_delimiter_conv"
-    //% weight=19
+  /**
+  * Lê uma linha de texto da porta serial e retorna o buffer quando o delimitador for encontrado.
+  * @param delimiter delimitador de texto que separa cada parte do texto
+  */
+  //% help=serial/read-until
+  //% blockId=serial_read_until block="serial com:|ler até %delimiter=serial_delimiter_conv"
+  //% weight=19
     String readUntil(String delimiter) {
       return PSTR(uBit.serial.readUntil(MSTR(delimiter)));
     }
 
-    /**
-    * Read the buffered received data as a string
-    */
-    //% help=serial/read-string
-    //% blockId=serial_read_buffer block="serial|read string"
-    //% weight=18
+   /**
+  * Lê os dados recebidos no buffer como uma string
+  */
+  //% help=serial/read-string
+  //% blockId=serial_read_buffer block="serial com:|ler texto"
+  //% weight=18
     String readString() {
       int n = uBit.serial.getRxBufferSize();
       if (n == 0) return mkString("", 0);
@@ -76,11 +76,11 @@ namespace serial {
     }
 
     /**
-    * Register an event to be fired when one of the delimiter is matched.
-    * @param delimiters the characters to match received characters against.
+    * Registra um evento a ser disparado quando um dos delimitadores for correspondido.
+    * @param delimitadores os caracteres para comparar os caracteres recebidos.
     */
     //% help=serial/on-data-received
-    //% weight=18 blockId=serial_on_data_received block="serial|on data received %delimiters=serial_delimiter_conv"
+    //% weight=18 blockId=serial_on_data_received block="serial com:|ao receber dados %delimitadores=serial_delimiter_conv"
     void onDataReceived(String delimiters, Action body) {
       uBit.serial.eventOn(MSTR(delimiters));
       registerWithDal(MICROBIT_ID_SERIAL, MICROBIT_SERIAL_EVT_DELIM_MATCH, body);
@@ -88,13 +88,13 @@ namespace serial {
       uBit.serial.read(MicroBitSerialMode::ASYNC);
     }
 
-    /**
-     * Send a piece of text through the serial connection.
-     */
-    //% help=serial/write-string
-    //% weight=87 blockGap=8
-    //% blockId=serial_writestring block="serial|write string %text"
-    //% text.shadowOptions.toString=true
+   /**
+  * Envia um pedaço de texto através da conexão serial.
+  */
+  //% help=serial/write-string
+  //% weight=87 blockGap=8
+  //% blockId=serial_writestring block="serial com:|escrever cadeia de caracteres %texto"
+  //% texto.shadowOptions.toString=true
     void writeString(String text) {
       if (!text) return;
 
@@ -102,10 +102,10 @@ namespace serial {
     }
 
     /**
-    * Send a buffer through serial connection
+    * Envia um buffer através da conexão serial.
     */
-    //% blockId=serial_writebuffer block="serial|write buffer %buffer=serial_readbuffer"
-    //% help=serial/write-buffer advanced=true weight=6
+    //% blockId=serial_writebuffer block="serial com:|escrever buffer %buffer=serial_readbuffer"
+    //% help=serial/write-buffer advanced=false weight=6
     void writeBuffer(Buffer buffer) {
       if (!buffer) return;
 
@@ -113,12 +113,12 @@ namespace serial {
     }
 
     /**
-    * Read multiple characters from the receive buffer. 
-    * If length is positive, pauses until enough characters are present.
-    * @param length default buffer length
+    * Lê múltiplos caracteres do buffer de recepção.
+    * Se o comprimento for positivo, pausa até que haja caracteres suficientes.
+    * @param length comprimento do buffer padrão
     */
-    //% blockId=serial_readbuffer block="serial|read buffer %length"
-    //% help=serial/read-buffer advanced=true weight=5
+    //% blockId=serial_readbuffer block="serial com:|ler buffer %length"
+    //% help=serial/read-buffer advanced=false weight=5
     Buffer readBuffer(int length) {
       auto mode = SYNC_SLEEP;
       if (length <= 0) {
@@ -155,14 +155,15 @@ namespace serial {
     }
 
     /**
-    * Set the serial input and output to use pins instead of the USB connection.
-    * @param tx the new transmission pin, eg: SerialPin.P0
-    * @param rx the new reception pin, eg: SerialPin.P1
-    * @param rate the new baud rate. eg: 115200
+    /**
+    * Define a entrada e saída serial para usar pinos em vez da conexão USB.
+    * @param tx o novo pino de transmissão, ex: SerialPin.P0
+    * @param rx o novo pino de recepção, ex: SerialPin.P1
+    * @param rate a nova taxa de transmissão. ex: 115200
     */
     //% weight=10
     //% help=serial/redirect
-    //% blockId=serial_redirect block="serial|redirect to|TX %tx|RX %rx|at baud rate %rate"
+    //% blockId=serial_redirect block="serial com:|redirecionar para|TX %tx|RX %rx|com taxa de transmissão %rate"
     //% blockExternalInputs=1
     //% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
     //% tx.fieldOptions.tooltips="false"
@@ -185,14 +186,14 @@ namespace serial {
 #endif
     }
 
-    /**
-    Set the baud rate of the serial port
+   /**
+    * Define a taxa de transmissão (baud rate) da porta serial
     */
     //% weight=10
-    //% blockId=serial_setbaudrate block="serial|set baud rate %rate"
+    //% blockId=serial_setbaudrate block="serial com:|definir taxa de transmissão %rate"
     //% blockGap=8 inlineInputMode=inline
     //% help=serial/set-baud-rate
-    //% group="Configuration" advanced=true
+    //% group="Configuração" advanced=false
     void setBaudRate(BaudRate rate) {
 #if MICROBIT_CODAL
       uBit.serial.setBaud(rate);
@@ -203,10 +204,10 @@ namespace serial {
 
 
     /**
-    * Direct the serial input and output to use the USB connection.
+    * Direciona a entrada e saída serial para usar a conexão USB.
     */
     //% weight=9 help=serial/redirect-to-usb
-    //% blockId=serial_redirect_to_usb block="serial|redirect to USB"
+    //% blockId=serial_redirect_to_usb block="serial com:|direcionar para USB"
     void redirectToUSB() {
 #if MICROBIT_CODAL
       is_redirected = false;
@@ -218,24 +219,24 @@ namespace serial {
 #endif
     }
 
-    /**
-    * Sets the size of the RX buffer in bytes
-    * @param size length of the rx buffer in bytes, eg: 32
+   /**
+    * Define o tamanho do buffer RX em bytes
+    * @param size comprimento do buffer RX em bytes, ex: 32
     */
     //% help=serial/set-rx-buffer-size
-    //% blockId=serialSetRxBufferSize block="serial set rx buffer size to $size"
-    //% advanced=true
+    //% blockId=serialSetRxBufferSize block="serial com: definir tamanho do buffer RX para $size"
+    //% advanced=false
     void setRxBufferSize(uint8_t size) {
       uBit.serial.setRxBufferSize(size);
     }
 
     /**
-    * Sets the size of the TX buffer in bytes
-    * @param size length of the tx buffer in bytes, eg: 32
+    * Define o tamanho do buffer TX em bytes
+    * @param size comprimento do buffer TX em bytes, ex: 32
     */
     //% help=serial/set-tx-buffer-size
-    //% blockId=serialSetTxBufferSize block="serial set tx buffer size to $size"
-    //% advanced=true
+    //% blockId=serialSetTxBufferSize block="serial com: definir tamanho do buffer TX para $size"
+    //% advanced=false
     void setTxBufferSize(uint8_t size) {
       uBit.serial.setTxBufferSize(size);
     }

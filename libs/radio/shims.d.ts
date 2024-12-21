@@ -20,11 +20,11 @@ declare namespace radio {
     function on(): void;
 
     /**
-     * Sends an event over radio to neigboring devices
+     * Envia um evento via rádio para dispositivos vizinhos.
      */
-    //% blockId=radioRaiseEvent block="radio raise event|from source %src=control_event_source_id|with value %value=control_event_value_id"
+    //% blockId=radioRaiseEvent block="rádio: enviar evento|da fonte %src=control_event_source_id|com valor %value=control_event_value_id"
     //% blockExternalInputs=1
-    //% advanced=true
+    //% advanced=false
     //% weight=1
     //% help=radio/raise-event shim=radio::raiseEvent
     function raiseEvent(src: int32, value: int32): void;
@@ -52,36 +52,36 @@ declare namespace radio {
     function onDataReceived(body: () => void): void;
 
     /**
-     * Sets the group id for radio communications. A micro:bit can only listen to one group ID at any time.
-     * @param id the group id between ``0`` and ``255``, eg: 1
+     * Define o ID do grupo para comunicações por rádio. Um micro:bit só pode escutar um ID de grupo por vez.
+     * @param id o ID do grupo, entre ``0`` e ``255``, ex: 1
      */
     //% help=radio/set-group
     //% weight=100
-    //% blockId=radio_set_group block="radio set group %ID"
+    //% blockId=radio_set_group block="definir canal de rádio %ID"
     //% id.min=0 id.max=255
-    //% group="Group" shim=radio::setGroup
+    //% group="CANAL" shim=radio::setGroup
     function setGroup(id: int32): void;
 
     /**
-     * Change the output power level of the transmitter to the given value.
-     * @param power a value in the range 0..7, where 0 is the lowest power and 7 is the highest. eg: 7
+     * Alterar o nível de potência de saída do transmissor para o valor especificado.
+     * @param power um valor na faixa de 0 a 7, onde 0 é a potência mais baixa e 7 é a mais alta. ex: 7
      */
     //% help=radio/set-transmit-power
     //% weight=9 blockGap=8
-    //% blockId=radio_set_transmit_power block="radio set transmit power %power"
+    //% blockId=radio_set_transmit_power block="rádio: configurar potência de transmissão %power"
     //% power.min=0 power.max=7
-    //% advanced=true shim=radio::setTransmitPower
+    //% advanced=false shim=radio::setTransmitPower
     function setTransmitPower(power: int32): void;
 
     /**
-     * Change the transmission and reception band of the radio to the given channel
-     * @param band a frequency band in the range 0 - 83. Each step is 1MHz wide, based at 2400MHz.
+     * Altere a banda de transmissão e recepção do rádio para o canal especificado.
+     * @param band uma banda de frequência na faixa de 0 a 83. Cada passo equivale a 1MHz, começando em 2400MHz.
      **/
     //% help=radio/set-frequency-band
     //% weight=8 blockGap=8
-    //% blockId=radio_set_frequency_band block="radio set frequency band %band"
+    //% blockId=radio_set_frequency_band block="rádio: configurar banda de frequência %band"
     //% band.min=0 band.max=83
-    //% advanced=true shim=radio::setFrequencyBand
+    //% advanced=false shim=radio::setFrequencyBand
     function setFrequencyBand(band: int32): void;
 }
 

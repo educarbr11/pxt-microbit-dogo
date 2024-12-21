@@ -31,23 +31,23 @@ unsigned RefMImage::gcsize(RefMImage *t) {
  * Creation, manipulation and display of LED images.
  */
 //% color=#7600A8 weight=31 icon="\uf03e"
-//% advanced=true
+//% advanced=false block="IMAGENS"
 namespace images {
 /**
- * Creates an image that fits on the LED screen.
+ * Cria uma imagem que se ajusta à tela de LEDs.
  */
 //% weight=75 help=images/create-image
-//% blockId=device_build_image block="create image"
+//% blockId=device_build_image block="criar imagem"
 //% parts="ledmatrix"
 Image createImage(ImageLiteral_ leds) {
     return NEW_GC(RefMImage, imageBytes(leds));
 }
 
 /**
- * Creates an image with 2 frames.
+ * Cria uma imagem com 2 quadros.
  */
 //% weight=74 help=images/create-big-image
-//% blockId=device_build_big_image block="create big image" imageLiteral=2
+//% blockId=device_build_big_image block="criar imagem grande" imageLiteral=2
 //% parts="ledmatrix"
 Image createBigImage(ImageLiteral_ leds) {
     return createImage(leds);
@@ -81,12 +81,12 @@ void plotImage(Image i, int xOffset = 0) {
 }
 
 /**
- * Shows an frame from the image at offset ``x offset``.
- * @param xOffset column index to start displaying the image
- * @param interval time in milliseconds to pause after drawing
+ * Mostra um quadro da imagem no deslocamento ``x offset``.
+ * @param xOffset índice da coluna para começar a exibir a imagem
+ * @param interval tempo em milissegundos para pausar após desenhar
  */
 //% help=images/show-image weight=80 blockNamespace=images
-//% blockId=device_show_image_offset block="show image %sprite(myImage)|at offset %offset ||and interval (ms) %interval"
+//% blockId=device_show_image_offset block="mostrar imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval"
 //% interval.defl=400
 //% blockGap=8 parts="ledmatrix" async
 void showImage(Image sprite, int xOffset, int interval = 400) {
@@ -94,8 +94,8 @@ void showImage(Image sprite, int xOffset, int interval = 400) {
 }
 
 /**
- * Draws the ``index``-th frame of the image on the screen.
- * @param xOffset column index to start displaying the image
+ * Desenha o ``índice``-ésimo quadro da imagem na tela.
+ * @param xOffset índice da coluna para começar a exibir a imagem
  */
 //% help=images/plot-frame weight=80
 //% parts="ledmatrix"
@@ -105,13 +105,13 @@ void plotFrame(Image i, int xOffset) {
 }
 
 /**
- * Scrolls an image .
- * @param frameOffset x offset moved on each animation step, eg: 1, 2, 5
- * @param interval time between each animation step in milli seconds, eg: 200
+ * Rola uma imagem.
+ * @param frameOffset deslocamento x movido a cada passo da animação, por exemplo: 1, 2, 5
+ * @param interval tempo entre cada passo da animação em milissegundos, por exemplo: 200
  */
 //% help=images/scroll-image weight=79 async blockNamespace=images
 //% blockId=device_scroll_image
-//% block="scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %delay"
+//% block="rolar imagem %sprite(minhaImagem)|com deslocamento %frameoffset|e intervalo (ms) %delay"
 //% blockGap=8 parts="ledmatrix"
 void scrollImage(Image id, int frameOffset, int interval) {
     MicroBitImage i(id->img);
@@ -119,7 +119,7 @@ void scrollImage(Image id, int frameOffset, int interval) {
 }
 
 /**
- * Sets all pixels off.
+ * Desliga todos os leds
  */
 //% help=images/clear
 //% parts="ledmatrix"
@@ -129,7 +129,7 @@ void clear(Image i) {
 }
 
 /**
- * Sets a specific pixel brightness at a given position
+ * Define um brilho de pixel específico em uma determinada posição
  */
 //%
 //% parts="ledmatrix"
@@ -139,7 +139,7 @@ void setPixelBrightness(Image i, int x, int y, int value) {
 }
 
 /**
- * Gets the pixel brightness ([0..255]) at a given position
+ * Obtém o brilho do pixel ([0..255]) em uma determinada posição
  */
 //%
 //% parts="ledmatrix"
@@ -151,7 +151,7 @@ int pixelBrightness(Image i, int x, int y) {
 }
 
 /**
- * Gets the width in columns
+ * Largura da coluna
  */
 //% help=functions/width
 int width(Image i) {
@@ -159,7 +159,7 @@ int width(Image i) {
 }
 
 /**
- * Gets the height in rows (always 5)
+ * Altura da coluna (5)
  */
 //%
 int height(Image i) {
@@ -167,10 +167,10 @@ int height(Image i) {
 }
 
 /**
- * Set a pixel state at position ``(x,y)``
- * @param x pixel column
- * @param y pixel row
- * @param value pixel state
+ * Define o estado de um pixel na posição ``(x, y)``
+ * @param x coluna do pixel
+ * @param y linha do pixel
+ * @param value estado do pixel
  */
 //% help=images/set-pixel
 //% parts="ledmatrix"
@@ -179,9 +179,9 @@ void setPixel(Image i, int x, int y, bool value) {
 }
 
 /**
- * Get the pixel state at position ``(x,y)``
- * @param x pixel column
- * @param y pixel row
+ * Obtém o estado do pixel na posição ``(x, y)``
+ * @param x coluna do pixel
+ * @param y linha do pixel
  */
 //% help=images/pixel
 //% parts="ledmatrix"
@@ -190,8 +190,8 @@ bool pixel(Image i, int x, int y) {
 }
 
 /**
- * Show a particular frame of the image strip.
- * @param frame image frame to show
+ * Exibe um quadro específico da tira de imagens.
+ * @param frame quadro da imagem a ser exibido
  */
 //% weight=70 help=images/show-frame
 //% parts="ledmatrix"

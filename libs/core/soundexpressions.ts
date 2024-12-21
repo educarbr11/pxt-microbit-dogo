@@ -327,7 +327,7 @@ namespace music {
      * @param mode o modo de reprodução, jogue até terminar ou em segundo plano
      */
     //% blockId=soundExpression_playSoundEffect
-    //% block="reproduzir som $sound $mode"
+    //% block="tocar som $sound $mode"
     //% sound.shadow=soundExpression_createSoundEffect
     //% weight=100 help=music/play-sound-effect
     //% blockGap=8

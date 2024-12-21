@@ -83,7 +83,7 @@ namespace music {
      * @param playbackMode toque a música ou melodia até terminar ou como tarefa em segundo plano
      */
     //% blockId="music_playable_play"
-    //% block="reproduzir $toPlay $playbackMode"
+    //% block="tocar $toPlay $playbackMode"
     //% toPlay.shadow=music_string_playable
     //% group="Melodia"
     //% help="music/play"
@@ -93,7 +93,7 @@ namespace music {
     }
 
     //% blockId="music_playable_play_default_bkg"
-    //% block="reproduzir $toPlay $playbackMode"
+    //% block="tocar $toPlay $playbackMode"
     //% toPlay.shadow=music_string_playable
     //% playbackMode.defl=music.PlaybackMode.InBackground
     //% group="Melodia"

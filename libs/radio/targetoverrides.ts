@@ -30,15 +30,15 @@ namespace radio {
     }
 
     /**
-     * Deprecated. Use onDataReceived() instead
-     * Registers code to run when the radio receives a packet. Also takes the
-     * received packet from the radio queue.
+    * Obsoleto. Use onDataReceived() em vez disso
+     * Registra o código a ser executado quando o rádio recebe um pacote. Também leva o
+     * pacote recebido da fila de rádio.
      */
     //% help=radio/on-data-packet-received blockHandlerKey="radioreceived" deprecated=true
     //% mutate=objectdestructuring
     //% mutateText=Packet
     //% mutateDefaults="receivedNumber;receivedString:name,receivedNumber:value;receivedString"
-    //% blockId=radio_on_packet block="on radio received" blockGap=8
+    //% blockId=radio_on_packet block="quando rádio receber" blockGap=8
     export function onDataPacketReceived(cb: (packet: Packet) => void) {
         onDataReceived(() => {
             receiveNumber();
@@ -54,44 +54,42 @@ namespace radio {
     }
 
     /**
-     * Registers code to run when the radio receives a number. Deprecated, use
-     * onReceivedNumber instead.
+     * Registra o código a ser executado quando o rádio recebe um número. Obsoleto, use
+     * onReceivedNumber em vez disso.
      */
     //% help=radio/on-received-number blockHandlerKey="radioreceived"
-    //% blockId=radio_on_number block="on radio received" blockGap=16
+    //% blockId=radio_on_number block="quando rádio receber um número" blockGap=16
     //% useLoc="radio.onDataPacketReceived" deprecated=1
     export function onReceivedNumberDeprecated(cb: (receivedNumber: number) => void) {
         onReceivedNumber(cb);
     }
 
     /**
-     * Registers code to run when the radio receives a key value pair. Deprecated, use
-     * onReceivedValue instead.
+     * Registra o código a ser executado quando o rádio recebe um par de valores-chave.
      */
     //% help=radio/on-received-value blockHandlerKey="radioreceived"
-    //% blockId=radio_on_value block="on radio received" blockGap=16
+    //% blockId=radio_on_value block="quando o rádio receber um par valor-chave" blockGap=16
     //% useLoc="radio.onDataPacketReceived" deprecated=1
     export function onReceivedValueDeprecated(cb: (name: string, value: number) => void) {
         onReceivedValue(cb);
     }
 
     /**
-     * Registers code to run when the radio receives a string. Deprecated, use
-     * onReceivedString instead.
+     * Registra o código a ser executado quando o rádio recebe um texto
      */
     //% help=radio/on-received-string blockHandlerKey="radioreceived"
-    //% blockId=radio_on_string block="on radio received" blockGap=16
+    //% blockId=radio_on_string block="quando o rádio receber um texto" blockGap=16
     //% useLoc="radio.onDataPacketReceived" deprecated=1
     export function onReceivedStringDeprecated(cb: (receivedString: string) => void) {
         onReceivedString(cb);
     }
 
     /**
-     * Registers code to run when the radio receives a buffer. Deprecated, use
+     * Registra o código a ser executado quando o rádio recebe um par de valores-chave.
      * onReceivedBuffer instead.
      */
     //% help=radio/on-received-buffer blockHandlerKey="radioreceived" blockHidden=1
-    //% blockId=radio_on_buffer block="on radio received" blockGap=16
+    //% blockId=radio_on_buffer block="quando rádio receber" blockGap=16
     //% useLoc="radio.onDataPacketReceived" deprecated=1
     export function onReceivedBufferDeprecated(cb: (receivedBuffer: Buffer) => void) {
         onReceivedBuffer(cb);
@@ -102,7 +100,7 @@ namespace radio {
      * (via ``receiveNumber``, ``receiveString``, etc) or 0 if that packet did not
      * contain a number.
      */
-    //% help=radio/received-number deprecated=1
+    //% help=radio/received-number deprecated=1 block="númeroRecebido"
     export function receivedNumber(): number {
         return (lastPacket ? lastPacket.numberPayload : 0) || 0;
     }
@@ -112,7 +110,7 @@ namespace radio {
      * from the radio queue (via ``receiveNumber``, ``receiveString``, etc) or 0 if
      * that packet did not send a serial number.
      */
-    //% help=radio/received-serial deprecated=1
+    //% help=radio/received-serial deprecated=1 block="númeroSerial"
     export function receivedSerial(): number {
         return lastPacket ? lastPacket.serial : 0;
     }
@@ -122,7 +120,7 @@ namespace radio {
      * (via ``receiveNumber``, ``receiveString``, etc) or the empty string if that
      * packet did not contain a string.
      */
-    //% help=radio/received-string deprecated=1
+    //% help=radio/received-string deprecated=1 block="textoRecebido"
     export function receivedString(): string {
         return (lastPacket ? lastPacket.stringPayload : "") || "";
     }

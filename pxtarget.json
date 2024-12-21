@@ -415,6 +415,12 @@
             "url": "",
             "description": "Seja Bem-vindo ao DoGo Code!"
         },
+        "instructions": false,
+        "sidebarTutorial": false,
+        "disableAPICache": true,
+        "embeddedTutorial":false,
+        "legacyTutorial":false,
+        "tutorialExplicitHints": false,
         "homeUrl": "https://makecode.microbit.org/",
         "embedUrl": "https://makecode.microbit.org/",
         "shareUrl": "https://makecode.microbit.org/",
@@ -544,7 +550,7 @@
         "python": true,
         "appFlashingTroubleshoot": "/device/windows-app/troubleshoot",
         "immersiveReader": true,
-        "tutorialCodeValidation": true,
+        "tutorialCodeValidation": false,
         "downloadDialogTheme": {
             "webUSBDeviceNames": ["BBC micro:bit CMSIS-DAP", "DAPLink CMSIS-DAP"],
             "minimumFirmwareVersion": "0249",
@@ -567,10 +573,7 @@
         },
         "winAppDeprImage": "/static/winapp.PNG",
         "showWinAppDeprBanner": false,
-        "tours": {
-            "editor": "/tours/editor-tour"
-        },
-        "tutorialSimSidebarLayout": true,
+        "tutorialSimSidebarLayout": false,
         "preferWebUSBDownload": true,
         "hideReplaceMyCode": true,
         "matchWebUSBDeviceInSim": true,

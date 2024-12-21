@@ -12,10 +12,10 @@ declare namespace input {
     function onSound(sound: DetectedSound, handler: () => void): void;
 
     /**
-     * Reads the loudness through the microphone from 0 (silent) to 255 (loud)
+     * Lê o volume através do microfone de 0 (silencioso) a 255 (alto)
      */
     //% help=input/sound-level
-    //% blockId=device_get_sound_level block="sound level"
+    //% blockId=device_get_sound_level block="nível do som"
     //% parts="microphone"
     //% weight=34 blockGap=8
     //% group="micro:bit (V2)" shim=input::soundLevel

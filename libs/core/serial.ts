@@ -27,7 +27,7 @@ const enum Delimiters {
  * Reading and writing data over a serial connection.
  */
 //% weight=2 color=#002050 icon="\uf287"
-//% advanced=true
+//% advanced=true block="SERIAL COM"
 namespace serial {
     /**
      * The string used to mark a new line, default is \r\n
@@ -36,13 +36,13 @@ namespace serial {
     export let NEW_LINE_DELIMITER: Delimiters = Delimiters.NewLine;
     let writeLinePadding = 32;
 
-    /**
-     * Print a line of text to the serial port
-     * @param value to send over serial
+   /**
+     * Imprime uma linha de texto na porta serial
+     * @param value a ser enviado pela serial
      */
     //% weight=90
     //% help=serial/write-line blockGap=8
-    //% blockId=serial_writeline block="serial|write line %text"
+    //% blockId=serial_writeline block="serial com:|escrever linha %text"
     //% text.shadowOptions.toString=true
     export function writeLine(text: string): void {
         if (!text) text = "";
@@ -57,36 +57,36 @@ namespace serial {
         serial.writeString(NEW_LINE);
     }
 
-    /**
-     * Sets the padding length for lines sent with "write line".
-     * @param length the number of bytes alignment, eg: 0
-     *
+   /**
+     * Define o comprimento de preenchimento para as linhas enviadas com "escrever linha".
+     * @param length o número de bytes de alinhamento, por exemplo: 0
      */
     //% weight=1
     //% help=serial/set-write-line-padding
-    //% blockId=serialWriteNewLinePadding block="serial set write line padding to $length"
+    //% blockId=serialWriteNewLinePadding block="serial com: definir preenchimento da linha escrita para $length"
     //% advanced=true
     //% length.min=0 length.max=128
+
     export function setWriteLinePadding(length: number) {
         writeLinePadding = length | 0;
     }
 
-    /**
-     * Print a numeric value to the serial port
+   /**
+     * Imprime um valor numérico na porta serial
      */
     //% help=serial/write-number
     //% weight=89 blockGap=8
-    //% blockId=serial_writenumber block="serial|write number %value"
+    //% blockId=serial_writenumber block="serial com:|escrever número %value"
     export function writeNumber(value: number): void {
         writeString(value.toString());
     }
 
     /**
-     * Print an array of numeric values as CSV to the serial port
+     * Imprime um array de valores numéricos como CSV na porta serial
      */
     //% help=serial/write-numbers
     //% weight=86
-    //% blockId=serial_writenumbers block="serial|write numbers %values"
+    //% blockId=serial_writenumbers block="serial com:|escrever números %values"
     export function writeNumbers(values: number[]): void {
         if (!values) return;
         for (let i = 0; i < values.length; ++i) {
@@ -97,29 +97,29 @@ namespace serial {
     }
 
     /**
-     * Write a name:value pair as a line to the serial port.
-     * @param name name of the value stream, eg: x
-     * @param value to write
+     * Escreve um par nome:valor como uma linha na porta serial.
+     * @param name nome do fluxo de valor, ex: x
+     * @param value valor a ser escrito
      */
     //% weight=88 blockGap=8
     //% help=serial/write-value
-    //% blockId=serial_writevalue block="serial|write value %name|= %value"
+    //% blockId=serial_writevalue block="serial com:|escrever valor %name|= %value"
     export function writeValue(name: string, value: number): void {
         writeLine((name ? name + ":" : "") + value);
     }
 
     /**
-     * Read a line of text from the serial port.
+     * Lê uma linha de texto da porta serial.
      */
     //% help=serial/read-line
-    //% blockId=serial_read_line block="serial|read line"
+    //% blockId=serial_read_line block="serial com:|ler linha"
     //% weight=20 blockGap=8
     export function readLine(): string {
         return serial.readUntil(delimiters(NEW_LINE_DELIMITER));
     }
 
     /**
-     * Return the corresponding delimiter string
+     * Retorna a string delimitadora correspondente
      */
     //% blockId="serial_delimiter_conv" block="%del"
     //% weight=1 blockHidden=true

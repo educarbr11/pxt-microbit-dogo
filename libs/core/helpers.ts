@@ -1,8 +1,8 @@
 namespace Math {
     /**
-     * Generates a `true` or `false` value randomly, just like flipping a coin.
+     * Gera um valor `verdadeiro` ou `falso` aleatoriamente, como jogar um moeda
      */
-    //% blockId=logic_random block="pick random true or false"
+    //% blockId=logic_random block="escolher de forma aleatória verdadeiro ou falso"
     //% help=math/random-boolean weight=0
     export function randomBoolean(): boolean {
         return Math.randomRange(0, 1) === 1;
