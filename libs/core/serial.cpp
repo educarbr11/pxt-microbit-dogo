@@ -44,7 +44,7 @@ enum BaudRate {
 };
 
 //% weight=2 color=#002050 icon="\uf287"
-//% advanced=true
+//% advanced=false
 namespace serial {
 #if MICROBIT_CODAL
     bool is_redirected;
@@ -57,7 +57,7 @@ namespace serial {
   * @param delimiter delimitador de texto que separa cada parte do texto
   */
   //% help=serial/read-until
-  //% blockId=serial_read_until block="serial com|ler até %delimiter=serial_delimiter_conv"
+  //% blockId=serial_read_until block="serial com:|ler até %delimiter=serial_delimiter_conv"
   //% weight=19
     String readUntil(String delimiter) {
       return PSTR(uBit.serial.readUntil(MSTR(delimiter)));
@@ -67,7 +67,7 @@ namespace serial {
   * Lê os dados recebidos no buffer como uma string
   */
   //% help=serial/read-string
-  //% blockId=serial_read_buffer block="serial com:|ler string"
+  //% blockId=serial_read_buffer block="serial com:|ler texto"
   //% weight=18
     String readString() {
       int n = uBit.serial.getRxBufferSize();
@@ -93,7 +93,7 @@ namespace serial {
   */
   //% help=serial/write-string
   //% weight=87 blockGap=8
-  //% blockId=serial_writestring block="serial com:|escrever string %texto"
+  //% blockId=serial_writestring block="serial com:|escrever cadeia de caracteres %texto"
   //% texto.shadowOptions.toString=true
     void writeString(String text) {
       if (!text) return;
@@ -105,7 +105,7 @@ namespace serial {
     * Envia um buffer através da conexão serial.
     */
     //% blockId=serial_writebuffer block="serial com:|escrever buffer %buffer=serial_readbuffer"
-    //% help=serial/write-buffer advanced=true weight=6
+    //% help=serial/write-buffer advanced=false weight=6
     void writeBuffer(Buffer buffer) {
       if (!buffer) return;
 
@@ -118,7 +118,7 @@ namespace serial {
     * @param length comprimento do buffer padrão
     */
     //% blockId=serial_readbuffer block="serial com:|ler buffer %length"
-    //% help=serial/read-buffer advanced=true weight=5
+    //% help=serial/read-buffer advanced=false weight=5
     Buffer readBuffer(int length) {
       auto mode = SYNC_SLEEP;
       if (length <= 0) {
@@ -193,7 +193,7 @@ namespace serial {
     //% blockId=serial_setbaudrate block="serial com:|definir taxa de transmissão %rate"
     //% blockGap=8 inlineInputMode=inline
     //% help=serial/set-baud-rate
-    //% group="Configuração" advanced=true
+    //% group="Configuração" advanced=false
     void setBaudRate(BaudRate rate) {
 #if MICROBIT_CODAL
       uBit.serial.setBaud(rate);
@@ -225,7 +225,7 @@ namespace serial {
     */
     //% help=serial/set-rx-buffer-size
     //% blockId=serialSetRxBufferSize block="serial com: definir tamanho do buffer RX para $size"
-    //% advanced=true
+    //% advanced=false
     void setRxBufferSize(uint8_t size) {
       uBit.serial.setRxBufferSize(size);
     }
@@ -236,7 +236,7 @@ namespace serial {
     */
     //% help=serial/set-tx-buffer-size
     //% blockId=serialSetTxBufferSize block="serial com: definir tamanho do buffer TX para $size"
-    //% advanced=true
+    //% advanced=false
     void setTxBufferSize(uint8_t size) {
       uBit.serial.setTxBufferSize(size);
     }

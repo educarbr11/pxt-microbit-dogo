@@ -6,12 +6,12 @@
 //% groups='["Pins", "Pulse", "I2C", "SPI", "micro:bit (V2)"]'
 namespace pins {
     /**
-     * Returns the value of a C++ runtime constant
+     * Retorna o valor de uma constante de tempo de execução C++
      */
     //% help=pins/digital-pin
     //% shim=TD_ID
     //% blockId=digital_pin
-    //% block="digital pin $pin"
+    //% block="pino digital $pin"
     //% pin.fieldEditor=pinpicker
     //% pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false"
@@ -25,12 +25,12 @@ namespace pins {
     }
 
     /**
-     * Returns the value of a C++ runtime constant
+     * Retorna o valor de uma constante de tempo de execução C++
      */
     //% help=pins/analog-pin
     //% shim=TD_ID
     //% blockId=analog_pin
-    //% block="analog pin $pin"
+    //% block="pino analógico $pin"
     //% pin.fieldEditor=pinpicker
     //% pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false"
@@ -102,11 +102,11 @@ namespace pins {
         return ((value - fromLow) * (toHigh - toLow)) / (fromHigh - fromLow) + toLow;
     }
 
-    /**
-     * Read one number from 7-bit I2C address.
+  /**
+     * Leia um número de um endereço I2C de 7 bits.
      */
     //% help=pins/i2c-read-number blockGap=8 advanced=true
-    //% blockId=pins_i2c_readnumber block="i2c read number|at address %address|of format %format|repeated %repeat" weight=7
+    //% blockId=pins_i2c_readnumber block="i2c ler número|no endereço %address|com formato %format|repetido %repeat" weight=7
     //% group="I2C"
     //% weight=45
     export function i2cReadNumber(address: number, format: NumberFormat, repeated?: boolean): number {
@@ -115,10 +115,10 @@ namespace pins {
     }
 
     /**
-     * Write one number to a 7-bit I2C address.
+     * Escreva um número em um endereço I2C de 7 bits.
      */
     //% help=pins/i2c-write-number blockGap=8 advanced=true
-    //% blockId=i2c_writenumber block="i2c write number|at address %address|with value %value|of format %format|repeated %repeat" weight=6
+    //% blockId=i2c_writenumber block="i2c escrever número|no endereço %address|com valor %value|com formato %format|repetido %repeat" weight=6
     //% group="I2C"
     //% weight=44
     export function i2cWriteNumber(address: number, value: number, format: NumberFormat, repeated?: boolean): void {

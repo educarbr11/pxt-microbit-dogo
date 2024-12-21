@@ -31,14 +31,14 @@ unsigned RefMImage::gcsize(RefMImage *t) {
  * Creation, manipulation and display of LED images.
  */
 //% color=#7600A8 weight=31 icon="\uf03e"
-//% advanced=true block="IMAGENS"
+//% advanced=false block="IMAGENS"
 namespace images {
 /**
  * Cria uma imagem que se ajusta à tela de LEDs.
  */
-    //% peso=75 ajuda=imagens/criar-imagem
-    //% blockId=dispositivo_criar_imagem block="criar imagem"
-    //% partes="matrizled"
+//% weight=75 help=images/create-image
+//% blockId=device_build_image block="criar imagem"
+//% parts="ledmatrix"
 Image createImage(ImageLiteral_ leds) {
     return NEW_GC(RefMImage, imageBytes(leds));
 }
@@ -46,9 +46,9 @@ Image createImage(ImageLiteral_ leds) {
 /**
  * Cria uma imagem com 2 quadros.
  */
-    //% peso=74 ajuda=imagens/criar-imagem-grande
-    //% blockId=dispositivo_criar_imagem_grande block="criar imagem grande" imageLiteral=2
-    //% partes="matrizled"
+//% weight=74 help=images/create-big-image
+//% blockId=device_build_big_image block="criar imagem grande" imageLiteral=2
+//% parts="ledmatrix"
 Image createBigImage(ImageLiteral_ leds) {
     return createImage(leds);
 }
@@ -72,33 +72,33 @@ Buffer charCodeBuffer(int charCode) {
 
 namespace ImageMethods {
 /**
- * Exibe a imagem em uma coluna dada na tela
+ * Plots the image at a given column to the screen
  */
-    //% ajuda=imagens/exibir-imagem
-    //% partes="matrizled"
+//% help=images/plot-image
+//% parts="ledmatrix"
 void plotImage(Image i, int xOffset = 0) {
     uBit.display.print(MicroBitImage(i->img), -xOffset, 0, 0, 0);
 }
 
 /**
- * Exibe um quadro da imagem no deslocamento ``x offset``.
+ * Mostra um quadro da imagem no deslocamento ``x offset``.
  * @param xOffset índice da coluna para começar a exibir a imagem
  * @param interval tempo em milissegundos para pausar após desenhar
  */
-//% ajuda=imagens/exibir-imagem weight=80 blockNamespace=imagens
-//% blockId=device_show_image_offset block="exibir imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval"
+//% help=images/show-image weight=80 blockNamespace=images
+//% blockId=device_show_image_offset block="mostrar imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval"
 //% interval.defl=400
-//% blockGap=8 partes="matrizled" assíncrono
+//% blockGap=8 parts="ledmatrix" async
 void showImage(Image sprite, int xOffset, int interval = 400) {
     uBit.display.print(MicroBitImage(sprite->img), -xOffset, 0, 0, interval);
 }
 
 /**
- * Desenha o quadro ``index``-ésimo da imagem na tela.
+ * Desenha o ``índice``-ésimo quadro da imagem na tela.
  * @param xOffset índice da coluna para começar a exibir a imagem
  */
-//% ajuda=imagens/desenhar-quadro weight=80
-//% partes="matrizled"
+//% help=images/plot-frame weight=80
+//% parts="ledmatrix"
 void plotFrame(Image i, int xOffset) {
     // TODO showImage() used in original implementation
     plotImage(i, xOffset * i->img->height);
@@ -106,20 +106,20 @@ void plotFrame(Image i, int xOffset) {
 
 /**
  * Rola uma imagem.
- * @param frameOffset deslocamento x movido em cada passo de animação, ex: 1, 2, 5
- * @param interval tempo entre cada passo de animação em milissegundos, ex: 200
+ * @param frameOffset deslocamento x movido a cada passo da animação, por exemplo: 1, 2, 5
+ * @param interval tempo entre cada passo da animação em milissegundos, por exemplo: 200
  */
-//% ajuda=imagens/rolar-imagem weight=79 async blockNamespace=imagens
-//% blockId=device_rolar_imagem
+//% help=images/scroll-image weight=79 async blockNamespace=images
+//% blockId=device_scroll_image
 //% block="rolar imagem %sprite(minhaImagem)|com deslocamento %frameoffset|e intervalo (ms) %delay"
-//% blockGap=8 partes="matrizled"
+//% blockGap=8 parts="ledmatrix"
 void scrollImage(Image id, int frameOffset, int interval) {
     MicroBitImage i(id->img);
     uBit.display.animate(i, interval, frameOffset, MICROBIT_DISPLAY_ANIMATE_DEFAULT_POS, 0);
 }
 
 /**
- * desligar todos os leds
+ * Desliga todos os leds
  */
 //% help=images/clear
 //% parts="ledmatrix"
@@ -129,7 +129,7 @@ void clear(Image i) {
 }
 
 /**
- * Define o brilho de um pixel específico em uma posição dada
+ * Define um brilho de pixel específico em uma determinada posição
  */
 //%
 //% parts="ledmatrix"
@@ -139,7 +139,7 @@ void setPixelBrightness(Image i, int x, int y, int value) {
 }
 
 /**
- * Obtém o brilho do pixel ([0..255]) em uma posição dada
+ * Obtém o brilho do pixel ([0..255]) em uma determinada posição
  */
 //%
 //% parts="ledmatrix"
@@ -151,7 +151,7 @@ int pixelBrightness(Image i, int x, int y) {
 }
 
 /**
- * Gets the width in columns
+ * Largura da coluna
  */
 //% help=functions/width
 int width(Image i) {
@@ -159,7 +159,7 @@ int width(Image i) {
 }
 
 /**
- * Gets the height in rows (always 5)
+ * Altura da coluna (5)
  */
 //%
 int height(Image i) {
@@ -167,10 +167,10 @@ int height(Image i) {
 }
 
 /**
- * Set a pixel state at position ``(x,y)``
- * @param x pixel column
- * @param y pixel row
- * @param value pixel state
+ * Define o estado de um pixel na posição ``(x, y)``
+ * @param x coluna do pixel
+ * @param y linha do pixel
+ * @param value estado do pixel
  */
 //% help=images/set-pixel
 //% parts="ledmatrix"
@@ -179,9 +179,9 @@ void setPixel(Image i, int x, int y, bool value) {
 }
 
 /**
- * Get the pixel state at position ``(x,y)``
- * @param x pixel column
- * @param y pixel row
+ * Obtém o estado do pixel na posição ``(x, y)``
+ * @param x coluna do pixel
+ * @param y linha do pixel
  */
 //% help=images/pixel
 //% parts="ledmatrix"
@@ -190,8 +190,8 @@ bool pixel(Image i, int x, int y) {
 }
 
 /**
- * Show a particular frame of the image strip.
- * @param frame image frame to show
+ * Exibe um quadro específico da tira de imagens.
+ * @param frame quadro da imagem a ser exibido
  */
 //% weight=70 help=images/show-frame
 //% parts="ledmatrix"

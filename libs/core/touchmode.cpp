@@ -26,15 +26,15 @@ enum class TouchTarget {
 namespace pins {
 
    /**
-    * Configure the touch detection for the pins and logo.
-    * P0, P1, P2 use resistive touch by default.
-    * The logo uses capacitative touch by default.
-    * @param name target to change the touch mode for
-    * @param mode the touch mode to use
+    * Configura a detecção de toque para os pinos e o logo.
+    * P0, P1, P2 usam toque resistivo por padrão.
+    * O logo usa toque capacitivo por padrão.
+    * @param name alvo para mudar o modo de toque
+    * @param mode o modo de toque a ser utilizado
     */
     //% weight=60
-    //% blockId=device_touch_set_type block="set %name to touch mode %mode"
-    //% advanced=true
+    //% blockId=device_touch_set_type block="definir %name para o modo de toque %mode"
+    //% advanced=false
     //% group="micro:bit (V2)"
     //% help=pins/touch-set-mode
     void touchSetMode(TouchTarget name, TouchTargetMode mode) {

@@ -166,7 +166,7 @@ namespace input {
      * @param body código a ser executado quando o evento for criado
      */
     //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="quando o botão|%NAME|for pressionado"
+    //% blockId=device_button_event block="quando o botão|%NAME|pressionado"
     //% parts="buttonpair"
     void onButtonPressed(Button button, Action body) {
         registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);

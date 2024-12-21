@@ -239,7 +239,7 @@ namespace pins {
     * @param name pino digital para registrar, ex: DigitalPin.P0
     * @param pulse o valor do pulso, ex: PulseValue.High
     */
-    //% help=pins/on-pulsed advanced=true
+    //% help=pins/on-pulsed advanced=false
     //% blockId=pins_on_pulsed block="no|pino %pin|receber pulso %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
@@ -257,7 +257,7 @@ namespace pins {
     /**
     * Obtém a duração do último pulso em microssegundos. Esta função deve ser chamada a partir de um manipulador ``onPulsed``.
     */
-    //% help=pins/pulse-duration advanced=true
+    //% help=pins/pulse-duration advanced=false
     //% blockId=pins_pulse_duration block="duração do pulso (ms)"
     //% group="Pulso"
     //% weight=24
@@ -273,7 +273,7 @@ namespace pins {
     * @param maximum duração máxima em microssegundos
     */
     //% blockId="pins_pulse_in" block="pulso no (µs)|pino %name|pulso %value"
-    //% advanced=true
+    //% advanced=false
     //% help=pins/pulse-in
     //% name.shadow=digital_pin_shadow
     //% group="Pulso"
@@ -355,13 +355,13 @@ namespace pins {
     bool edgeConnectorSoundDisabled = false;
 
     /**
-     * Set the pin used when using analog pitch or music.
-     * @param name pin to modulate pitch from
-     */
-    //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
-    //% help=pins/analog-set-pitch-pin advanced=true
+    * Define o pino utilizado para pitch analógico ou música.
+    * @param name pino para modular o pitch
+    */
+    //% blockId=device_analog_set_pitch_pin block="definir pino analógico de pitch %name"
+    //% help=pins/analog-set-pitch-pin advanced=false
     //% name.shadow=analog_pin_shadow
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=12
     //% blockGap=8
     void analogSetPitchPin(int name) {
@@ -383,7 +383,7 @@ namespace pins {
     * @param name pino para modular o pitch
     */
     //% blockId=device_analog_set_pitch_pin block="analógico definir pino de pitch %name"
-    //% help=pins/analog-set-pitch-pin advanced=true
+    //% help=pins/analog-set-pitch-pin advanced=false
     //% name.shadow=analog_pin_shadow
     //% group="Pinos"
     //% weight=12
@@ -402,20 +402,20 @@ namespace pins {
     * Gets the volume the pitch pin from 0..255
     */
     //% blockId=device_analog_pitch_volume block="analog pitch volume"
-    //% help=pins/analog-pitch-volume weight=3 advanced=true
+    //% help=pins/analog-pitch-volume weight=3 advanced=false
     //% deprecated
     int analogPitchVolume() {
         return pitchVolume;
     }
 
     /**
-     * Send a pulse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
-     * @param frequency frequency to modulate in Hz.
-     * @param ms duration of the pitch in milliseconds.
-     */
-    //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
-    //% help=pins/analog-pitch async advanced=true
-    //% group="Pins"
+    * Envia um sinal de modulação por largura de pulso (PWM) para o pino de tom atual. Use `definir pino de tom analógico` para definir o pino de tom.
+    * @param frequency frequência para modular em Hz.
+    * @param ms duração do tom em milissegundos.
+    */
+    //% blockId=device_analog_pitch block="tom analógico %frequency|por (ms) %ms"
+    //% help=pins/analog-pitch async advanced=false
+    //% group="Pinos"
     //% weight=14
     //% blockGap=8
     void analogPitch(int frequency, int ms) {
@@ -458,15 +458,15 @@ namespace pins {
     }
 
 
-    /**
-    * Configure the pull direction of of a pin.
-    * @param name pin to set the pull mode on, eg: DigitalPin.P0
-    * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
+   /**
+    * Configura a direção de pull de um pino.
+    * @param name pino para configurar o modo de pull, ex: DigitalPin.P0
+    * @param pull uma das configurações de pull do mbed, ex: PinPullMode.PullUp
     */
-    //% help=pins/set-pull advanced=true
-    //% blockId=device_set_pull block="set pull|pin %pin|to %pull"
+    //% help=pins/set-pull advanced=false
+    //% blockId=device_set_pull block="configurar puxada de|pino %pin|para %pull"
     //% pin.shadow=digital_pin_shadow
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=15
     //% blockGap=8
     void setPull(int name, PinPullMode pull) {
@@ -485,16 +485,16 @@ namespace pins {
 #endif
     }
 
-    /**
-    * Configure the events emitted by this pin. Events can be subscribed to
-    * using ``control.onEvent()``.
-    * @param name pin to set the event mode on, eg: DigitalPin.P0
-    * @param type the type of events for this pin to emit, eg: PinEventType.Edge
+   /**
+    * Configura os eventos emitidos por este pino. Os eventos podem ser assinados
+    * usando ``control.onEvent()``.
+    * @param name pino para configurar o modo de evento, por exemplo: DigitalPin.P0
+    * @param type o tipo de eventos que este pino deve emitir, por exemplo: PinEventType.Edge
     */
-    //% help=pins/set-events advanced=true
-    //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events"
+    //% help=pins/set-events advanced=false
+    //% blockId=device_set_pin_events block="configurar pino %pin|para emitir eventos %type"
     //% pin.shadow=digital_pin_shadow
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=13
     //% blockGap=8
     void setEvents(int name, PinEventType type) {
@@ -513,16 +513,16 @@ namespace pins {
 
 
     /**
-     * Set the matrix width for Neopixel strip (already assigned to a pin).
-     * Should be used in conjunction with `set matrix width` from Neopixel package.
-     * @param name pin of Neopixel strip, eg: DigitalPin.P1
-     * @param value width of matrix (at least ``2``)
-     */
-    //% help=pins/neopixel-matrix-width advanced=true
-    //% blockId=pin_neopixel_matrix_width block="neopixel matrix width|pin %pin %width"
+    * Define a largura da matriz para a tira de LEDs Neopixel (já atribuída a um pino).
+    * Deve ser usada em conjunto com `definir largura da matriz` do pacote Neopixel.
+    * @param name pino da tira Neopixel, ex: DigitalPin.P1
+    * @param value largura da matriz (no mínimo ``2``)
+    */
+    //% help=pins/neopixel-matrix-width advanced=false
+    //% blockId=pin_neopixel_matrix_width block="neopixel largura da matriz no|pino %pin %width"
     //% pin.shadow=digital_pin_shadow
     //% width.defl=5 width.min=2
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=11
     //% blockGap=8
     void setMatrixWidth(int pin, int width) {}
@@ -560,12 +560,12 @@ namespace pins {
         return spi;
     }
 
-    /**
-    * Write to the SPI slave and return the response
-    * @param value Data to be sent to the SPI slave
+   /**
+    * Escreve para o escravo SPI e retorna a resposta
+    * @param value Dados a serem enviados para o escravo SPI
     */
-    //% help=pins/spi-write advanced=true
-    //% blockId=spi_write block="spi write %value"
+    //% help=pins/spi-write advanced=false
+    //% blockId=spi_write block="escrever SPI %value"
     //% group="SPI"
     //% blockGap=8
     //% weight=53
@@ -599,11 +599,11 @@ namespace pins {
     }
 
     /**
-    * Set the SPI frequency
-    * @param frequency the clock frequency, eg: 1000000
+    * Defina a frequência do SPI
+    * @param frequency a frequência do relógio, ex: 1000000
     */
-    //% help=pins/spi-frequency advanced=true
-    //% blockId=spi_frequency block="spi frequency %frequency"
+    //% help=pins/spi-frequency advanced=false
+    //% blockId=spi_frequency block="frequência SPI %frequency"
     //% group="SPI"
     //% blockGap=8
     //% weight=55
@@ -612,13 +612,13 @@ namespace pins {
         p->frequency(frequency);
     }
 
-    /**
-    * Set the SPI bits and mode
-    * @param bits the number of bits, eg: 8
-    * @param mode the mode, eg: 3
+  /**
+    * Defina os bits e o modo do SPI
+    * @param bits o número de bits, ex: 8
+    * @param mode o modo, ex: 3
     */
-    //% help=pins/spi-format advanced=true
-    //% blockId=spi_format block="spi format|bits %bits|mode %mode"
+    //% help=pins/spi-format advanced=false
+    //% blockId=spi_format block="formato SPI|bits %bits|modo %mode"
     //% group="SPI"
     //% blockGap=8
     //% weight=54
@@ -633,12 +633,12 @@ namespace pins {
 #define PIN_ARG(pin) (getPin((int)(pin)))->name
 #endif
 
-    /**
-    * Set the MOSI, MISO, SCK pins used by the SPI connection
+   /**
+    * Define os pinos MOSI, MISO, SCK usados pela conexão SPI
     *
     */
-    //% help=pins/spi-pins advanced=true
-    //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck"
+    //% help=pins/spi-pins advanced=false
+    //% blockId=spi_pins block="definir pinos SPI|MOSI %mosi|MISO %miso|SCK %sck"
     //% mosi.shadow=digital_pin_shadow
     //% miso.shadow=digital_pin_shadow
     //% sck.shadow=digital_pin_shadow
@@ -656,7 +656,7 @@ namespace pins {
     /**
     * Mounts a push button on the given pin
     */
-    //% help=pins/push-button advanced=true
+    //% help=pins/push-button advanced=false
     void pushButton(int pin) {
         new MicroBitButton((PinName)getPin((int)(pin))->name, (int)pin, MICROBIT_BUTTON_ALL_EVENTS, PinMode::PullUp);
     }

@@ -5,120 +5,120 @@
      * Creation, manipulation and display of LED images.
      */
     //% color=#7600A8 weight=31 icon="\uf03e"
-    //% advanced=true block="IMAGENS"
+    //% advanced=false block="IMAGENS"
 declare namespace images {
 
     /**
      * Cria uma imagem que se ajusta à tela de LEDs.
      */
-    //% peso=75 ajuda=imagens/criar-imagem
-    //% blockId=dispositivo_criar_imagem block="criar imagem"
-    //% partes="matrizled" imageLiteral=1 shim=images::createImage
+    //% weight=75 help=images/create-image
+    //% blockId=device_build_image block="criar imagem"
+    //% parts="ledmatrix" imageLiteral=1 shim=images::createImage
     function createImage(leds: string): Image;
 
     /**
      * Cria uma imagem com 2 quadros.
      */
-    //% peso=74 ajuda=imagens/criar-imagem-grande
-    //% blockId=dispositivo_criar_imagem_grande block="criar imagem grande" imageLiteral=2
-    //% partes="matrizled" shim=images::createBigImage
+    //% weight=74 help=images/create-big-image
+    //% blockId=device_build_big_image block="criar imagem grande" imageLiteral=2
+    //% parts="ledmatrix" shim=images::createBigImage
     function createBigImage(leds: string): Image;
 }
 
 
 declare interface Image {
     /**
-     * Exibe a imagem em uma coluna dada na tela
+     * Plots the image at a given column to the screen
      */
-    //% ajuda=imagens/exibir-imagem
-    //% partes="matrizled" xOffset.defl=0 shim=ImageMethods::plotImage
+    //% help=images/plot-image
+    //% parts="ledmatrix" xOffset.defl=0 shim=ImageMethods::plotImage
     plotImage(xOffset?: int32): void;
 
     /**
-     * Exibe um quadro da imagem no deslocamento ``x offset``.
+     * Mostra um quadro da imagem no deslocamento ``x offset``.
      * @param xOffset índice da coluna para começar a exibir a imagem
      * @param interval tempo em milissegundos para pausar após desenhar
      */
-    //% ajuda=imagens/exibir-imagem weight=80 blockNamespace=imagens
-    //% blockId=device_show_image_offset block="exibir imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval"
+    //% help=images/show-image weight=80 blockNamespace=images
+    //% blockId=device_show_image_offset block="mostrar imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval"
     //%
-    //% blockGap=8 partes="matrizled" assíncrono interval.defl=400 shim=ImageMethods::showImage
+    //% blockGap=8 parts="ledmatrix" async interval.defl=400 shim=ImageMethods::showImage
     showImage(xOffset: int32, interval?: int32): void;
 
     /**
-     * Desenha o quadro ``index``-ésimo da imagem na tela.
+     * Desenha o ``índice``-ésimo quadro da imagem na tela.
      * @param xOffset índice da coluna para começar a exibir a imagem
      */
-    //% ajuda=imagens/desenhar-quadro weight=80
-    //% partes="matrizled" shim=ImageMethods::plotFrame
+    //% help=images/plot-frame weight=80
+    //% parts="ledmatrix" shim=ImageMethods::plotFrame
     plotFrame(xOffset: int32): void;
 
     /**
      * Rola uma imagem.
-     * @param frameOffset deslocamento x movido em cada passo de animação, ex: 1, 2, 5
-     * @param interval tempo entre cada passo de animação em milissegundos, ex: 200
+     * @param frameOffset deslocamento x movido a cada passo da animação, por exemplo: 1, 2, 5
+     * @param interval tempo entre cada passo da animação em milissegundos, por exemplo: 200
      */
-    //% ajuda=imagens/rolar-imagem weight=79 async blockNamespace=imagens
-    //% blockId=device_rolar_imagem
+    //% help=images/scroll-image weight=79 async blockNamespace=images
+    //% blockId=device_scroll_image
     //% block="rolar imagem %sprite(minhaImagem)|com deslocamento %frameoffset|e intervalo (ms) %delay"
-    //% blockGap=8 partes="matrizled" shim=ImageMethods::scrollImage
+    //% blockGap=8 parts="ledmatrix" shim=ImageMethods::scrollImage
     scrollImage(frameOffset: int32, interval: int32): void;
 
     /**
-     * desligar todos os leds
+     * Desliga todos os leds
      */
     //% help=images/clear
     //% parts="ledmatrix" shim=ImageMethods::clear
     clear(): void;
 
     /**
-     * Define o brilho de um pixel específico em uma posição dada
+     * Define um brilho de pixel específico em uma determinada posição
      */
     //%
     //% parts="ledmatrix" shim=ImageMethods::setPixelBrightness
     setPixelBrightness(x: int32, y: int32, value: int32): void;
 
     /**
-     * Obtém o brilho do pixel ([0..255]) em uma posição dada
+     * Obtém o brilho do pixel ([0..255]) em uma determinada posição
      */
     //%
     //% parts="ledmatrix" shim=ImageMethods::pixelBrightness
     pixelBrightness(x: int32, y: int32): int32;
 
     /**
-     * Gets the width in columns
+     * Largura da coluna
      */
     //% help=functions/width shim=ImageMethods::width
     width(): int32;
 
     /**
-     * Gets the height in rows (always 5)
+     * Altura da coluna (5)
      */
     //% shim=ImageMethods::height
     height(): int32;
 
     /**
-     * Set a pixel state at position ``(x,y)``
-     * @param x pixel column
-     * @param y pixel row
-     * @param value pixel state
+     * Define o estado de um pixel na posição ``(x, y)``
+     * @param x coluna do pixel
+     * @param y linha do pixel
+     * @param value estado do pixel
      */
     //% help=images/set-pixel
     //% parts="ledmatrix" shim=ImageMethods::setPixel
     setPixel(x: int32, y: int32, value: boolean): void;
 
     /**
-     * Get the pixel state at position ``(x,y)``
-     * @param x pixel column
-     * @param y pixel row
+     * Obtém o estado do pixel na posição ``(x, y)``
+     * @param x coluna do pixel
+     * @param y linha do pixel
      */
     //% help=images/pixel
     //% parts="ledmatrix" shim=ImageMethods::pixel
     pixel(x: int32, y: int32): boolean;
 
     /**
-     * Show a particular frame of the image strip.
-     * @param frame image frame to show
+     * Exibe um quadro específico da tira de imagens.
+     * @param frame quadro da imagem a ser exibido
      */
     //% weight=70 help=images/show-frame
     //% parts="ledmatrix" interval.defl=400 shim=ImageMethods::showFrame
@@ -214,7 +214,7 @@ declare namespace input {
      * @param body código a ser executado quando o evento for criado
      */
     //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="quando o botão|%NAME|for pressionado"
+    //% blockId=device_button_event block="quando o botão|%NAME|pressionado"
     //% parts="buttonpair" shim=input::onButtonPressed
     function onButtonPressed(button: Button, body: () => void): void;
 
@@ -352,14 +352,14 @@ declare namespace input {
 
 
     //% weight=1 color="#333333"
-    //% advanced=true
+    //% advanced=false
 declare namespace control {
 
     /**
-     * Gets the number of milliseconds elapsed since power on.
+     * Obtém o número de milissegundos decorridos desde a inicialização.
      */
     //% help=control/millis weight=50
-    //% blockId=control_running_time block="millis (ms)" shim=control::millis
+    //% blockId=control_running_time block="cronômetro (ms)" shim=control::millis
     function millis(): int32;
 
     /**
@@ -369,76 +369,76 @@ declare namespace control {
     function micros(): int32;
 
     /**
-     * Agenda o código para ser executado em segundo plano.
+     * Agenda código executado em segundo plano.
      */
     //% help=control/in-background blockAllowMultiple=1 afterOnStart=true
     //% blockId="control_in_background" block="executar em segundo plano" blockGap=8 shim=control::inBackground
     function inBackground(a: () => void): void;
 
     /**
-     * Bloqueia o thread chamador até que o evento especificado seja gerado.
+     * Bloqueia o thread de chamada até que o evento especificado seja gerado.
      */
-    //% ajuda=controle/aguardar-por-evento assíncrono
-    //% blockId=controle_aguardar_por_evento bloco="aguardar por evento|de %src|com valor %value" shim=control::waitForEvent
+    //% help=control/wait-for-event async
+    //% blockId=control_wait_for_event block="espera pelo evento de %src|com valor %value" shim=control::waitForEvent
     function waitForEvent(src: int32, value: int32): void;
 
     /**
-     * Reiniciar BBC micro:bit.
+     * Reseta o BBC micro:bit.
      */
     //% weight=30 async help=control/reset blockGap=8
     //% blockId="control_reset" block="reiniciar" shim=control::reset
     function reset(): void;
 
     /**
-     * Bloqueia a fibra atual pelos microsegundos especificados
-     * @param micros número de microsegundos a aguardar. Ex: 4
+     * Bloqueia a fibra atual durante os microssegundos determinados
+     * @param micros number of micro-seconds to wait. eg: 4
      */
-    //% ajuda=controle/aguardar-micros peso=29 assíncrono
-    //% blockId="controle_aguardar_us" bloco="aguardar (µs)%micros"
+    //% help=control/wait-micros weight=29 async
+    //% blockId="control_wait_us" block="espera (µs)%micros"
     //% micros.min=0 micros.max=6000 shim=control::waitMicros
     function waitMicros(micros: int32): void;
 
     /**
-     * Dispara um evento no barramento de eventos.
-     * @param src ID do componente MicroBit que gerou o evento, por exemplo, MICROBIT_ID_BUTTON_A.
-     * @param value Código específico do componente que indica a causa do evento.
-     * @param mode definição opcional de como o evento deve ser processado após a criação (o padrão é CREATE_AND_FIRE).
+     * Gera um evento no barramento de eventos.
+     * @param src ID do componente MicroBit que gerou o evento, ex: MICROBIT_ID_BUTTON_A.
+     * @param value Código específico do componente indicando a causa do evento.
+     * @param mode definição opcional de como o evento deve ser processado após a construção (padrão é CREATE_AND_FIRE).
      */
-    //% peso=21 espaçoEntreBlocos=12 blockId="controle_disparar_evento" bloco="disparar evento|de origem %src=controle_evento_origem_id|com valor %value=controle_evento_valor_id" entradasExternasBloco=1
-    //% ajuda=controle/disparar-evento
+    //% weight=21 blockGap=12 blockId="control_raise_event" block="gerar evento|da origem %src=control_event_source_id|com valor %value=control_event_value_id" blockExternalInputs=1
+    //% help=control/raise-event
     //% mode.defl=1 shim=control::raiseEvent
     function raiseEvent(src: int32, value: int32, mode?: EventCreationMode): void;
 
     /**
      * Registra um manipulador de eventos.
      */
-    //% peso=20 espaçoEntreBlocos=8 blockId="controle_on_evento" bloco="quando evento|de origem %src=controle_evento_origem_id|com valor %value=controle_evento_valor_id"
-    //% ajuda=controle/quando-evento
-    //% entradasExternasBloco=1 flags.defl=0 shim=control::onEvent
+    //% weight=20 blockGap=8 blockId="control_on_event" block="ao receber evento|da origem %src=control_event_source_id|com valor %value=control_event_value_id"
+    //% help=control/on-event
+    //% blockExternalInputs=1 flags.defl=0 shim=control::onEvent
     function onEvent(src: int32, value: int32, handler: () => void, flags?: int32): void;
 
     /**
-     * Obtém o valor do último evento executado no barramento
+     * Obtém o valor do último evento executado no barramento.
      */
-    //% blockId=controle_valor_evento" bloco="valor do evento"
-    //% ajuda=controle/valor-evento
-    //% peso=18 shim=control::eventValue
+    //% blockId="control_event_value" block="valor do evento"
+    //% help=control/event-value
+    //% weight=18 shim=control::eventValue
     function eventValue(): int32;
 
     /**
-     * Obtém o carimbo de data e hora do último evento executado no barramento
+     * Obtém o carimbo de tempo do último evento executado no barramento.
      */
-    //% blockId=controle_carimbo_evento" bloco="carimbo do evento"
-    //% ajuda=controle/carimbo-evento
-    //% peso=19 blocoGap=8 shim=control::eventTimestamp
+    //% blockId="control_event_timestamp" block="carimbo de tempo do evento"
+    //% help=control/event-timestamp
+    //% weight=19 blockGap=8 shim=control::eventTimestamp
     function eventTimestamp(): int32;
 
     /**
-     * Cria um nome amigável para o dispositivo com base no seu número de série
+     * Cria um nome amigável para o dispositivo com base no seu número de série.
      */
-    //% blockId="controle_nome_dispositivo" block="nome do dispositivo" peso=10 blocoGap=8
-    //% ajuda=controle/nome-dispositivo
-    //% avançado=true shim=control::deviceName
+    //% blockId="control_device_name" block="nome do dispositivo" weight=10 blockGap=8
+    //% help=control/device-name
+    //% advanced=false shim=control::deviceName
     function deviceName(): string;
 
     /**
@@ -450,16 +450,16 @@ declare namespace control {
     /**
      * Deriva um número de série único e consistente para este dispositivo a partir de dados internos.
      */
-    //% blockId="controle_numero_serie_dispositivo" block="número de série do dispositivo" peso=9
-    //% ajuda=controle/numeros-de-serie-dispositivo
-    //% avançado=true shim=control::deviceSerialNumber
+    //% blockId="control_device_serial_number" block="número de série do dispositivo" weight=9
+    //% help=control/device-serial-number
+    //% advanced=false shim=control::deviceSerialNumber
     function deviceSerialNumber(): int32;
 
     /**
-     * Deriva um número de série único e consistente de 64 bits para este dispositivo a partir de dados internos.
+     * Derive a unique, consistent 64-bit serial number of this device from internal data.
      */
-    //% ajuda=controle/dispositivo-numero-serial-longo
-    //% avançado=true shim=control::deviceLongSerialNumber
+    //% help=control/device-long-serial-number
+    //% advanced=false shim=control::deviceLongSerialNumber
     function deviceLongSerialNumber(): Buffer;
 
     /**
@@ -752,7 +752,7 @@ declare namespace pins {
      * @param name pino digital para registrar, ex: DigitalPin.P0
      * @param pulse o valor do pulso, ex: PulseValue.High
      */
-    //% help=pins/on-pulsed advanced=true
+    //% help=pins/on-pulsed advanced=false
     //% blockId=pins_on_pulsed block="no|pino %pin|receber pulso %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
@@ -764,7 +764,7 @@ declare namespace pins {
     /**
      * Obtém a duração do último pulso em microssegundos. Esta função deve ser chamada a partir de um manipulador ``onPulsed``.
      */
-    //% help=pins/pulse-duration advanced=true
+    //% help=pins/pulse-duration advanced=false
     //% blockId=pins_pulse_duration block="duração do pulso (ms)"
     //% group="Pulso"
     //% weight=24
@@ -778,7 +778,7 @@ declare namespace pins {
      * @param maximum duração máxima em microssegundos
      */
     //% blockId="pins_pulse_in" block="pulso no (µs)|pino %name|pulso %value"
-    //% advanced=true
+    //% advanced=false
     //% help=pins/pulse-in
     //% name.shadow=digital_pin_shadow
     //% group="Pulso"
@@ -817,13 +817,13 @@ declare namespace pins {
     function servoSetPulse(name: int32, micros: int32): void;
 
     /**
-     * Set the pin used when using analog pitch or music.
-     * @param name pin to modulate pitch from
+     * Define o pino utilizado para pitch analógico ou música.
+     * @param name pino para modular o pitch
      */
-    //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
-    //% help=pins/analog-set-pitch-pin advanced=true
+    //% blockId=device_analog_set_pitch_pin block="definir pino analógico de pitch %name"
+    //% help=pins/analog-set-pitch-pin advanced=false
     //% name.shadow=analog_pin_shadow
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=12
     //% blockGap=8 shim=pins::analogSetPitchPin
     function analogSetPitchPin(name: int32): void;
@@ -833,7 +833,7 @@ declare namespace pins {
      * @param name pino para modular o pitch
      */
     //% blockId=device_analog_set_pitch_pin block="analógico definir pino de pitch %name"
-    //% help=pins/analog-set-pitch-pin advanced=true
+    //% help=pins/analog-set-pitch-pin advanced=false
     //% name.shadow=analog_pin_shadow
     //% group="Pinos"
     //% weight=12
@@ -844,45 +844,45 @@ declare namespace pins {
      * Gets the volume the pitch pin from 0..255
      */
     //% blockId=device_analog_pitch_volume block="analog pitch volume"
-    //% help=pins/analog-pitch-volume weight=3 advanced=true
+    //% help=pins/analog-pitch-volume weight=3 advanced=false
     //% deprecated shim=pins::analogPitchVolume
     function analogPitchVolume(): int32;
 
     /**
-     * Send a pulse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
-     * @param frequency frequency to modulate in Hz.
-     * @param ms duration of the pitch in milliseconds.
+     * Envia um sinal de modulação por largura de pulso (PWM) para o pino de tom atual. Use `definir pino de tom analógico` para definir o pino de tom.
+     * @param frequency frequência para modular em Hz.
+     * @param ms duração do tom em milissegundos.
      */
-    //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
-    //% help=pins/analog-pitch async advanced=true
-    //% group="Pins"
+    //% blockId=device_analog_pitch block="tom analógico %frequency|por (ms) %ms"
+    //% help=pins/analog-pitch async advanced=false
+    //% group="Pinos"
     //% weight=14
     //% blockGap=8 shim=pins::analogPitch
     function analogPitch(frequency: int32, ms: int32): void;
 
     /**
-     * Configure the pull direction of of a pin.
-     * @param name pin to set the pull mode on, eg: DigitalPin.P0
-     * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
+     * Configura a direção de pull de um pino.
+     * @param name pino para configurar o modo de pull, ex: DigitalPin.P0
+     * @param pull uma das configurações de pull do mbed, ex: PinPullMode.PullUp
      */
-    //% help=pins/set-pull advanced=true
-    //% blockId=device_set_pull block="set pull|pin %pin|to %pull"
+    //% help=pins/set-pull advanced=false
+    //% blockId=device_set_pull block="configurar puxada de|pino %pin|para %pull"
     //% pin.shadow=digital_pin_shadow
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=15
     //% blockGap=8 shim=pins::setPull
     function setPull(name: int32, pull: PinPullMode): void;
 
     /**
-     * Configure the events emitted by this pin. Events can be subscribed to
-     * using ``control.onEvent()``.
-     * @param name pin to set the event mode on, eg: DigitalPin.P0
-     * @param type the type of events for this pin to emit, eg: PinEventType.Edge
+     * Configura os eventos emitidos por este pino. Os eventos podem ser assinados
+     * usando ``control.onEvent()``.
+     * @param name pino para configurar o modo de evento, por exemplo: DigitalPin.P0
+     * @param type o tipo de eventos que este pino deve emitir, por exemplo: PinEventType.Edge
      */
-    //% help=pins/set-events advanced=true
-    //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events"
+    //% help=pins/set-events advanced=false
+    //% blockId=device_set_pin_events block="configurar pino %pin|para emitir eventos %type"
     //% pin.shadow=digital_pin_shadow
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=13
     //% blockGap=8 shim=pins::setEvents
     function setEvents(name: int32, type: PinEventType): void;
@@ -895,16 +895,16 @@ declare namespace pins {
     function createBuffer(size: int32): Buffer;
 
     /**
-     * Set the matrix width for Neopixel strip (already assigned to a pin).
-     * Should be used in conjunction with `set matrix width` from Neopixel package.
-     * @param name pin of Neopixel strip, eg: DigitalPin.P1
-     * @param value width of matrix (at least ``2``)
+     * Define a largura da matriz para a tira de LEDs Neopixel (já atribuída a um pino).
+     * Deve ser usada em conjunto com `definir largura da matriz` do pacote Neopixel.
+     * @param name pino da tira Neopixel, ex: DigitalPin.P1
+     * @param value largura da matriz (no mínimo ``2``)
      */
-    //% help=pins/neopixel-matrix-width advanced=true
-    //% blockId=pin_neopixel_matrix_width block="neopixel matrix width|pin %pin %width"
+    //% help=pins/neopixel-matrix-width advanced=false
+    //% blockId=pin_neopixel_matrix_width block="neopixel largura da matriz no|pino %pin %width"
     //% pin.shadow=digital_pin_shadow
     //% width.min=2
-    //% group="Pins"
+    //% group="Pinos"
     //% weight=11
     //% blockGap=8 width.defl=5 shim=pins::setMatrixWidth
     function setMatrixWidth(pin: int32, width?: int32): void;
@@ -922,11 +922,11 @@ declare namespace pins {
     function i2cWriteBuffer(address: int32, buf: Buffer, repeat?: boolean): int32;
 
     /**
-     * Write to the SPI slave and return the response
-     * @param value Data to be sent to the SPI slave
+     * Escreve para o escravo SPI e retorna a resposta
+     * @param value Dados a serem enviados para o escravo SPI
      */
-    //% help=pins/spi-write advanced=true
-    //% blockId=spi_write block="spi write %value"
+    //% help=pins/spi-write advanced=false
+    //% blockId=spi_write block="escrever SPI %value"
     //% group="SPI"
     //% blockGap=8
     //% weight=53 shim=pins::spiWrite
@@ -941,34 +941,34 @@ declare namespace pins {
     function spiTransfer(command: Buffer, response: Buffer): void;
 
     /**
-     * Set the SPI frequency
-     * @param frequency the clock frequency, eg: 1000000
+     * Defina a frequência do SPI
+     * @param frequency a frequência do relógio, ex: 1000000
      */
-    //% help=pins/spi-frequency advanced=true
-    //% blockId=spi_frequency block="spi frequency %frequency"
+    //% help=pins/spi-frequency advanced=false
+    //% blockId=spi_frequency block="frequência SPI %frequency"
     //% group="SPI"
     //% blockGap=8
     //% weight=55 shim=pins::spiFrequency
     function spiFrequency(frequency: int32): void;
 
     /**
-     * Set the SPI bits and mode
-     * @param bits the number of bits, eg: 8
-     * @param mode the mode, eg: 3
+     * Defina os bits e o modo do SPI
+     * @param bits o número de bits, ex: 8
+     * @param mode o modo, ex: 3
      */
-    //% help=pins/spi-format advanced=true
-    //% blockId=spi_format block="spi format|bits %bits|mode %mode"
+    //% help=pins/spi-format advanced=false
+    //% blockId=spi_format block="formato SPI|bits %bits|modo %mode"
     //% group="SPI"
     //% blockGap=8
     //% weight=54 shim=pins::spiFormat
     function spiFormat(bits: int32, mode: int32): void;
 
     /**
-     * Set the MOSI, MISO, SCK pins used by the SPI connection
+     * Define os pinos MOSI, MISO, SCK usados pela conexão SPI
      *
      */
-    //% help=pins/spi-pins advanced=true
-    //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck"
+    //% help=pins/spi-pins advanced=false
+    //% blockId=spi_pins block="definir pinos SPI|MOSI %mosi|MISO %miso|SCK %sck"
     //% mosi.shadow=digital_pin_shadow
     //% miso.shadow=digital_pin_shadow
     //% sck.shadow=digital_pin_shadow
@@ -980,7 +980,7 @@ declare namespace pins {
     /**
      * Mounts a push button on the given pin
      */
-    //% help=pins/push-button advanced=true shim=pins::pushButton
+    //% help=pins/push-button advanced=false shim=pins::pushButton
     function pushButton(pin: int32): void;
 
     /**
@@ -1006,7 +1006,7 @@ declare namespace pins {
 
 
     //% weight=2 color=#002050 icon="\uf287"
-    //% advanced=true
+    //% advanced=false
 declare namespace serial {
 
     /**
@@ -1014,7 +1014,7 @@ declare namespace serial {
      * @param delimiter delimitador de texto que separa cada parte do texto
      */
     //% help=serial/read-until
-    //% blockId=serial_read_until block="serial com|ler até %delimiter=serial_delimiter_conv"
+    //% blockId=serial_read_until block="serial com:|ler até %delimiter=serial_delimiter_conv"
     //% weight=19 shim=serial::readUntil
     function readUntil(delimiter: string): string;
 
@@ -1022,7 +1022,7 @@ declare namespace serial {
      * Lê os dados recebidos no buffer como uma string
      */
     //% help=serial/read-string
-    //% blockId=serial_read_buffer block="serial com:|ler string"
+    //% blockId=serial_read_buffer block="serial com:|ler texto"
     //% weight=18 shim=serial::readString
     function readString(): string;
 
@@ -1039,7 +1039,7 @@ declare namespace serial {
      */
     //% help=serial/write-string
     //% weight=87 blockGap=8
-    //% blockId=serial_writestring block="serial com:|escrever string %texto"
+    //% blockId=serial_writestring block="serial com:|escrever cadeia de caracteres %texto"
     //% texto.shadowOptions.toString=true shim=serial::writeString
     function writeString(text: string): void;
 
@@ -1047,7 +1047,7 @@ declare namespace serial {
      * Envia um buffer através da conexão serial.
      */
     //% blockId=serial_writebuffer block="serial com:|escrever buffer %buffer=serial_readbuffer"
-    //% help=serial/write-buffer advanced=true weight=6 shim=serial::writeBuffer
+    //% help=serial/write-buffer advanced=false weight=6 shim=serial::writeBuffer
     function writeBuffer(buffer: Buffer): void;
 
     /**
@@ -1056,7 +1056,7 @@ declare namespace serial {
      * @param length comprimento do buffer padrão
      */
     //% blockId=serial_readbuffer block="serial com:|ler buffer %length"
-    //% help=serial/read-buffer advanced=true weight=5 shim=serial::readBuffer
+    //% help=serial/read-buffer advanced=false weight=5 shim=serial::readBuffer
     function readBuffer(length: int32): Buffer;
 
     /**
@@ -1083,7 +1083,7 @@ declare namespace serial {
     //% blockId=serial_setbaudrate block="serial com:|definir taxa de transmissão %rate"
     //% blockGap=8 inlineInputMode=inline
     //% help=serial/set-baud-rate
-    //% group="Configuração" advanced=true shim=serial::setBaudRate
+    //% group="Configuração" advanced=false shim=serial::setBaudRate
     function setBaudRate(rate: BaudRate): void;
 
     /**
@@ -1099,7 +1099,7 @@ declare namespace serial {
      */
     //% help=serial/set-rx-buffer-size
     //% blockId=serialSetRxBufferSize block="serial com: definir tamanho do buffer RX para $size"
-    //% advanced=true shim=serial::setRxBufferSize
+    //% advanced=false shim=serial::setRxBufferSize
     function setRxBufferSize(size: uint8): void;
 
     /**
@@ -1108,7 +1108,7 @@ declare namespace serial {
      */
     //% help=serial/set-tx-buffer-size
     //% blockId=serialSetTxBufferSize block="serial com: definir tamanho do buffer TX para $size"
-    //% advanced=true shim=serial::setTxBufferSize
+    //% advanced=false shim=serial::setTxBufferSize
     function setTxBufferSize(size: uint8): void;
 
     /** Send DMESG debug buffer over serial. */
@@ -1274,15 +1274,15 @@ declare namespace input {
 declare namespace pins {
 
     /**
-     * Configure the touch detection for the pins and logo.
-     * P0, P1, P2 use resistive touch by default.
-     * The logo uses capacitative touch by default.
-     * @param name target to change the touch mode for
-     * @param mode the touch mode to use
+     * Configura a detecção de toque para os pinos e o logo.
+     * P0, P1, P2 usam toque resistivo por padrão.
+     * O logo usa toque capacitivo por padrão.
+     * @param name alvo para mudar o modo de toque
+     * @param mode o modo de toque a ser utilizado
      */
     //% weight=60
-    //% blockId=device_touch_set_type block="set %name to touch mode %mode"
-    //% advanced=true
+    //% blockId=device_touch_set_type block="definir %name para o modo de toque %mode"
+    //% advanced=false
     //% group="micro:bit (V2)"
     //% help=pins/touch-set-mode shim=pins::touchSetMode
     function touchSetMode(name: TouchTarget, mode: TouchTargetMode): void;
