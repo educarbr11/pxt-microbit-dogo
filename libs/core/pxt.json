@@ -128,7 +128,7 @@
         },
         "userConfigs": [
             {
-                "description": "No Pairing Required: Anyone can connect via Bluetooth.",
+                "description": "Não é necessário emparelhamento: qualquer pessoa pode se conectar via Bluetooth.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
@@ -140,7 +140,7 @@
                 }
             },
             {
-                "description": "JustWorks pairing (default): Pairing is automatic once the pairing is initiated.",
+                "description": "Emparelhamento JustWorks (padrão): O emparelhamento é automático assim que o emparelhamento é iniciado.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
@@ -152,7 +152,7 @@
                 }
             },
             {
-                "description": "Passkey pairing: Pairing requires 6 digit key to pair.",
+                "description": "Emparelhamento de chave de acesso: O emparelhamento requer uma chave de 6 dígitos para emparelhar.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {

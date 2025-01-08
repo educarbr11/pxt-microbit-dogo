@@ -213,7 +213,7 @@ namespace images {
 
     //% weight=50 blockGap=8
     //% help=images/arrow-image
-    //% blockId=builtin_arrow_image block="arrow image %i"
+    //% blockId=builtin_arrow_image block="imagem de seta %i"
     export function arrowImage(i: ArrowNames): Image {
         switch (i) {
             // compass directions

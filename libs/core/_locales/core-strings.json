@@ -319,7 +319,7 @@
   "game|block": "JOGO",
   "helpers.arrayPickRandom|block": "valor aleatorio de %list",
   "helpers|block": "helpers",
-  "images.arrowImage|block": "arrow image %i",
+  "images.arrowImage|block": "imagem de seta %i",
   "images.arrowNumber|block": "%arrow",
   "images.createBigImage|block": "criar imagem grande",
   "images.createImage|block": "criar imagem",
