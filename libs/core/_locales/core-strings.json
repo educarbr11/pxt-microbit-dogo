@@ -303,7 +303,7 @@
   "game.LedSprite.set|block": "%sprite(ator)|definir %property|para %value",
   "game.LedSprite.turn|block": "%sprite(ator)|virar a %direction|em (°) %degrees",
   "game.addLife|block": "adicionar vidas %lives",
-  "game.addScore|block": "alterar pontuação para|%points",
+  "game.addScore|block": "alterar pontuação por|%points",
   "game.createSprite|block": "criar ator na posição|x: %x|y: %y",
   "game.gameOver|block": "fim de jogo",
   "game.isGameOver|block": "jogo acabou",
