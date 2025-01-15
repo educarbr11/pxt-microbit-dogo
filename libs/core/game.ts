@@ -65,7 +65,7 @@ namespace game {
      * @param points quantidade de pontos para alterar, ex: 1
      */
     //% weight=10 help=game/add-score
-    //% blockId=game_add_score block="alterar pontuação para|%points" blockGap=8
+    //% blockId=game_add_score block="alterar pontuação por|%points" blockGap=8
     //% parts="ledmatrix"
     export function addScore(points: number): void {
         setScore(_score + points);
