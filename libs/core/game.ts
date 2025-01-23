@@ -621,7 +621,7 @@ namespace game {
          * @param other o outro ator para verificar sobreposição ou toque
          */
         //% weight=20 help=game/is-touching
-        //% blockId=game_sprite_touching_sprite block="o %sprite(ator)|está tocando %other" blockGap=8
+        //% blockId=game_sprite_touching_sprite block="%sprite(ator)|está tocando %other" blockGap=8
         public isTouching(other: LedSprite): boolean {
             return this._enabled && other._enabled && this._x == other._x && this._y == other._y;
         }
@@ -631,7 +631,7 @@ namespace game {
          * @param this o ator para verificar contato com a borda
          */
         //% weight=19 help=game/is-touching-edge
-        //% blockId=game_sprite_touching_edge block="o %sprite(ator)|está tocando a borda" blockGap=8
+        //% blockId=game_sprite_touching_edge block="%sprite(ator)|está tocando a borda" blockGap=8
         public isTouchingEdge(): boolean {
             return this._enabled && (this._x == 0 || this._x == 4 || this._y == 0 || this._y == 4);
         }
@@ -707,7 +707,7 @@ namespace game {
         * Informa se o ator foi excluído do mecanismo de jogo.
          */
         //% weight=58 help=game/is-deleted
-        //% blockId="game_sprite_is_deleted" block="foi excluido? %sprite(ator)"
+        //% blockId="game_sprite_is_deleted" block="foi excluido %sprite(ator)"
         public isDeleted(): boolean {
             return !this._enabled;
         }

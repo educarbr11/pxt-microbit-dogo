@@ -96,29 +96,29 @@ enum class AnalogPin {
 };
 
 enum class PulseValue {
-    //% block=high
+    //% block=ligado
     High = MICROBIT_PIN_EVT_PULSE_HI,
-    //% block=low
+    //% block=desligado
     Low = MICROBIT_PIN_EVT_PULSE_LO
 };
 
 enum class PinPullMode {
-    //% block="down"
+    //% block="baixo"
     PullDown = 0,
-    //% block="up"
+    //% block="cima"
     PullUp = 1,
-    //% block="none"
+    //% block="nenhum"
     PullNone = 2
 };
 
 enum class PinEventType {
-    //% block="edge"
+    //% block="borda"
     Edge = MICROBIT_PIN_EVENT_ON_EDGE,
-    //% block="pulse"
+    //% block="pulso"
     Pulse = MICROBIT_PIN_EVENT_ON_PULSE,
-    //% block="touch"
+    //% block="toque"
     Touch = MICROBIT_PIN_EVENT_ON_TOUCH,
-    //% block="none"
+    //% block="nenhum"
     None = MICROBIT_PIN_EVENT_NONE
 };
 
@@ -240,7 +240,7 @@ namespace pins {
     * @param pulse o valor do pulso, ex: PulseValue.High
     */
     //% help=pins/on-pulsed advanced=false
-    //% blockId=pins_on_pulsed block="no|pino %pin|receber pulso %pulse"
+    //% blockId=pins_on_pulsed block="quando |pino %pin|receber pulso %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
     //% group="Pulso"

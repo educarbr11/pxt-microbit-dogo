@@ -702,7 +702,7 @@
   "pins.spiWrite|param|value": "Dados a serem enviados para o escravo SPI",
   "pins.touchSetMode": "Configura a detecção de toque para os pinos e o logo.\nP0, P1, P2 usam toque resistivo por padrão.\nO logo usa toque capacitivo por padrão.",
   "pins.touchSetMode|param|mode": "o modo de toque a ser utilizado",
-  "pins.touchSetMode|param|name": "alvo para mudar o modo de toque",
+  "pins.touchSetMode|param|name": "alvo para mudar o modo d  e toque",
   "randint": "Retorna um número pseudo-aleatório entre o mínimo e o máximo inclusivo.\nSe ambos os números forem inteiros, o resultado será inteiro.",
   "randint|param|max": "o limite superior inclusivo, ex: 10",
   "randint|param|min": "o limite inferior inclusivo, ex: 0",

@@ -80,7 +80,7 @@ namespace serial {
     * @param delimitadores os caracteres para comparar os caracteres recebidos.
     */
     //% help=serial/on-data-received
-    //% weight=18 blockId=serial_on_data_received block="serial com:|ao receber dados %delimitadores=serial_delimiter_conv"
+    //% weight=18 blockId=serial_on_data_received block="serial com:|quando receber dados %delimitadores=serial_delimiter_conv"
     void onDataReceived(String delimiters, Action body) {
       uBit.serial.eventOn(MSTR(delimiters));
       registerWithDal(MICROBIT_ID_SERIAL, MICROBIT_SERIAL_EVT_DELIM_MATCH, body);

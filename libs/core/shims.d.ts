@@ -753,7 +753,7 @@ declare namespace pins {
      * @param pulse o valor do pulso, ex: PulseValue.High
      */
     //% help=pins/on-pulsed advanced=false
-    //% blockId=pins_on_pulsed block="no|pino %pin|receber pulso %pulse"
+    //% blockId=pins_on_pulsed block="quando |pino %pin|receber pulso %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
     //% group="Pulso"
@@ -1031,7 +1031,7 @@ declare namespace serial {
      * @param delimitadores os caracteres para comparar os caracteres recebidos.
      */
     //% help=serial/on-data-received
-    //% weight=18 blockId=serial_on_data_received block="serial com:|ao receber dados %delimitadores=serial_delimiter_conv" shim=serial::onDataReceived
+    //% weight=18 blockId=serial_on_data_received block="serial com:|quando receber dados %delimitadores=serial_delimiter_conv" shim=serial::onDataReceived
     function onDataReceived(delimiters: string, body: () => void): void;
 
     /**
@@ -1277,7 +1277,7 @@ declare namespace pins {
      * Configura a detecção de toque para os pinos e o logo.
      * P0, P1, P2 usam toque resistivo por padrão.
      * O logo usa toque capacitivo por padrão.
-     * @param name alvo para mudar o modo de toque
+     * @param name alvo para mudar o modo d  e toque
      * @param mode o modo de toque a ser utilizado
      */
     //% weight=60

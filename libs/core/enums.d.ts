@@ -516,31 +516,31 @@ declare namespace led {
 
 
     declare const enum PulseValue {
-    //% block=high
+    //% block=ligado
     High = 4,  // MICROBIT_PIN_EVT_PULSE_HI
-    //% block=low
+    //% block=desligado
     Low = 5,  // MICROBIT_PIN_EVT_PULSE_LO
     }
 
 
     declare const enum PinPullMode {
-    //% block="down"
+    //% block="baixo"
     PullDown = 0,
-    //% block="up"
+    //% block="cima"
     PullUp = 1,
-    //% block="none"
+    //% block="nenhum"
     PullNone = 2,
     }
 
 
     declare const enum PinEventType {
-    //% block="edge"
+    //% block="borda"
     Edge = 2,  // MICROBIT_PIN_EVENT_ON_EDGE
-    //% block="pulse"
+    //% block="pulso"
     Pulse = 3,  // MICROBIT_PIN_EVENT_ON_PULSE
-    //% block="touch"
+    //% block="toque"
     Touch = 4,  // MICROBIT_PIN_EVENT_ON_TOUCH
-    //% block="none"
+    //% block="nenhum"
     None = 0,  // MICROBIT_PIN_EVENT_NONE
     }
 
@@ -605,9 +605,9 @@ declare namespace serial {
 
 
     declare const enum TouchTargetMode {
-    //% block="capacitive"
+    //% block="capacitivo"
     Capacitive = 1,
-    //% block="resistive"
+    //% block="resistivo"
     Resistive = 0,
     }
 

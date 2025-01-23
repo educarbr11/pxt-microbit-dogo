@@ -6,9 +6,9 @@
 #endif
 
 enum class TouchTargetMode {
-    //% block="capacitive"
+    //% block="capacitivo"
     Capacitive = 1,
-    //% block="resistive"
+    //% block="resistivo"
     Resistive = 0
 };
 
@@ -29,7 +29,7 @@ namespace pins {
     * Configura a detecção de toque para os pinos e o logo.
     * P0, P1, P2 usam toque resistivo por padrão.
     * O logo usa toque capacitivo por padrão.
-    * @param name alvo para mudar o modo de toque
+    * @param name alvo para mudar o modo d  e toque
     * @param mode o modo de toque a ser utilizado
     */
     //% weight=60
