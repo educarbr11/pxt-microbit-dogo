@@ -253,7 +253,7 @@
   "String|block": "String",
   "TouchButtonEvent.LongPressed|block": "pressionado por longo tempo",
   "TouchButtonEvent.Pressed|block": "pressionado",
-  "TouchButtonEvent.Released|block": "soltado",
+  "TouchButtonEvent.Released|block": "solto",
   "TouchButtonEvent.Touched|block": "clicado",
   "TouchTarget.LOGO|block": "logo",
   "TouchTarget.P0|block": "P0",

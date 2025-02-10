@@ -597,7 +597,7 @@ declare namespace serial {
     Pressed = 3,  // MICROBIT_BUTTON_EVT_CLICK
     //% block=clicado
     Touched = 1,  // MICROBIT_BUTTON_EVT_DOWN
-    //% block=soltado
+    //% block=solto
     Released = 2,  // MICROBIT_BUTTON_EVT_UP
     //% block="pressionado por longo tempo"
     LongPressed = 4,  // MICROBIT_BUTTON_EVT_LONG_CLICK
