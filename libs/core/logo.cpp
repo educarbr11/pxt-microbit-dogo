@@ -8,7 +8,7 @@ enum TouchButtonEvent {
     Pressed = MICROBIT_BUTTON_EVT_CLICK,
     //% block=clicado
     Touched = MICROBIT_BUTTON_EVT_DOWN,
-    //% block=soltado
+    //% block=solto
     Released = MICROBIT_BUTTON_EVT_UP,
     //% block="pressionado por longo tempo"
     LongPressed = MICROBIT_BUTTON_EVT_LONG_CLICK
