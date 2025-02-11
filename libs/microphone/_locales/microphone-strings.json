@@ -1,7 +1,7 @@
 {
-  "DetectedSound.Loud|block": "alto",
+  "DetectedSound.Loud|block": "forte",
   "DetectedSound.Quiet|block": "silencioso",
-  "SoundThreshold.Loud|block": "alto",
+  "SoundThreshold.Loud|block": "forte",
   "SoundThreshold.Quiet|block": "silencioso",
   "input.onSound|block": "quando o som estiver %sound",
   "input.setSoundThreshold|block": "definir som %sound no limite %value",

@@ -9,14 +9,14 @@
 #define MICROPHONE_MAX 120.0f
 
 enum class DetectedSound {
-    //% block="alto"
+    //% block="forte"
     Loud = 2,
     //% block="silencioso"
     Quiet = 1
 };
 
 enum class SoundThreshold {
-    //% block="alto"
+    //% block="forte"
     Loud = 2,
     //% block="silencioso"
     Quiet = 1
