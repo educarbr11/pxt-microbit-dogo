@@ -386,7 +386,7 @@ namespace music {
      * @param melody Uma sequência de até oito notas [C D E F G A B C5] ou pausas [-], separadas por espaços, que serão tocadas uma de cada vez, Exemplo: \"E D G F B A C5 B \"
      * @param tempo número em batidas por minuto (bpm), ditando por quanto tempo cada nota será tocada
      */
-    //% block="tocar melodia $melody no tempo $tempo|(bpm)" blockId=playMelody
+    //% block="tocar melodia $melody no ritmo $tempo|(bpm)" blockId=playMelody
     //% weight=85 blockGap=8 help=music/play-melody
     //% melody.shadow="melody_editor"
     //% tempo.min=40 tempo.max=500
