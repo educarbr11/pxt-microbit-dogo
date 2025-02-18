@@ -109,7 +109,7 @@ namespace music {
      * @param bpm number in beats per minute dictating how long each note will play
      */
     //% blockId="music_string_playable"
-    //% block="melodia $melody no tempo $bpm|(bpm)"
+    //% block="melodia $melody no ritmo $bpm|(bpm)"
     //% weight=85 blockGap=8
     //% help=music/string-playable
     //% group="Melodia"

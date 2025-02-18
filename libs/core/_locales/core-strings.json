@@ -390,7 +390,7 @@
   "music.startMelody|block": "start melody %melody=device_builtin_melody| repeating %options",
   "music.stopAllSounds|block": "parar todos os sons",
   "music.stopMelody|block": "parar melodia $options",
-  "music.stringPlayable|block": "melodia $melody no tempo $bpm|(bpm)",
+  "music.stringPlayable|block": "melodia $melody no ritmo $bpm|(bpm)",
   "music.tempo|block": "ritmo (bpm)",
   "music.tonePlayable|block": "nota musical $note por $duration",
   "music.volume|block": "volume",
