@@ -195,7 +195,7 @@ namespace music {
      * @param ms duração da nota em milissegundos (ms)
      */
     //% help=music/play-tone weight=90
-    //% blockId=device_play_note block="tocar|nota musical %note=device_note|no tempo %duration=device_beat" blockGap=8
+    //% blockId=device_play_note block="tocar|nota musical %note=device_note|no ritmo %duration=device_beat" blockGap=8
     //% parts="headphone"
     //% useEnumVal=1
     //% group="Nota musical"

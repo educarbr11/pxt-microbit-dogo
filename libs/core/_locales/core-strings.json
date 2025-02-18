@@ -380,7 +380,7 @@
   "music.onEvent|block": "quando %value",
   "music.playMelody|block": "tocar melodia $melody no ritmo $tempo|(bpm)",
   "music.playSoundEffect|block": "tocar som $sound $mode",
-  "music.playTone|block": "tocar|nota musical %note=device_note|no tempo %duration=device_beat",
+  "music.playTone|block": "tocar|nota musical %note=device_note|no ritmo %duration=device_beat",
   "music.play|block": "tocar $toPlay $playbackMode",
   "music.rest|block": "pausar |%duration=device_beat",
   "music.ringTone|block": "frequência da nota (Hz) |%note=device_note",
