@@ -32,7 +32,7 @@ enum IconNames {
     //% block="coração pequeno"
     //% jres=icons.smallheart
     SmallHeart,
-    //% block="errado"
+    //% block="correto"
     //% jres=icons.yes
     Yes,
     //% block="incorreto"

@@ -21,60 +21,60 @@ namespace bluetooth {
     }
 
     /**
-    *  Starts the Bluetooth accelerometer service
+    *  Inicia o serviço de acelerômetro Bluetooth
     */
     //% help=bluetooth/start-accelerometer-service
-    //% blockId=bluetooth_start_accelerometer_service block="bluetooth accelerometer service"
+    //% blockId=bluetooth_start_accelerometer_service block="serviço de acelerômetro bluetooth"
     //% parts="bluetooth" weight=90 blockGap=8
     void startAccelerometerService() {
         new MicroBitAccelerometerService(*uBit.ble, uBit.accelerometer);        
     }   
 
     /**
-    *  Starts the Bluetooth button service
+    *  Inicia o serviço de botão Bluetooth
     */
     //% help=bluetooth/start-button-service
-    //% blockId=bluetooth_start_button_service block="bluetooth button service" blockGap=8
+    //% blockId=bluetooth_start_button_service block="serviço de botão bluetooth" blockGap=8
     //% parts="bluetooth" weight=89
     void startButtonService() {
         new MicroBitButtonService(*uBit.ble);      
     }
 
     /**
-    *  Starts the Bluetooth IO pin service.
+    *  Inicia o serviço de pino IO Bluetooth.
     */
     //% help=bluetooth/start-io-pin-service
-    //% blockId=bluetooth_start_io_pin_service block="bluetooth io pin service" blockGap=8
+    //% blockId=bluetooth_start_io_pin_service block="serviço de pino bluetooth entrada/saida" blockGap=8
     //% parts="bluetooth" weight=88
     void startIOPinService() {
         new MicroBitIOPinService(*uBit.ble, uBit.io);
     }
 
     /**
-    *  Starts the Bluetooth LED service
+    *  Inicia o serviço LED Bluetooth
     */
     //% help=bluetooth/start-led-service
-    //% blockId=bluetooth_start_led_service block="bluetooth led service" blockGap=8
+    //% blockId=bluetooth_start_led_service block="serviço de led bluetooth" blockGap=8
     //% parts="bluetooth" weight=87
     void startLEDService() {
         new MicroBitLEDService(*uBit.ble, uBit.display);
     }
 
     /**
-    *  Starts the Bluetooth temperature service
+    *  Inicia o serviço de temperatura Bluetooth
     */
     //% help=bluetooth/start-temperature-service
-    //% blockId=bluetooth_start_temperature_service block="bluetooth temperature service" blockGap=8
+    //% blockId=bluetooth_start_temperature_service block="serviço de temperatura bluetooth" blockGap=8
     //% parts="bluetooth" weight=86
     void startTemperatureService() {    
         new MicroBitTemperatureService(*uBit.ble, uBit.thermometer);        
     }
 
     /**
-    *  Starts the Bluetooth magnetometer service
+    *  Inicia o serviço de magnetômetro Bluetooth
     */
     //% help=bluetooth/start-magnetometer-service
-    //% blockId=bluetooth_start_magnetometer_service block="bluetooth magnetometer service"
+    //% blockId=bluetooth_start_magnetometer_service block="serviço de magnetômetro bluetooth" blockGap=8
     //% parts="bluetooth" weight=85
     void startMagnetometerService() {    
         new MicroBitMagnetometerService(*uBit.ble, uBit.compass); 
@@ -82,11 +82,11 @@ namespace bluetooth {
 
 
     /**
-    *  Starts the Bluetooth UART service
+    *  Inicia o serviço de UART Bluetooth
     */
     //% help=bluetooth/start-uart-service
-    //% blockId=bluetooth_start_uart_service block="bluetooth uart service"
-    //% parts="bluetooth" advanced=true
+    //% blockId=bluetooth_start_uart_service block="serviço de UART bluetooth"
+    //% parts="bluetooth" advanced=false
     void startUartService() {
         if (uart) return;
         // 61 octet buffer size is 3 x (MTU - 3) + 1
@@ -109,7 +109,7 @@ namespace bluetooth {
 
 
     /**
-    * Sends a buffer of data via Bluetooth UART
+    * Envia um buffer de dados via Bluetooth UART
     */
     //%
     void uartWriteBuffer(Buffer buffer) {
@@ -118,7 +118,7 @@ namespace bluetooth {
     }
 
     /**
-    * Reads buffered UART data into a buffer
+    * Recebe um buffer de dados via Bluetooth UART
     */
     //%
     Buffer uartReadBuffer() {
@@ -144,7 +144,7 @@ namespace bluetooth {
     * @param delimiters the characters to match received characters against.
     */
     //% help=bluetooth/on-uart-data-received
-    //% weight=18 blockId=bluetooth_on_data_received block="bluetooth|on data received %delimiters=serial_delimiter_conv"
+    //% weight=18 blockId=bluetooth_on_data_received block="bluetooth|ao receber dados %delimiters=serial_delimiter_conv"
     void onUartDataReceived(String delimiters, Action body) {
       startUartService();
       uart->eventOn(MSTR(delimiters));
@@ -152,22 +152,22 @@ namespace bluetooth {
     }
 
     /**
-     * Register code to run when the micro:bit is connected to over Bluetooth
-     * @param body Code to run when a Bluetooth connection is established
+     * registra o codigo a ser executado quando uma conexao bluetooth for estabelecida
+     * @param body codigo roda quando uma conexao bluetooth for estabelecida
      */
     //% help=bluetooth/on-bluetooth-connected weight=20
-    //% blockId=bluetooth_on_connected block="on bluetooth connected" blockGap=8
+    //% blockId=bluetooth_on_connected block="ao conectar bluetooth" blockGap=8
     //% parts="bluetooth"
     void onBluetoothConnected(Action body) {
         registerWithDal(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_CONNECTED, body);
     }    
 
      /**
-     * Register code to run when a bluetooth connection to the micro:bit is lost
-     * @param body Code to run when a Bluetooth connection is lost
+     * registra o codigo a ser executado quando uma conexao bluetooth for perdida
+     * @param body codigo roda quando uma conexao bluetooth for perdida
      */
     //% help=bluetooth/on-bluetooth-disconnected weight=19
-    //% blockId=bluetooth_on_disconnected block="on bluetooth disconnected"
+    //% blockId=bluetooth_on_disconnected block="ao desconectar bluetooth"
     //% parts="bluetooth"
     void onBluetoothDisconnected(Action body) {
         registerWithDal(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_DISCONNECTED, body);
@@ -212,21 +212,21 @@ namespace bluetooth {
     }
 
     /**
-    * Sets the bluetooth transmit power between 0 (minimal) and 7 (maximum).
-    * @param power power level between 0 (minimal) and 7 (maximum), eg: 7.
+    * Define a potência de transmissão bluetooth entre 0 (minimal) e 7 (maximal).
+    * @param power nivel de potência entre 0 (mínimo) e 7 (máximo), exemplo: 7.
     */
-    //% parts=bluetooth weight=5 help=bluetooth/set-transmit-power advanced=true
-    //% blockId=bluetooth_settransmitpower block="bluetooth set transmit power %power"
+    //% parts=bluetooth weight=5 help=bluetooth/set-transmit-power advanced=false
+    //% blockId=bluetooth_settransmitpower block="definir energia de transmissão bluetooth %power"
     void setTransmitPower(int power) {
         uBit.bleManager.setTransmitPower(min(MICROBIT_BLE_POWER_LEVELS-1, max(0, power)));
     }
 
     /**
-    * Stops advertising Eddystone end points
+    * O micro:bit para de dizer "Estou aqui!" para outros aparelhos.
     */
-    //% blockId=eddystone_stop_advertising block="bluetooth stop advertising"
+    //% blockId=eddystone_stop_advertising block="para de emitir sinais bluetooth"
     //% parts=bluetooth weight=10
-    //% help=bluetooth/stop-advertising advanced=true
+    //% help=bluetooth/stop-advertising advanced=false
     //% hidden=1 deprecated=1
     void stopAdvertising() {
         uBit.bleManager.stopAdvertising();

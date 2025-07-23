@@ -133,7 +133,7 @@
   "IconNames.Tortoise|block": "tartaruga",
   "IconNames.Triangle|block": "triângulo",
   "IconNames.Umbrella|block": "guarda-chuva",
-  "IconNames.Yes|block": "errado",
+  "IconNames.Yes|block": "correto",
   "Image.scrollImage|block": "rolar imagem %sprite(minhaImagem)|com deslocamento %frameoffset|e intervalo (ms) %delay",
   "Image.showImage|block": "mostrar imagem %sprite(myImage)|no deslocamento %offset ||e intervalo (ms) %interval",
   "InterpolationCurve.Curve|block": "curva",
