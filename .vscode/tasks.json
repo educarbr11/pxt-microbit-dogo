@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	// Task runner is jake
+	"command": "pxt",
+	"tasks": [
+		{
+			"label": "serve",
+			"type": "shell",
+			"command": "pxt",
+			"args": [
+				"serve"
+			],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		}
+	]
+}
