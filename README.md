@@ -16,7 +16,7 @@ pxt-microbit is a [Microsoft Programming Experience Toolkit (PXT)](https://githu
 
 ## Issue tracking
 
-Please add an issue if you discover an (unreported) bug.
+Please add an issue if you discover an (unreported) bug.  (dev)
 
 ## Developing new extensions
 
