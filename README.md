@@ -18,9 +18,9 @@ pxt-microbit is a [Microsoft Programming Experience Toolkit (PXT)](https://githu
 
 Please add an issue if you discover an (unreported) bug.
 
-## Developing new extensions
+## Developing new extensions 
 
-Authoring and testing of new extensions can be done directly from the web editor. See [our documentation](https://makecode.com/blog/github-packages) on how to get started. If you want to run the editor locally, keep reading.
+Authoring and testing of new extensions can be done directly from the web editor. See [our documentation](https://makecode.com/blog/github-packages) on how to get started. If you want to run the editor locally, keep reading. (master)
 
 ## Local server setup
 
