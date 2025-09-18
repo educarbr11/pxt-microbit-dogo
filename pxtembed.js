@@ -122559,7 +122559,9 @@ var pxt;
     var Cloud;
     (function (Cloud) {
         var Util = pxtc.Util;
-        Cloud.apiRoot = (pxt.BrowserUtils.isLocalHost() || Util.isNodeJS) ? "https://www.makecode.com/api/" : "/api/";
+        Cloud.apiRoot = (pxt.BrowserUtils.isLocalHost() || Util.isNodeJS)
+            ? ("https://www.makecode.com/api/")
+            : "https://www.makecode.com/api/";
         Cloud.accessToken = "";
         Cloud.localToken = "";
         let _isOnline = true;
