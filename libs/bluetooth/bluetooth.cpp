@@ -21,60 +21,60 @@ namespace bluetooth {
     }
 
     /**
-    *  Starts the Bluetooth accelerometer service
+    *  Liga o sensor de movimento via Bluetooth para o outro aparelho saber se você balançou o Micro:bit.
     */
     //% help=bluetooth/start-accelerometer-service
-    //% blockId=bluetooth_start_accelerometer_service block="bluetooth accelerometer service"
+    //% blockId=bluetooth_start_accelerometer_service block="bluetooth: ligar sensor de movimento"
     //% parts="bluetooth" weight=90 blockGap=8
     void startAccelerometerService() {
         new MicroBitAccelerometerService(*uBit.ble, uBit.accelerometer);        
     }   
 
     /**
-    *  Starts the Bluetooth button service
+    *  Liga o sensor de botões via Bluetooth para avisar quando você apertar A ou B.
     */
     //% help=bluetooth/start-button-service
-    //% blockId=bluetooth_start_button_service block="bluetooth button service" blockGap=8
+    //% blockId=bluetooth_start_button_service block="bluetooth: ligar sensor de botões" blockGap=8
     //% parts="bluetooth" weight=89
     void startButtonService() {
         new MicroBitButtonService(*uBit.ble);      
     }
 
     /**
-    *  Starts the Bluetooth IO pin service.
+    *  Liga o controle dos pinos (os furinhos de baixo) via Bluetooth.
     */
     //% help=bluetooth/start-io-pin-service
-    //% blockId=bluetooth_start_io_pin_service block="bluetooth io pin service" blockGap=8
+    //% blockId=bluetooth_start_io_pin_service block="bluetooth: ligar controle dos pinos" blockGap=8
     //% parts="bluetooth" weight=88
     void startIOPinService() {
         new MicroBitIOPinService(*uBit.ble, uBit.io);
     }
 
     /**
-    *  Starts the Bluetooth LED service
+    *  Liga a telinha de LED via Bluetooth para você desenhar nela pelo celular.
     */
     //% help=bluetooth/start-led-service
-    //% blockId=bluetooth_start_led_service block="bluetooth led service" blockGap=8
+    //% blockId=bluetooth_start_led_service block="bluetooth: ligar controle da tela LED" blockGap=8
     //% parts="bluetooth" weight=87
     void startLEDService() {
         new MicroBitLEDService(*uBit.ble, uBit.display);
     }
 
     /**
-    *  Starts the Bluetooth temperature service
+    *  Liga o termômetro via Bluetooth para o outro aparelho saber o calor que está fazendo.
     */
     //% help=bluetooth/start-temperature-service
-    //% blockId=bluetooth_start_temperature_service block="bluetooth temperature service" blockGap=8
+    //% blockId=bluetooth_start_temperature_service block="bluetooth: ligar sensor de temperatura" blockGap=8
     //% parts="bluetooth" weight=86
     void startTemperatureService() {    
         new MicroBitTemperatureService(*uBit.ble, uBit.thermometer);        
     }
 
     /**
-    *  Starts the Bluetooth magnetometer service
+    *  Liga a bússola via Bluetooth para mostrar para que lado o Micro:bit está olhando.
     */
     //% help=bluetooth/start-magnetometer-service
-    //% blockId=bluetooth_start_magnetometer_service block="bluetooth magnetometer service"
+    //% blockId=bluetooth_start_magnetometer_service block="bluetooth: ligar bússola mágica"
     //% parts="bluetooth" weight=85
     void startMagnetometerService() {    
         new MicroBitMagnetometerService(*uBit.ble, uBit.compass); 
@@ -82,11 +82,11 @@ namespace bluetooth {
 
 
     /**
-    *  Starts the Bluetooth UART service
+    *  Prepara o Micro:bit para começar a conversar e trocar mensagens via Bluetooth.
     */
     //% help=bluetooth/start-uart-service
-    //% blockId=bluetooth_start_uart_service block="bluetooth uart service"
-    //% parts="bluetooth" advanced=true
+    //% blockId=bluetooth_start_uart_service block="inicia serviço bluetooth"
+    //% parts="bluetooth" advanced=false
     void startUartService() {
         if (uart) return;
         // 61 octet buffer size is 3 x (MTU - 3) + 1
@@ -109,7 +109,7 @@ namespace bluetooth {
 
 
     /**
-    * Sends a buffer of data via Bluetooth UART
+    * Envia um pacote de dados (um bauzinho cheio de informações) via Bluetooth.
     */
     //%
     void uartWriteBuffer(Buffer buffer) {
@@ -118,7 +118,7 @@ namespace bluetooth {
     }
 
     /**
-    * Reads buffered UART data into a buffer
+    * Lê os dados que estão guardados na memória de conversa do Bluetooth.
     */
     //%
     Buffer uartReadBuffer() {
@@ -140,11 +140,11 @@ namespace bluetooth {
     }
 
     /**
-    * Registers an event to be fired when one of the delimiter is matched.
-    * @param delimiters the characters to match received characters against.
+    * Avisa quando chegar uma mensagem que termina com um sinal especial (como um ponto final).
+    * @param delimiters o sinal que marca o fim da mensagem.
     */
     //% help=bluetooth/on-uart-data-received
-    //% weight=18 blockId=bluetooth_on_data_received block="bluetooth|on data received %delimiters=serial_delimiter_conv"
+    //% weight=18 blockId=bluetooth_on_data_received block="bluetooth:|ao receber mensagem com %delimiters=serial_delimiter_conv"
     void onUartDataReceived(String delimiters, Action body) {
       startUartService();
       uart->eventOn(MSTR(delimiters));
@@ -152,22 +152,22 @@ namespace bluetooth {
     }
 
     /**
-     * Register code to run when the micro:bit is connected to over Bluetooth
+     * O que fazer quando um amigo se conectar ao seu Micro:bit via Bluetooth.
      * @param body Code to run when a Bluetooth connection is established
      */
     //% help=bluetooth/on-bluetooth-connected weight=20
-    //% blockId=bluetooth_on_connected block="on bluetooth connected" blockGap=8
+    //% blockId=bluetooth_on_connected block="bluetooth:|quando conectar" blockGap=8
     //% parts="bluetooth"
     void onBluetoothConnected(Action body) {
         registerWithDal(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_CONNECTED, body);
     }    
 
      /**
-     * Register code to run when a bluetooth connection to the micro:bit is lost
+     * O que fazer quando a conexão Bluetooth cair ou o amigo for embora.
      * @param body Code to run when a Bluetooth connection is lost
      */
     //% help=bluetooth/on-bluetooth-disconnected weight=19
-    //% blockId=bluetooth_on_disconnected block="on bluetooth disconnected"
+    //% blockId=bluetooth_on_disconnected block="bluetooth:|quando desconectar"
     //% parts="bluetooth"
     void onBluetoothDisconnected(Action body) {
         registerWithDal(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_DISCONNECTED, body);
@@ -199,7 +199,7 @@ namespace bluetooth {
 	* @param power power level between 0 and 7, eg: 7
     * @param connectable true to keep bluetooth connectable for other services, false otherwise.
     */
-    //% parts=bluetooth weight=12 advanced=true deprecated=1
+    //% parts=bluetooth weight=12 advanced=false deprecated=1
     void advertiseUidBuffer(Buffer nsAndInstance, int power, bool connectable) {
 #if CONFIG_ENABLED(MICROBIT_BLE_EDDYSTONE_UID)        
         auto buf = nsAndInstance;
@@ -212,11 +212,11 @@ namespace bluetooth {
     }
 
     /**
-    * Sets the bluetooth transmit power between 0 (minimal) and 7 (maximum).
-    * @param power power level between 0 (minimal) and 7 (maximum), eg: 7.
+    * Ajusta a força do sinal do Bluetooth (volume da conversa).
+    * @param power nível de força entre 0 (fraquinho) e 7 (super forte).
     */
-    //% parts=bluetooth weight=5 help=bluetooth/set-transmit-power advanced=true
-    //% blockId=bluetooth_settransmitpower block="bluetooth set transmit power %power"
+    //% parts=bluetooth weight=5 help=bluetooth/set-transmit-power advanced=false
+    //% blockId=bluetooth_settransmitpower block="bluetooth: ajustar força do sinal para %power"
     void setTransmitPower(int power) {
         uBit.bleManager.setTransmitPower(min(MICROBIT_BLE_POWER_LEVELS-1, max(0, power)));
     }
@@ -226,7 +226,7 @@ namespace bluetooth {
     */
     //% blockId=eddystone_stop_advertising block="bluetooth stop advertising"
     //% parts=bluetooth weight=10
-    //% help=bluetooth/stop-advertising advanced=true
+    //% help=bluetooth/stop-advertising advanced=false
     //% hidden=1 deprecated=1
     void stopAdvertising() {
         uBit.bleManager.stopAdvertising();

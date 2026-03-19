@@ -1,13 +1,13 @@
 /// <reference no-default-lib="true"/>
 /**
- * Support for additional Bluetooth services.
+ * Suporte para conectar aparelhos usando Bluetooth.
  */
-//% color=#007EF4 weight=96 icon="\uf294"
+//% color=#007EF4 weight=96 icon="\uf294" block="BLUETOOTH"
 namespace bluetooth {
     export let NEW_LINE = "\r\n";
 
     /**
-     * Internal use
+     * Uso interno do sistema.
      */
     //% shim=bluetooth::__log
     export function __log(priority: number, msg: string) {
@@ -16,66 +16,66 @@ namespace bluetooth {
     console.addListener(function (_pri, msg) { __log(_pri, msg) });
 
     /**
-    *  Writes to the Bluetooth UART service buffer. From there the data is transmitted over Bluetooth to a connected device.
+    * Manda um recadinho de texto para o outro aparelho conectado.
     */
     //% help=bluetooth/uart-write-string weight=80
-    //% blockId=bluetooth_uart_write block="bluetooth uart|write string %data" blockGap=8
-    //% parts="bluetooth" shim=bluetooth::uartWriteString advanced=true
+    //% blockId=bluetooth_uart_write block="bluetooth:|enviar mensagem %data" blockGap=8
+    //% parts="bluetooth" shim=bluetooth::uartWriteString advanced=false 
     export function uartWriteString(data: string): void {
         console.log(data)
     }
 
     /**
-    *  Writes to the Bluetooth UART service buffer. From there the data is transmitted over Bluetooth to a connected device.
+    * Manda uma frase inteira e pula para a linha de baixo, como se desse um 'Enter'.
     */
     //% help=bluetooth/uart-write-line weight=79
-    //% blockId=bluetooth_uart_line block="bluetooth uart|write line %data" blockGap=8
-    //% parts="bluetooth" advanced=true
+    //% blockId=bluetooth_uart_line block="bluetooth:|enviar frase %data e pular linha" blockGap=8
+    //% parts="bluetooth" advanced=false
     export function uartWriteLine(data: string): void {
         uartWriteString(data + serial.NEW_LINE);
     }
 
     /**
-     * Prints a numeric value to the serial
+     * Manda um número (como sua idade ou pontos no jogo) para o outro aparelho.
      */
     //% help=bluetooth/uart-write-number weight=79
-    //% weight=89 blockGap=8 advanced=true
-    //% blockId=bluetooth_uart_writenumber block="bluetooth uart|write number %value"
+    //% weight=89 blockGap=8 advanced=false
+    //% blockId=bluetooth_uart_writenumber block="bluetooth:|enviar número %value"
     export function uartWriteNumber(value: number): void {
         uartWriteString(value.toString());
     }
 
     /**
-     * Writes a ``name: value`` pair line to the serial.
-     * @param name name of the value stream, eg: x
-     * @param value to write
+     * Manda um nome e um número juntos, como uma etiqueta. Exemplo: "Pontos: 10".
+     * @param name o nome da etiqueta, ex: pontos
+     * @param value o número que vai nela
      */
     //% weight=88 weight=78
-    //% help=bluetooth/uart-write-value advanced=true
-    //% blockId=bluetooth_uart_writevalue block="bluetooth uart|write value %name|= %value"
+    //% help=bluetooth/uart-write-value advanced=false
+    //% blockId=bluetooth_uart_writevalue block="bluetooth:|enviar etiqueta %name|com valor %value"
     export function uartWriteValue(name: string, value: number): void {
         uartWriteString((name ? name + ":" : "") + value + NEW_LINE);
     }
 
     /**
-     *  Reads from the Bluetooth UART service buffer, returning its contents when the specified delimiter character is encountered.
+     * Fica esperando e ouvindo o que o outro aparelho diz até encontrar um sinal de parada.
      */
     //% help=bluetooth/uart-read-until weight=75
-    //% blockId=bluetooth_uart_read block="bluetooth uart|read until %del=serial_delimiter_conv"
-    //% parts="bluetooth" shim=bluetooth::uartReadUntil advanced=true
+    //% blockId=bluetooth_uart_read block="bluetooth:|ler mensagem até encontrar %del=serial_delimiter_conv"
+    //% parts="bluetooth" shim=bluetooth::uartReadUntil advanced=false
     export function uartReadUntil(del: string): string {
         // dummy implementation for simulator
         return ""
     }
 
     /**
-    * Advertise an Eddystone UID
-    * @param ns 4 last bytes of the namespace uid
-    * @param instance 4 last bytes of the instance uid
-    * @param power power level between 0 and 7, eg: 7
-    * @param connectable true to keep bluetooth connectable for other services, false otherwise.
+    * Faz o seu aparelho gritar um nome secreto para que outros possam te achar no mapa.
+    * @param ns a primeira parte do nome secreto
+    * @param instance a segunda parte do nome secreto
+    * @param power a força do grito (volume do sinal)
+    * @param connectable se você aceita que outros aparelhos falem com você
     */
-    //% blockId=eddystone_advertise_uid block="bluetooth advertise UID|namespace (bytes 6-9)%ns|instance (bytes 2-6)%instance|with power %power|connectable %connectable"
+    //% blockId=eddystone_advertise_uid block="bluetooth: gritar nome secreto|parte A %ns|parte B %instance|com força %power|aceitar conversas %connectable"
     //% parts=bluetooth weight=12 blockGap=8
     //% help=bluetooth/advertise-uid blockExternalInputs=1
     //% hidden=1 deprecated=1
