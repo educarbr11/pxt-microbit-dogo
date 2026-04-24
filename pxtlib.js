@@ -21321,11 +21321,11 @@ var pxt;
             return "";
         }
         toolbox.getNamespaceIcon = getNamespaceIcon;
-        function advancedTitle() { return pxt.Util.lf("{id:category}Advanced"); }
+        function advancedTitle() { return pxt.Util.lf("{id:category}Avançado"); }
         toolbox.advancedTitle = advancedTitle;
-        function addPackageTitle() { return pxt.Util.lf("{id:category}Extensions"); }
+        function addPackageTitle() { return pxt.Util.lf("{id:category}Extensões"); }
         toolbox.addPackageTitle = addPackageTitle;
-        function recipesTitle() { return pxt.Util.lf("{id:category}Tutorials"); }
+        function recipesTitle() { return pxt.Util.lf("{id:category}Tutoriais"); }
         toolbox.recipesTitle = recipesTitle;
         /**
          * Convert blockly hue to rgb
@@ -24872,7 +24872,7 @@ var pxt;
     var Cloud;
     (function (Cloud) {
         var Util = pxtc.Util;
-        Cloud.apiRoot = "https://api.makecode.com/api/";
+        Cloud.apiRoot = (pxt.BrowserUtils.isLocalHost() || Util.isNodeJS) ? "https://www.makecode.com/api/" : "/api/";
         Cloud.accessToken = "";
         Cloud.localToken = "";
         let _isOnline = true;
