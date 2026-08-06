@@ -509,7 +509,7 @@
         "greenScreen": true,
         "print": true,
         "selectLanguage": false,
-        "disableLiveTranslations": true,
+        "disableLiveTranslations": false,
         "availableLocales": [
             "pt-BR",
             "pt-PT"
