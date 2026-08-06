@@ -6,6 +6,7 @@
         "noImplicitThis": true,
         "declaration": true,
         "moduleResolution": "node",
+        "types": [],
         "isolatedModules": false,
         "outFile": "../built/compiler.js",
         "rootDir": ".",

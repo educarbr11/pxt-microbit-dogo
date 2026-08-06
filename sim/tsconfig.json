@@ -8,6 +8,7 @@
         "rootDir": "..",
         "newLine": "LF",
         "moduleResolution": "node",
+        "types": [],
         "sourceMap": false,
         "lib": [
             "dom",
