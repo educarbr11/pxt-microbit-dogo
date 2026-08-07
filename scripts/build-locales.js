@@ -25,6 +25,7 @@ const categoryOverrides = {
         "{id:category}LÓGICA": "{id:category}LÓGICA",
         "{id:category}VARIÁVEIS": "{id:category}VARIÁVEIS",
         "{id:category}MATEMÁTICA": "{id:category}MATEMÁTICA",
+        "remainder of %1 / %2": "resto da divisão de %1 / %2",
         "{id:category}Images": "{id:category}IMAGENS",
         "{id:category}Advanced": "{id:category}Avançado",
         "{id:category}Extensions": "{id:category}Extensões",
