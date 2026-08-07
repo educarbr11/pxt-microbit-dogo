@@ -111,6 +111,10 @@ pxt serve
 If the local server opens in the wrong browser, make sure to copy the URL containing the local token. 
 Otherwise, the editor will not be able to load the projects.
 
+### Analytics
+
+The published web editor uses a privacy-restricted Google Analytics 4 integration. See [the analytics documentation](docs/analytics.md) for the event catalog, environment rules, prohibited data, and validation steps.
+
 If you need to modify the `.cpp` files (and have installed yotta), enable yotta compilation using the `--localbuild` flag:
 ```
 pxt serve --local
