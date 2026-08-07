@@ -12,18 +12,34 @@ const translationApi = "https://makecode.com/api/translations";
 
 const categoryOverrides = {
     "pt-BR": {
+        "{id:category}Basic": "{id:category}BÁSICO",
+        "{id:category}Input": "{id:category}ENTRADA",
+        "{id:category}Music": "{id:category}MÚSICA",
+        "{id:category}Led": "{id:category}LED",
+        "{id:category}Radio": "{id:category}Rádio",
         "{id:category}Loops": "{id:category}Repetições",
         "{id:category}Logic": "{id:category}Lógica",
         "{id:category}Variables": "{id:category}Variáveis",
         "{id:category}Math": "{id:category}Matemática",
+        "{id:category}Images": "{id:category}IMAGENS",
+        "{id:category}Advanced": "{id:category}Avançado",
+        "{id:category}Extensions": "{id:category}Extensões",
         "Advanced": "Avançado",
         "Extensions": "Extensões"
     },
     "pt-PT": {
+        "{id:category}Basic": "{id:category}Básico",
+        "{id:category}Input": "{id:category}Entrada",
+        "{id:category}Music": "{id:category}Música",
+        "{id:category}Led": "{id:category}LED",
+        "{id:category}Radio": "{id:category}Rádio",
         "{id:category}Loops": "{id:category}Ciclos",
         "{id:category}Logic": "{id:category}Lógica",
         "{id:category}Variables": "{id:category}Variáveis",
         "{id:category}Math": "{id:category}Matemática",
+        "{id:category}Images": "{id:category}Imagens",
+        "{id:category}Advanced": "{id:category}Avançado",
+        "{id:category}Extensions": "{id:category}Extensões",
         "Advanced": "Avançado",
         "Extensions": "Extensões"
     }
@@ -127,11 +143,19 @@ async function buildLocale(locale, bundledFiles, blockStrings) {
 
     const bundledStrings = {};
     packageStrings.forEach(strings => mergeTranslations(bundledStrings, strings));
-    Object.assign(editorStrings, categoryOverrides[locale] || {});
     if (locale === "pt-BR") Object.assign(bundledStrings, blockStrings);
+
+    const overrides = categoryOverrides[locale] || {};
+    Object.assign(editorStrings, overrides);
+    Object.assign(bundledStrings, overrides);
 
     if (!Object.keys(editorStrings).length) throw new Error(`strings.json vazio para ${locale}`);
     if (!Object.keys(bundledStrings).length) throw new Error(`bundled-strings.json vazio para ${locale}`);
+    Object.keys(overrides).forEach(key => {
+        if (editorStrings[key] !== overrides[key] || bundledStrings[key] !== overrides[key]) {
+            throw new Error(`Override de tradução inconsistente para ${locale}: ${key}`);
+        }
+    });
 
     writeTranslations(locale, "strings.json", editorStrings);
     writeTranslations(locale, "target-strings.json", targetStrings);
