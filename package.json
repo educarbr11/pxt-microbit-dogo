@@ -14,6 +14,10 @@
     "author": "",
     "license": "MIT",
     "homepage": "https://github.com/Microsoft/pxt-microbit#readme",
+    "scripts": {
+        "locales": "node scripts/build-locales.js",
+        "build:vercel": "npm run locales && pxt staticpkg"
+    },
     "files": [
         "README.md",
         "pxtarget.json",

@@ -1,0 +1,4 @@
+{
+    "buildCommand": "npm install -g pxt && npm install && npm run build:vercel",
+    "outputDirectory": "built/packaged"
+}
