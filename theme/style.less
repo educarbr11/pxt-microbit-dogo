@@ -26,6 +26,58 @@
 
 .projectsdialog .ui.segment.getting-started-segment.hero {
     box-shadow: none !important;
+    position: relative;
+    background-position: center;
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        height: 48px;
+        background: data-uri("../docs/static/divider_hero_home.svg") center bottom / 100% 100% no-repeat;
+        pointer-events: none;
+    }
+
+    .gradient-overlay,
+    .description,
+    .action {
+        display: none !important;
+    }
+
+    .hero-banner-contents {
+        width: 100%;
+        margin-left: 0;
+        pointer-events: none;
+    }
+
+    .hero-banner-contents .dots {
+        position: absolute;
+        bottom: 3.25rem;
+        left: 50%;
+        z-index: 2;
+        display: flex;
+        transform: translateX(-50%);
+        pointer-events: auto;
+
+        button {
+            margin: 0 .4rem;
+        }
+    }
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+    .projectsdialog .ui.segment.getting-started-segment.hero {
+        .hero-banner-contents {
+            margin-left: 0;
+
+            .dots {
+                display: flex;
+            }
+        }
+    }
 }
 
 .menubar .ui.menu .brand .ui.logo{

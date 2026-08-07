@@ -7,8 +7,33 @@ import * as dialogs from "./dialogs";
 import * as flash from "./flash";
 import * as patch from "./patch";
 
+const homeHeroGalleryPath = "/dogocode-home-hero";
+
+function initializeHomeHeroCarousel(projectView: pxt.editor.IProjectView) {
+    const loadGalleryAsync = pxt.gallery.loadGalleryAsync;
+    const secondBannerUrl = pxt.webConfig && pxt.webConfig.isStatic
+        ? `${pxt.webConfig.relprefix}docs/static/banner-home_2.jpg`
+        : "/static/banner-home_2.jpg";
+
+    pxt.gallery.loadGalleryAsync = (name: string) => {
+        if (name === homeHeroGalleryPath) {
+            return Promise.resolve([{
+                name: "Banners",
+                cards: [{ imageUrl: secondBannerUrl }]
+            }]);
+        }
+
+        return loadGalleryAsync(name);
+    };
+
+    pxt.appTarget.appTheme.homeScreenHeroGallery = homeHeroGalleryPath;
+    projectView.forceUpdate();
+}
+
 pxt.editor.initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
     pxt.debug('loading microbit target extensions...')
+
+    initializeHomeHeroCarousel(opts.projectView);
 
     const manyAny = Math as any;
     if (!manyAny.imul)
