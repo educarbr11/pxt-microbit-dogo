@@ -89,6 +89,26 @@ function bundledTranslationFiles() {
     return Array.from(new Set(files));
 }
 
+function localBlockTranslations() {
+    const strings = {};
+
+    target.bundleddirs.forEach(directory => {
+        const localeDir = path.join(rootDir, directory, "_locales");
+        if (!fs.existsSync(localeDir)) return;
+
+        fs.readdirSync(localeDir)
+            .filter(filename => /(?<!-jsdoc)-strings\.json$/i.test(filename))
+            .forEach(filename => {
+                const fileStrings = JSON.parse(fs.readFileSync(path.join(localeDir, filename), "utf8"));
+                Object.keys(fileStrings)
+                    .filter(key => key.endsWith("|block") || key.startsWith("{id:category}"))
+                    .forEach(key => strings[key] = fileStrings[key]);
+            });
+    });
+
+    return strings;
+}
+
 function writeTranslations(locale, filename, translations) {
     const localeDir = path.join(outputRoot, locale);
     fs.mkdirSync(localeDir, { recursive: true });
@@ -97,7 +117,7 @@ function writeTranslations(locale, filename, translations) {
     fs.writeFileSync(path.join(localeDir, filename), `${JSON.stringify(ordered, null, 2)}\n`);
 }
 
-async function buildLocale(locale, bundledFiles) {
+async function buildLocale(locale, bundledFiles, blockStrings) {
     const [editorStrings, targetStrings, simulatorStrings, ...packageStrings] = await Promise.all([
         getJson(translationUrl(locale, "strings.json")),
         getJson(translationUrl(locale, "microbit/target-strings.json")),
@@ -108,6 +128,7 @@ async function buildLocale(locale, bundledFiles) {
     const bundledStrings = {};
     packageStrings.forEach(strings => mergeTranslations(bundledStrings, strings));
     Object.assign(editorStrings, categoryOverrides[locale] || {});
+    if (locale === "pt-BR") Object.assign(bundledStrings, blockStrings);
 
     if (!Object.keys(editorStrings).length) throw new Error(`strings.json vazio para ${locale}`);
     if (!Object.keys(bundledStrings).length) throw new Error(`bundled-strings.json vazio para ${locale}`);
@@ -123,7 +144,8 @@ async function buildLocale(locale, bundledFiles) {
 async function main() {
     if (!locales.length) throw new Error("Nenhum locale configurado em appTheme.availableLocales");
     const bundledFiles = bundledTranslationFiles();
-    await Promise.all(locales.map(locale => buildLocale(locale, bundledFiles)));
+    const blockStrings = localBlockTranslations();
+    await Promise.all(locales.map(locale => buildLocale(locale, bundledFiles, blockStrings)));
 }
 
 main().catch(error => {

@@ -510,6 +510,7 @@
         "print": true,
         "selectLanguage": false,
         "disableLiveTranslations": true,
+        "defaultLocale": "pt-BR",
         "availableLocales": [
             "pt-BR",
             "pt-PT"
