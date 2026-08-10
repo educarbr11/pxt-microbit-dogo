@@ -7,53 +7,12 @@ import * as dialogs from "./dialogs";
 import * as flash from "./flash";
 import * as patch from "./patch";
 import { googleAnalytics } from "./analytics";
-
-const homeHeroGalleryPath = "/dogocode-home-hero";
-const portalCourseUrl = "https://app.portaldogomaker.com.br/curso/177f1593-9a9e-4268-9771-1497139958be";
-
-function initializeHomeHeroLink() {
-    document.addEventListener("click", (event: MouseEvent) => {
-        const target = event.target as HTMLElement;
-        const hero = target && target.closest(".getting-started-segment.hero") as HTMLElement;
-
-        if (!hero || target.closest(".dots") || hero.style.backgroundImage.indexOf("banner-home_2.jpg") < 0) {
-            return;
-        }
-
-        googleAnalytics.track("select_promotion", {
-            promotion_id: "portal_dogomaker_course",
-            promotion_name: "Portal DogoMaker course"
-        });
-        window.location.assign(portalCourseUrl);
-    });
-}
-
-function initializeHomeHeroCarousel(projectView: pxt.editor.IProjectView) {
-    const loadGalleryAsync = pxt.gallery.loadGalleryAsync;
-    const secondBannerUrl = pxt.webConfig && pxt.webConfig.isStatic
-        ? `${pxt.webConfig.relprefix}docs/static/banner-home_2.jpg`
-        : "/static/banner-home_2.jpg";
-
-    pxt.gallery.loadGalleryAsync = (name: string) => {
-        if (name === homeHeroGalleryPath) {
-            return Promise.resolve([{
-                name: "Banners",
-                cards: [{ imageUrl: secondBannerUrl, url: portalCourseUrl }]
-            }]);
-        }
-
-        return loadGalleryAsync(name);
-    };
-
-    pxt.appTarget.appTheme.homeScreenHeroGallery = homeHeroGalleryPath;
-    projectView.forceUpdate();
-}
+import { homeHeroCarousel } from "./homeHeroCarousel";
 
 pxt.editor.initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
     pxt.debug('loading microbit target extensions...')
 
-    initializeHomeHeroCarousel(opts.projectView);
-    initializeHomeHeroLink();
+    homeHeroCarousel.initialize();
     googleAnalytics.initialize();
 
     const manyAny = Math as any;

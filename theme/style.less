@@ -28,6 +28,7 @@
     box-shadow: none !important;
     position: relative;
     background-position: center;
+    touch-action: pan-y;
 
     &::after {
         content: "";
@@ -53,22 +54,34 @@
         pointer-events: none;
     }
 
-    .hero-banner-contents .dots {
+    .dogocode-hero-dots {
         position: absolute;
         bottom: 3.25rem;
         left: 50%;
         z-index: 2;
         display: flex;
+        gap: .8rem;
         transform: translateX(-50%);
         pointer-events: auto;
 
-        button {
-            margin: 0 .4rem;
+        .dogocode-hero-dot {
+            width: 1rem;
+            height: 1rem;
+            padding: 0;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .35);
+            cursor: pointer;
+
+            &.active {
+                background: #fff;
+            }
         }
     }
 }
 
-.projectsdialog .ui.segment.getting-started-segment.hero[style*="banner-home_2.jpg"] {
+.projectsdialog .ui.segment.getting-started-segment.hero[data-dogocode-hero-index="1"] {
     cursor: pointer;
 }
 
@@ -76,10 +89,10 @@
     .projectsdialog .ui.segment.getting-started-segment.hero {
         .hero-banner-contents {
             margin-left: 0;
+        }
 
-            .dots {
-                display: flex;
-            }
+        .dogocode-hero-dots {
+            display: flex;
         }
     }
 }
