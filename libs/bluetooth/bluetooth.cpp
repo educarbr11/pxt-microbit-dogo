@@ -2,6 +2,9 @@
 #include "MESEvents.h"
 #include "MicroBitUARTService.h"
 #include "BLEHF2Service.h"
+#include "BLELogoService.h"
+#include "BLESoundLevelService.h"
+#include "BLELightLevelService.h"
 
 using namespace pxt;
 
@@ -76,8 +79,59 @@ namespace bluetooth {
     //% help=bluetooth/start-magnetometer-service
     //% blockId=bluetooth_start_magnetometer_service block="bluetooth: ligar bússola mágica"
     //% parts="bluetooth" weight=85
-    void startMagnetometerService() {    
-        new MicroBitMagnetometerService(*uBit.ble, uBit.compass); 
+    void startMagnetometerService() {
+        new MicroBitMagnetometerService(*uBit.ble, uBit.compass);
+    }
+
+#if MICROBIT_CODAL
+    static BLELogoService *logoSvc = NULL;
+    static BLESoundLevelService *soundLevelSvc = NULL;
+    static BLELightLevelService *lightLevelSvc = NULL;
+#endif
+
+    /**
+    *  Liga o sensor do toque no logotipo via Bluetooth para saber quando você encosta no logo.
+    */
+    //% help=bluetooth/start-logo-service
+    //% blockId=bluetooth_start_logo_service block="bluetooth: ligar sensor do toque no logo" blockGap=8
+    //% parts="bluetooth" weight=84
+    void startLogoService() {
+#if MICROBIT_CODAL
+        if (logoSvc) return;
+        logoSvc = new BLELogoService(*uBit.ble);
+#else
+        target_panic(PANIC_VARIANT_NOT_SUPPORTED);
+#endif
+    }
+
+    /**
+    *  Liga o sensor de som via Bluetooth para o outro aparelho saber o barulho que está fazendo.
+    */
+    //% help=bluetooth/start-sound-level-service
+    //% blockId=bluetooth_start_sound_level_service block="bluetooth: ligar sensor de som" blockGap=8
+    //% parts="bluetooth" weight=83
+    void startSoundLevelService() {
+#if MICROBIT_CODAL
+        if (soundLevelSvc) return;
+        soundLevelSvc = new BLESoundLevelService(*uBit.ble);
+#else
+        target_panic(PANIC_VARIANT_NOT_SUPPORTED);
+#endif
+    }
+
+    /**
+    *  Liga o sensor de luz via Bluetooth para o outro aparelho saber se está claro ou escuro.
+    */
+    //% help=bluetooth/start-light-level-service
+    //% blockId=bluetooth_start_light_level_service block="bluetooth: ligar sensor de luz" blockGap=8
+    //% parts="bluetooth" weight=82
+    void startLightLevelService() {
+#if MICROBIT_CODAL
+        if (lightLevelSvc) return;
+        lightLevelSvc = new BLELightLevelService(*uBit.ble);
+#else
+        target_panic(PANIC_VARIANT_NOT_SUPPORTED);
+#endif
     }
 
 

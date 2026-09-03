@@ -56,6 +56,30 @@ declare namespace bluetooth {
     function startMagnetometerService(): void;
 
     /**
+     *  Liga o sensor do toque no logotipo via Bluetooth para saber quando você encosta no logo.
+     */
+    //% help=bluetooth/start-logo-service
+    //% blockId=bluetooth_start_logo_service block="bluetooth: ligar sensor do toque no logo" blockGap=8
+    //% parts="bluetooth" weight=84 shim=bluetooth::startLogoService
+    function startLogoService(): void;
+
+    /**
+     *  Liga o sensor de som via Bluetooth para o outro aparelho saber o barulho que está fazendo.
+     */
+    //% help=bluetooth/start-sound-level-service
+    //% blockId=bluetooth_start_sound_level_service block="bluetooth: ligar sensor de som" blockGap=8
+    //% parts="bluetooth" weight=83 shim=bluetooth::startSoundLevelService
+    function startSoundLevelService(): void;
+
+    /**
+     *  Liga o sensor de luz via Bluetooth para o outro aparelho saber se está claro ou escuro.
+     */
+    //% help=bluetooth/start-light-level-service
+    //% blockId=bluetooth_start_light_level_service block="bluetooth: ligar sensor de luz" blockGap=8
+    //% parts="bluetooth" weight=82 shim=bluetooth::startLightLevelService
+    function startLightLevelService(): void;
+
+    /**
      *  Prepara o Micro:bit para começar a conversar e trocar mensagens via Bluetooth.
      */
     //% help=bluetooth/start-uart-service

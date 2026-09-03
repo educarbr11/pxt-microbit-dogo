@@ -8,14 +8,21 @@
         "bluetooth.ts",
         "bluetooth.cpp",
         "BLEHF2Service.h",
-        "BLEHF2Service.cpp"
+        "BLEHF2Service.cpp",
+        "BLELogoService.h",
+        "BLELogoService.cpp",
+        "BLESoundLevelService.h",
+        "BLESoundLevelService.cpp",
+        "BLELightLevelService.h",
+        "BLELightLevelService.cpp"
     ],
     "weight": 10,
     "searchOnly": true,
     "icon": "./static/packages/bluetooth/icon.png",
     "public": true,
     "dependencies": {
-        "core": "file:../core"
+        "core": "file:../core",
+        "microphone": "file:../microphone"
     },
     "yotta": {
         "config": {
