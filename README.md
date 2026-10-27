@@ -115,6 +115,14 @@ Otherwise, the editor will not be able to load the projects.
 
 The published web editor uses a privacy-restricted Google Analytics 4 integration. See [the analytics documentation](docs/analytics.md) for the event catalog, environment rules, prohibited data, and validation steps.
 
+### Política de Privacidade do DogoCode
+
+A política própria do produto está em [docs/privacidade.html](docs/privacidade.html), sem login, scripts de análise ou dependências externas. O empacotamento `pxt staticpkg` inclui a página em `built/packaged/docs/privacidade.html`.
+
+URL pública para o campo **Privacy policy URL** da Microsoft Store: <https://dogocode-privacidade.neatreed10.chatgpt.site>. O campo `appTheme.privacyUrl` em `pxtarget.json` também utiliza esse endereço.
+
+Ao alterar as práticas de dados, atualize a política e sua data. A publicação independente fica na pasta vizinha `../dogocode-privacy`; copie o HTML atualizado para `dist/index.html` nessa pasta e publique uma nova versão do mesmo Site. Mantenha o contato de privacidade atualizado e confira o acesso público sem autenticação antes de reenviar o app à loja.
+
 If you need to modify the `.cpp` files (and have installed yotta), enable yotta compilation using the `--localbuild` flag:
 ```
 pxt serve --local

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Política de Privacidade do DogoCode: conheça os dados utilizados pelo editor, os serviços integrados e seus direitos.">
+    <meta name="color-scheme" content="light">
+    <title>Política de Privacidade | DogoCode</title>
+    <style>
+        :root {
+            --accent: #5c005c;
+            --ink: #28232d;
+            --muted: #625969;
+            --line: #e5dfe8;
+            --paper: #fff;
+            --background: #f8f6fa;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-padding-top: 1.5rem; }
+        body { margin: 0; color: var(--ink); background: var(--background); font: 1rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        a { color: var(--accent); text-underline-offset: .2em; overflow-wrap: anywhere; }
+        a:hover { text-decoration-thickness: .14em; }
+        a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
+        .skip-link { position: absolute; top: -8rem; left: 1rem; z-index: 2; padding: .6rem 1rem; background: var(--paper); }
+        .skip-link:focus { top: 1rem; }
+        .site-header { border-top: 5px solid var(--accent); border-bottom: 1px solid var(--line); background: var(--paper); }
+        .header-inner { width: min(1160px, calc(100% - 3rem)); margin: auto; padding: 1rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .brand { display: block; width: 220px; height: 58px; object-fit: cover; }
+        .header-label { color: var(--muted); font-size: .9rem; }
+        .page { width: min(1160px, calc(100% - 3rem)); margin: 3rem auto 4rem; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 3rem; align-items: start; }
+        .contents { position: sticky; top: 1.5rem; font-size: .9rem; }
+        .contents-title { margin: 0 0 .8rem; color: var(--accent); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+        .contents ol { margin: 0; padding-left: 1.35rem; }
+        .contents li { margin: .5rem 0; padding-left: .15rem; }
+        .contents a { color: var(--muted); text-decoration: none; }
+        .contents a:hover { color: var(--accent); text-decoration: underline; }
+        main { min-width: 0; padding: 2.5rem 3rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+        .eyebrow { margin: 0 0 .5rem; color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+        h1 { margin: 0 0 1rem; color: var(--accent); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 750; line-height: 1.15; letter-spacing: -.035em; }
+        .updated { margin: 0 0 1.6rem; color: var(--muted); font-size: .9rem; }
+        .intro { font-size: 1.08rem; }
+        .notice { margin: 1.5rem 0 2rem; padding: 1rem 1.2rem; border-left: 4px solid var(--accent); background: var(--background); }
+        .notice p { margin: 0; }
+        section { padding-top: 1.3rem; margin-top: 1.3rem; border-top: 1px solid var(--line); }
+        h2 { margin: 0 0 .9rem; font-size: 1.32rem; line-height: 1.4; }
+        h3 { margin: 1.4rem 0 .5rem; font-size: 1rem; }
+        p { margin: .8rem 0; }
+        ul { padding-left: 1.4rem; }
+        li { margin: .5rem 0; }
+        .contact { padding: 1.25rem 1.5rem; margin-top: 1rem; border: 1px solid var(--line); border-radius: 8px; background: var(--background); }
+        .contact p { margin: .2rem 0; }
+        .site-footer { width: min(1160px, calc(100% - 3rem)); margin: 0 auto 2rem; color: var(--muted); font-size: .85rem; display: flex; justify-content: space-between; gap: 1rem; }
+
+        @media (max-width: 900px) {
+            .page { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+            .contents { position: static; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+            .contents ol { columns: 2; column-gap: 2rem; }
+            .contents li { break-inside: avoid; }
+            main { padding: 2rem; }
+        }
+
+        @media (max-width: 540px) {
+            .header-inner, .page, .site-footer { width: calc(100% - 2rem); }
+            .header-inner { padding: .6rem 0; }
+            .brand { width: 180px; height: 52px; }
+            .header-label { display: none; }
+            .contents ol { columns: 1; }
+            main { padding: 1.5rem 1.2rem; }
+            .site-footer { flex-direction: column; gap: .25rem; }
+        }
+
+        @media print {
+            body { background: #fff; font-size: 10pt; }
+            .site-header, .contents, .skip-link, .site-footer { display: none; }
+            .page { display: block; width: 100%; margin: 0; }
+            main { padding: 0; border: 0; }
+            a { color: inherit; }
+            h2, h3 { break-after: avoid; }
+            .contact, .notice { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body id="inicio">
+    <a class="skip-link" href="#conteudo">Pular para a política de privacidade</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <img class="brand" src="static/LOGO_DOGOCODE.png" width="220" height="58" alt="DogoCode">
+            <span class="header-label">Privacidade e proteção de dados</span>
+        </div>
+    </header>
+
+    <div class="page">
+        <nav class="contents" aria-label="Sumário da política de privacidade">
+            <p class="contents-title">Nesta página</p>
+            <ol>
+                <li><a href="#responsavel">Responsável e abrangência</a></li>
+                <li><a href="#dados">Dados e funcionalidades</a></li>
+                <li><a href="#diagnostico">Estatísticas e diagnóstico</a></li>
+                <li><a href="#finalidades">Finalidades e bases legais</a></li>
+                <li><a href="#terceiros">Serviços e compartilhamento</a></li>
+                <li><a href="#armazenamento">Armazenamento e segurança</a></li>
+                <li><a href="#controles">Suas escolhas</a></li>
+                <li><a href="#criancas">Crianças e adolescentes</a></li>
+                <li><a href="#direitos">Seus direitos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#alteracoes">Atualizações</a></li>
+            </ol>
+        </nav>
+
+        <main id="conteudo" tabindex="-1">
+            <p class="eyebrow">DogoCode · DoGo Maker</p>
+            <h1>Política de Privacidade</h1>
+            <p class="updated">Última atualização: <time datetime="2026-10-27">27 de outubro de 2026</time></p>
+            <p class="intro">Esta política explica como o DogoCode utiliza dados para oferecer atividades de programação e robótica educacional, quais informações podem sair do seu dispositivo e como exercer seus direitos.</p>
+            <div class="notice">
+                <p>Você pode criar e editar projetos sem uma conta. Recursos online, como publicar um projeto, acessar uma conta ou instalar extensões, podem envolver o envio de informações aos serviços descritos abaixo.</p>
+            </div>
+
+            <section id="responsavel">
+                <h2>1. Responsável e abrangência</h2>
+                <p>A <strong>DoGo Maker</strong> é responsável pelo DogoCode e pelo atendimento das solicitações de privacidade relacionadas ao produto. O contato é <a href="mailto:contato@dogomaker.com">contato@dogomaker.com</a>.</p>
+                <p>Esta política abrange o editor web, o aplicativo DogoCode para Windows e esta página. O DogoCode utiliza componentes do Microsoft MakeCode para programação de placas micro:bit. Os serviços de terceiros possuem suas próprias políticas para os dados que tratam em suas plataformas.</p>
+            </section>
+
+            <section id="dados">
+                <h2>2. Dados e funcionalidades</h2>
+                <h3>Projetos no dispositivo</h3>
+                <p>Código, nomes de projetos, arquivos importados, preferências e histórico de edição podem ser armazenados no navegador ou no aplicativo, usando bancos de dados locais, armazenamento de preferências e arquivos. Isso permite continuar o trabalho e exportar seus programas. Criar um projeto local não equivale a publicá-lo.</p>
+
+                <h3>Compartilhamento e serviços online</h3>
+                <p>Ao escolher compartilhar ou publicar, o conteúdo do projeto e informações associadas, como título, descrição e miniatura, podem ser enviados aos serviços MakeCode. <strong>O projeto publicado pode ficar acessível a outras pessoas por um link.</strong> Não inclua senhas, dados de alunos ou outras informações pessoais no conteúdo público.</p>
+                <p>Instalar extensões, importar repositórios ou usar compilação externa de componentes nativos pode envolver solicitações ao GitHub e ao MakeCode, incluindo arquivos e informações técnicas necessários à operação. A disponibilidade desses recursos depende da versão e da conexão.</p>
+
+                <h3>Contas opcionais</h3>
+                <p>Quando disponíveis, integrações com Microsoft, Google, Clever ou GitHub podem utilizar identificadores de conta, nome de perfil, e-mail e tokens de autenticação para os recursos escolhidos. A autenticação ocorre pelo provedor. Não é necessário fornecer a senha da sua conta à equipe do DogoCode, e a existência de um login não significa que todos os projetos sejam sincronizados.</p>
+
+                <h3>Dispositivos e áudio</h3>
+                <p>A conexão por USB, porta serial ou Bluetooth permite transferir programas e exibir dados da placa, como leituras de sensores e mensagens do console. O acesso depende da sua ação e das permissões do sistema ou navegador.</p>
+                <p>Atividades de gravação de áudio no simulador podem solicitar acesso ao microfone do computador. Nesse fluxo, a gravação é processada localmente. Se você incorporar áudio a um projeto e depois compartilhá-lo, esse conteúdo também poderá fazer parte da publicação.</p>
+            </section>
+
+            <section id="diagnostico">
+                <h2>3. Estatísticas e diagnóstico</h2>
+                <p>O editor web publicado utiliza Google Analytics 4 para entender o uso dos recursos: navegação, edição, compilação, transferência para a placa, tutoriais, extensões e compartilhamento. Os eventos podem incluir idioma, versão, plataforma, tipo de hardware e caminho da página, sem parâmetros de consulta ou fragmentos da URL.</p>
+                <p>Essa integração é configurada sem armazenamento de cookies de analytics, sem Google Signals e sem personalização de anúncios. Ela não inclui código dos projetos, texto livre, nome, e-mail ou identificadores permanentes nos parâmetros enviados pelo DogoCode. Ainda assim, podem ser enviados sinais sem cookies, e o Google recebe os dados técnicos de conexão. A integração não é inicializada em localhost, dentro de páginas incorporadas ou no aplicativo identificado como PXT Electron.</p>
+                <p>Componentes MakeCode também podem enviar eventos de uso, falhas e desempenho ao Microsoft Application Insights, com versões do aplicativo, navegador e sistema e, conforme o ambiente, identificadores técnicos de dispositivo ou sessão. Ferramentas de feedback herdadas da plataforma, como Usabilla/SurveyMonkey, podem receber dados técnicos e respostas que você decidir enviar.</p>
+                <p>Serviços online recebem informações de conexão, como endereço IP, horário e características do navegador. As configurações do Google Analytics descritas aqui não se estendem automaticamente aos demais serviços. Esta página de privacidade não carrega scripts de análise; seu provedor de hospedagem pode registrar acessos.</p>
+            </section>
+
+            <section id="finalidades">
+                <h2>4. Finalidades e bases legais</h2>
+                <p>Os dados são utilizados para executar os recursos solicitados, manter preferências e projetos, conectar dispositivos, atender dúvidas, investigar problemas, proteger o serviço e compreender seu uso.</p>
+                <p>Conforme a atividade, o tratamento pode se apoiar na execução do serviço solicitado, no cumprimento de obrigações legais, no consentimento quando exigido ou em legítimo interesse, quando cabível e compatível com os direitos do titular. Quando necessário, o consentimento deve ser específico para a finalidade; a simples leitura desta política não constitui consentimento.</p>
+            </section>
+
+            <section id="terceiros">
+                <h2>5. Serviços e compartilhamento</h2>
+                <p>As informações podem ser tratadas por fornecedores de hospedagem e distribuição de arquivos, como Vercel, pelos serviços Microsoft MakeCode/Azure, pelo Google Analytics e pelos provedores de conta, extensões e feedback utilizados. Esta página também é disponibilizada pelo serviço Sites da OpenAI, com infraestrutura Cloudflare. O envio depende do recurso e do ambiente de execução.</p>
+                <p>Esses fornecedores podem operar em outros países. Transferências internacionais devem observar a legislação aplicável, incluindo a LGPD e as salvaguardas exigidas para cada operação. Informações também podem ser fornecidas para atender uma obrigação legal ou determinação de autoridade competente.</p>
+                <p>Consulte, de forma complementar, as políticas dos serviços que utilizar: <a href="https://www.microsoft.com/privacy/privacystatement">Microsoft</a>, <a href="https://policies.google.com/privacy?hl=pt-BR">Google</a>, <a href="https://docs.github.com/pt/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a> e <a href="https://vercel.com/legal/privacy-policy">Vercel</a>. Para esclarecer o tratamento por Clever ou Usabilla/SurveyMonkey, entre em contato conosco ou consulte as informações apresentadas por esses serviços.</p>
+            </section>
+
+            <section id="armazenamento">
+                <h2>6. Armazenamento, retenção e segurança</h2>
+                <p>Projetos e preferências locais permanecem no dispositivo até serem excluídos, substituídos ou removidos ao limpar os dados do navegador ou do aplicativo. Exporte cópias dos projetos que deseja conservar antes de limpar esses dados.</p>
+                <p>Registros de atendimento e dados técnicos são conservados pelo tempo necessário às suas finalidades e às obrigações aplicáveis. Serviços integrados seguem seus próprios prazos de retenção. Você pode solicitar informações sobre os registros relacionados a você pelo contato desta política.</p>
+                <p>Os serviços online configurados utilizam HTTPS para proteger os dados em trânsito. Os controles de acesso do dispositivo, do navegador e das contas também participam da proteção das informações. Arquivos exportados ficam sob seu controle.</p>
+            </section>
+
+            <section id="controles">
+                <h2>7. Suas escolhas</h2>
+                <ul>
+                    <li>Utilize projetos locais e evite publicar conteúdo que não deseja compartilhar.</li>
+                    <li>Exclua projetos no editor ou remova os dados locais pelas configurações do navegador ou aplicativo.</li>
+                    <li>Revogue permissões de microfone, USB, Bluetooth e dispositivos nas configurações correspondentes.</li>
+                    <li>Encerre a sessão e gerencie acessos de aplicativos nas configurações do provedor de conta.</li>
+                    <li>Controle cookies e requisições de serviços externos pelos recursos de privacidade do navegador; isso pode afetar funcionalidades online.</li>
+                </ul>
+                <p>Excluir um projeto local ou desinstalar o aplicativo não remove automaticamente publicações online, repositórios ou cópias feitas por outras pessoas. Para solicitar ajuda com uma publicação, informe seu link pelo canal de contato. A remoção de dados mantidos por terceiros também pode exigir uma solicitação ao respectivo provedor.</p>
+            </section>
+
+            <section id="criancas">
+                <h2>8. Crianças e adolescentes</h2>
+                <p>O DogoCode tem finalidade educacional. O uso por crianças e adolescentes deve considerar seu melhor interesse e contar com orientação de responsáveis e educadores, especialmente ao conectar contas e publicar projetos.</p>
+                <p>Evite inserir nome completo, fotografia, contatos, localização ou outros dados identificáveis de estudantes em projetos públicos. Quando o tratamento exigir consentimento do responsável legal, ele deverá ser solicitado de forma específica. Responsáveis podem entrar em contato para esclarecer práticas de dados e solicitar acesso ou remoção de informações de menores, observadas as verificações necessárias.</p>
+            </section>
+
+            <section id="direitos">
+                <h2>9. Seus direitos</h2>
+                <p>Nos termos da LGPD e da legislação aplicável, você pode solicitar confirmação de tratamento, acesso e correção de dados, informações sobre compartilhamento, anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade, além de portabilidade quando cabível.</p>
+                <p>Você também pode revogar consentimento, conhecer as consequências de não fornecê-lo, apresentar oposição nas hipóteses legais e dirigir uma reclamação à Autoridade Nacional de Proteção de Dados (ANPD). Algumas solicitações dependem de confirmação da identidade e podem estar sujeitas a obrigações de conservação previstas em lei.</p>
+            </section>
+
+            <section id="contato">
+                <h2>10. Fale sobre privacidade</h2>
+                <p>Para dúvidas ou solicitações, identifique o recurso utilizado e descreva o pedido. Envie apenas as informações necessárias; nunca envie senhas ou tokens de acesso.</p>
+                <div class="contact">
+                    <p><strong>DoGo Maker · DogoCode</strong></p>
+                    <p><a href="mailto:contato@dogomaker.com?subject=Privacidade%20-%20DogoCode">contato@dogomaker.com</a></p>
+                    <p>Assunto sugerido: Privacidade — DogoCode</p>
+                </div>
+            </section>
+
+            <section id="alteracoes">
+                <h2>11. Atualizações desta política</h2>
+                <p>Esta política poderá ser atualizada para refletir alterações nas funcionalidades, nos serviços utilizados ou na legislação. A data no início da página identifica a versão vigente. Mudanças que exijam nova informação ou consentimento deverão ser comunicadas pelos meios adequados.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <span>DogoCode · DoGo Maker</span>
+        <a href="#inicio">Voltar ao início</a>
+    </footer>
+</body>
+</html>
