@@ -16,6 +16,7 @@
     "homepage": "https://github.com/Microsoft/pxt-microbit#readme",
     "scripts": {
         "locales": "node scripts/build-locales.js",
+        "test:bluetooth-config": "node scripts/test-bluetooth-config.js",
         "build:vercel": "npm run locales && pxt staticpkg"
     },
     "files": [
